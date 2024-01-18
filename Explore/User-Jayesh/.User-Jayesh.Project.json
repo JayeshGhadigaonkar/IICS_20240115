@@ -1,0 +1,23 @@
+{
+  "objectInfo" : {
+    "id" : "1CX7FRAdAgxjIo1CzZCK6F",
+    "name" : "User-Jayesh",
+    "type" : "Project",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "Local Folder",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "updateTime" : "2024-01-18T21:18:27.777Z",
+  "objectRefs" : [ ]
+}
