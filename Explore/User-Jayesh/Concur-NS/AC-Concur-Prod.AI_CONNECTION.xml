@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>Rpf6JfOMWSwxF1T-gt-5610845-2024-02-15T16:46:08.69Z::conn.xml</types1:EntryId>
+      <types1:Name>AC-Concur-Prod-2</types1:Name>
+      <types1:ParentFlowIds>8hKYHPRPjAXhNUd-gt-5610926-2024-02-15T16:46:09.95Z::pd.xml,chATF6lRuImXyco-gt-5906880-2024-02-15T16:46:29.03Z::pd.xml,CJhtghGZ5i4rswV-gt-5821139-2024-02-15T16:46:26.464Z::pd.xml,COGfPuYZ06NYcmY-gt-5905467-2024-02-15T16:46:14.465Z::pd.xml,L4YNqRi92qBbbeJ-gt-5905727-2024-02-15T16:46:17.607Z::pd.xml,nFiciT6sFsdsFsd-gt-5899367-2024-02-15T16:46:16.212Z::pd.xml,Pk2bfZk9EW4ARW8-gt-5905490-2024-02-15T16:46:14.66Z::pd.xml,veDi34jBvSx0aa-gt-5900321-2024-02-15T16:46:25.347Z::pd.xml,xyIYmWR7hsAVR3a-gt-5905689-2024-02-15T16:46:17.379Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-02-15T16:46:09Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="AC-Concur-Prod"
+                     label="AC-Concur-Prod"
+                     name="AC-Concur-Prod-2">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="false"
+                          name="Url"
+                          value="https://us2.api.concursolutions.com"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/SC___Concur_Prod/SC___Concur_Prod_svcDef.xml"
+                               guid="1PJvXVeYzdVi0qz2r2d40v"
+                               name="SC_-_Concur_Prod-2"
+                               supportsConnectionTest="false"
+                               uuid="36cecd43-b83a-42e4-8328-7eec20d9d753">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>f6XE0cx59uqiS6R5AkbNGZ</types1:GUID>
+      <types1:DisplayName>AC-Concur-Prod</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:52:00.131Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

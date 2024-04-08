@@ -1,0 +1,25 @@
+{
+  "objectInfo" : {
+    "id" : "dzeRjhGyX2Th1krAvuPbCS",
+    "name" : "SC_Concur_v4_Travel",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "RES7FdpOfTRgpDq-gt-5900441-2024-02-15T16:46:26.696Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : null,
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2024-04-08T15:52:03.058Z",
+  "objectRefs" : [ ]
+}

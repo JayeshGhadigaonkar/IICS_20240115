@@ -1,0 +1,517 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>8hKYHPRPjAXhNUd-gt-5610926-2024-02-15T16:46:09.95Z::pd.xml</types1:EntryId>
+      <types1:Name>ConcurExpenseReports_v4_-_Copy_1-2</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:2-4124-info</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-02-15T16:46:10Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="ConcurExpenseReports_v4 - Copy 1"
+                  name="ConcurExpenseReports_v4_-_Copy_1-2"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags>.agent:2-4124-info</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="inScope" required="true" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="inCreatedAfter"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="inApprStatusCode"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="inPaymetStatusCode"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="inLimit" required="true" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="outReportPayload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="tempOffset" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tempResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tempCurrentReport" type="reference">
+                  <options>
+                     <option name="referenceTo">AC-Concur-Prod-2:PO_ExpenseReports</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">f6XE0cx59uqiS6R5AkbNGZ</option>
+                  </options>
+               </field>
+               <field description="" name="tempReportEntries" type="objectlist">
+                  <options>
+                     <option name="referenceTo">AC-Concur-Prod-2:PO_ExpenseReport_Entries</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">f6XE0cx59uqiS6R5AkbNGZ</option>
+                  </options>
+               </field>
+               <field description="" name="tempCurrentReportEntry" type="reference">
+                  <options>
+                     <option name="referenceTo">AC-Concur-Prod-2:PO_ExpenseReport_Entries</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">f6XE0cx59uqiS6R5AkbNGZ</option>
+                  </options>
+               </field>
+               <field description="" name="tempCurrentExpense" type="reference">
+                  <options>
+                     <option name="referenceTo">AC-Concur-Prod-2:emptyName</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">f6XE0cx59uqiS6R5AkbNGZ</option>
+                  </options>
+               </field>
+               <field description="" name="tempResponsev4" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tempReports" type="objectlist">
+                  <options>
+                     <option name="referenceTo">AC-Concur-Prod-2:PO_ExpenseReports</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">f6XE0cx59uqiS6R5AkbNGZ</option>
+                  </options>
+               </field>
+               <field description="" name="tempMergedResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tempExpenses" type="objectlist">
+                  <options>
+                     <option name="referenceTo">AC-Concur-Prod-2:emptyName</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">f6XE0cx59uqiS6R5AkbNGZ</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>2-4124-info</targetLocation>
+               <rest>
+                  <allowedGroups>
+                     <group>Kinaxis Corp</group>
+                  </allowedGroups>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="l7nzou99" targetId="l7nzou98"/>
+               </start>
+               <service id="l7nzou98">
+                  <title>Get Access Token</title>
+                  <serviceName>AC-Concur-Prod-2:Get Refresh Token</serviceName>
+                  <serviceGUID>f6XE0cx59uqiS6R5AkbNGZ</serviceGUID>
+                  <serviceInput>
+                     <parameter name="scope" source="field" updatable="true">input.inScope</parameter>
+                  </serviceInput>
+                  <link id="l7nzou9g" targetId="l7nzou9f"/>
+               </service>
+               <service id="l7nzou9f">
+                  <title>Get Expense Report</title>
+                  <serviceName>AC-Concur-Prod-2:Get Expense Report</serviceName>
+                  <serviceGUID>f6XE0cx59uqiS6R5AkbNGZ</serviceGUID>
+                  <serviceInput>
+                     <parameter name="user" source="formula">
+                        <expression language="XQuery">'ALL'</expression>
+                     </parameter>
+                     <parameter name="Authorization" source="formula">
+                        <expression language="XQuery">'Bearer '||$output.access_token</expression>
+                     </parameter>
+                     <parameter name="approvalStatusCode" source="field" updatable="true">input.inApprStatusCode</parameter>
+                     <parameter name="paymentStatusCode" source="field" updatable="true">input.inPaymetStatusCode</parameter>
+                     <parameter name="createDateAfter" source="field" updatable="true">input.inCreatedAfter</parameter>
+                     <parameter name="limit" source="field" updatable="true">input.inLimit</parameter>
+                     <parameter name="offset" source="field" updatable="true">temp.tempOffset</parameter>
+                  </serviceInput>
+                  <link id="les12cqr" targetId="les12cqq"/>
+               </service>
+               <assignment id="les12cqq">
+                  <title>Assignment to tempReports</title>
+                  <operation source="field" to="temp.tempReports">output.outReports</operation>
+                  <link id="les12cqs" targetId="l834xt6m"/>
+               </assignment>
+               <container id="l834xt6m" type="exclusive">
+                  <title>tempReportsLoop</title>
+                  <flow id="l834xt6q">
+                     <assignment id="l835mbil">
+                        <title>Extract1stReport</title>
+                        <operation source="constant" to="temp.tempOffset"/>
+                        <operation source="formula" to="temp.tempCurrentReport">
+                           <expression language="XQuery">list:head($temp.tempReports )</expression>
+                        </operation>
+                        <link id="lenzj1po" targetId="lenzj1pn"/>
+                     </assignment>
+                     <assignment id="lh7plznb">
+                        <title>Assignment to tempReportEntries</title>
+                        <operation source="field" to="temp.tempReportEntries">output.outEntries</operation>
+                        <link id="lh7plznd" targetId="lgw9f6qz"/>
+                     </assignment>
+                     <service id="lenzj1pn">
+                        <title>Identityv4Users</title>
+                        <serviceName>AC-Concur-Prod-2:Identityv4Users</serviceName>
+                        <serviceGUID>f6XE0cx59uqiS6R5AkbNGZ</serviceGUID>
+                        <serviceInput>
+                           <parameter name="userName" source="field" updatable="true">temp.tempCurrentReport[1]/User</parameter>
+                           <parameter name="Authorization" source="formula">
+                              <expression language="XQuery">'Bearer '||$output.access_token</expression>
+                           </parameter>
+                        </serviceInput>
+                        <link id="lgw1ieku" targetId="lgw1iekt"/>
+                     </service>
+                     <service id="lgw1iekt">
+                        <title>Get Expense Report Entry</title>
+                        <serviceName>AC-Concur-Prod-2:Get Expense Report Entry</serviceName>
+                        <serviceGUID>f6XE0cx59uqiS6R5AkbNGZ</serviceGUID>
+                        <serviceInput>
+                           <parameter name="Authorization" source="formula">
+                              <expression language="XQuery">'Bearer '||$output.access_token</expression>
+                           </parameter>
+                           <parameter name="reportId" source="field" updatable="true">temp.tempCurrentReport[1]/ReportID</parameter>
+                           <parameter name="user" source="field" updatable="true">temp.tempCurrentReport[1]/User</parameter>
+                           <parameter name="limit" source="constant">100</parameter>
+                        </serviceInput>
+                        <link id="lh7plznc" targetId="lh7plznb"/>
+                     </service>
+                     <container id="lgw9f6qz" type="exclusive">
+                        <title>tempReportEntriesLoop</title>
+                        <flow id="lgw9f6r3">
+                           <assignment id="lgw9f6s6">
+                              <title>Extract1stReportEntry</title>
+                              <operation source="formula" to="temp.tempCurrentReportEntry">
+                                 <expression language="XQuery">list:head($temp.tempReportEntries )</expression>
+                              </operation>
+                              <link id="lgw9f6ts" targetId="lgw9f6t0"/>
+                           </assignment>
+                           <assignment id="lgw9f6ud">
+                              <title>TempResponse_RemoveProcessedEntry</title>
+                              <operation source="formula" to="temp.tempResponse">
+                                 <expression language="XQuery">$temp.tempCurrentReport[1]/ExpenseHeader||','||$temp.tempCurrentReportEntry[1]/ExpenseLineItemEntry||','||$output.outAllocations[1]/AccountID</expression>
+                              </operation>
+                              <link id="lgw9f6uf" targetId="lgw9f6tx"/>
+                           </assignment>
+                           <assignment id="lgw9f6tx">
+                              <title>Assignment to tempMergedResponse, tempReportEntries</title>
+                              <operation source="formula" to="temp.tempMergedResponse">
+                                 <expression language="XQuery">$temp.tempMergedResponse||$temp.tempResponse||'&amp;#xa;'</expression>
+                              </operation>
+                              <operation source="formula" to="temp.tempReportEntries">
+                                 <expression language="XQuery">list:remove($temp.tempReportEntries,1)</expression>
+                              </operation>
+                              <link id="lgw9f6zv" targetId="lgw9f6zt"/>
+                           </assignment>
+                           <service id="lgw9f6t0">
+                              <title>Get Allocations</title>
+                              <serviceName>AC-Concur-Prod-2:Get Allocations</serviceName>
+                              <serviceGUID>f6XE0cx59uqiS6R5AkbNGZ</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="Authorization" source="formula">
+                                    <expression language="XQuery">'Bearer '||$output.access_token</expression>
+                                 </parameter>
+                                 <parameter name="entryID" source="field" updatable="true">temp.tempCurrentReportEntry[1]/EntryID</parameter>
+                              </serviceInput>
+                              <link id="lgwbjgzq" targetId="lgw9f6ud"/>
+                           </service>
+                           <jumpTo id="lgw9f6zt">
+                              <link id="lgw9f6zu" targetId="lgw9f6qz"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="lgw9f6r6">
+                           <service id="lgwbjh03">
+                              <title>Expensev4</title>
+                              <serviceName>AC-Concur-Prod-2:Expensev4</serviceName>
+                              <serviceGUID>f6XE0cx59uqiS6R5AkbNGZ</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="Authorization" source="formula">
+                                    <expression language="XQuery">'Bearer '||$output.access_token</expression>
+                                 </parameter>
+                                 <parameter name="userID" source="field" updatable="true">output.outUsers[1]/Resources[1]/id</parameter>
+                                 <parameter name="contextType" source="formula">
+                                    <expression language="XQuery">'TRAVELER'</expression>
+                                 </parameter>
+                                 <parameter name="reportId" source="field" updatable="true">temp.tempCurrentReport[1]/ReportID</parameter>
+                              </serviceInput>
+                              <link id="lgwbjh3f" targetId="lgwbjh3e"/>
+                           </service>
+                           <assignment id="lgwbjh3e">
+                              <title>Assignment to tempExpenses</title>
+                              <operation source="formula" to="temp.tempExpenses">
+                                 <expression language="XQuery">list:head($output.outExpensesv4[1]/emptyName )</expression>
+                              </operation>
+                              <link id="lgwbjh3g" targetId="lgwbjh2y"/>
+                           </assignment>
+                           <container id="lgwbjh2y" type="exclusive">
+                              <title>tempExpenses</title>
+                              <flow id="lgwbjh32">
+                                 <assignment id="lgwbjh47">
+                                    <title>Assignment to tempCurrentExpense</title>
+                                    <operation source="formula" to="temp.tempCurrentExpense">
+                                       <expression language="XQuery">list:head($temp.tempExpenses)</expression>
+                                    </operation>
+                                    <link id="lgwbjh48" targetId="lgwbjh3t"/>
+                                 </assignment>
+                                 <assignment id="lgwbjh5q">
+                                    <title>Assignment to tempExpenses</title>
+                                    <operation source="formula" to="temp.tempExpenses">
+                                       <expression language="XQuery">list:remove($temp.tempExpenses, 1)</expression>
+                                    </operation>
+                                    <link id="lgwbjh5s" targetId="lgwbjh5l"/>
+                                 </assignment>
+                                 <service id="lgwbjh3t">
+                                    <title>GetExpenseTaxv4</title>
+                                    <serviceName>AC-Concur-Prod-2:GetExpenseTaxv4</serviceName>
+                                    <serviceGUID>f6XE0cx59uqiS6R5AkbNGZ</serviceGUID>
+                                    <serviceInput>
+                                       <parameter name="Authorization" source="formula">
+                                          <expression language="XQuery">'Bearer '||$output.access_token</expression>
+                                       </parameter>
+                                       <parameter name="userID" source="field" updatable="true">output.outUsers[1]/Resources[1]/id</parameter>
+                                       <parameter name="contextType" source="formula">
+                                          <expression language="XQuery">'TRAVELER'</expression>
+                                       </parameter>
+                                       <parameter name="reportId" source="field" updatable="true">temp.tempCurrentReport[1]/ReportID</parameter>
+                                       <parameter name="expenseId" source="field" updatable="true">temp.tempCurrentExpense[1]/expenseId</parameter>
+                                    </serviceInput>
+                                    <link id="lgxokspj" targetId="lgxokspi"/>
+                                 </service>
+                                 <container id="lgxokspi" type="exclusive">
+                                    <title>taxCode</title>
+                                    <flow id="lgxokspm">
+                                       <link id="lgxokspn" targetId="lgxokspi" type="containerLink"/>
+                                    </flow>
+                                    <flow id="lgxokspp">
+                                       <service id="lh5sfxn7">
+                                          <title>GetExpenseItemizationsv4</title>
+                                          <serviceName>AC-Concur-Prod-2:GetExpenseItemizationsv4</serviceName>
+                                          <serviceGUID>f6XE0cx59uqiS6R5AkbNGZ</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="Authorization" source="formula">
+                                                <expression language="XQuery">'Bearer '||$output.access_token</expression>
+                                             </parameter>
+                                             <parameter name="userID" source="field" updatable="true">output.outUsers[1]/Resources[1]/id</parameter>
+                                             <parameter name="contextType" source="formula">
+                                                <expression language="XQuery">'TRAVELER'</expression>
+                                             </parameter>
+                                             <parameter name="reportId" source="field" updatable="true">temp.tempCurrentReport[1]/ReportID</parameter>
+                                             <parameter name="expenseId" source="field" updatable="true">temp.tempCurrentExpense[1]/expenseId</parameter>
+                                          </serviceInput>
+                                          <link id="lh5sfxtq" targetId="lh5sfxtp"/>
+                                       </service>
+                                       <service id="lh5sfxtp">
+                                          <title>ListItems</title>
+                                          <serviceName>AC-Concur-Prod-2:ListItems</serviceName>
+                                          <serviceGUID>f6XE0cx59uqiS6R5AkbNGZ</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="id" source="field" updatable="true">output.deptItemId</parameter>
+                                             <parameter name="Authorization" source="formula">
+                                                <expression language="XQuery">'Bearer '||$output.access_token</expression>
+                                             </parameter>
+                                          </serviceInput>
+                                          <link id="lh5sfxtr" targetId="lh5sfxr2"/>
+                                       </service>
+                                       <assignment id="lh5sfxr2">
+                                          <title>Assignment to tempResponse</title>
+                                          <operation source="formula" to="temp.tempResponse">
+                                             <expression language="XQuery">$temp.tempCurrentReport[1]/ExpenseHeader||','||$temp.tempCurrentReport[1]/ReportID||','||$output.outExpenseTax[1]/expenseTax1[1]/taxPostedAmount||','||$output.list_item_code ||','||$temp.tempCurrentExpense[1]/businessPurpose||','||$output.outExpenseTax[1]/expenseTaxes[1]/taxCode</expression>
+                                          </operation>
+                                          <link id="lh5sfxr4" targetId="lh5sfxqp"/>
+                                       </assignment>
+                                       <assignment id="lh5sfxqp">
+                                          <title>Assignment to tempMergedResponse</title>
+                                          <operation source="formula" to="temp.tempMergedResponse">
+                                             <expression language="XQuery">$temp.tempMergedResponse||$temp.tempResponse||'&amp;#xa;'</expression>
+                                          </operation>
+                                       </assignment>
+                                       <link id="lgxokspq" targetId="lgxokspi" type="containerLink"/>
+                                    </flow>
+                                    <link id="lgxokspl" targetId="lgxokspm" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="unset">
+                                             <arg name="field">{$output.outExpenseTax[1]/expenseTaxes[1]/taxCode}</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="lgxokspo" targetId="lgxokspp" type="containerLink"/>
+                                    <link id="lgxokspk" targetId="lgwbjh5q"/>
+                                 </container>
+                                 <jumpTo id="lgwbjh5l">
+                                    <link id="lgwbjh5m" targetId="lgwbjh2y"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="lgwbjh35">
+                                 <assignment id="lgwbjh51">
+                                    <title>Assignment to tempReports</title>
+                                    <operation source="formula" to="temp.tempReports">
+                                       <expression language="XQuery">list:remove($temp.tempReports , 1)</expression>
+                                    </operation>
+                                    <link id="lgwbjh5c" targetId="lgwbjh5a"/>
+                                 </assignment>
+                                 <jumpTo id="lgwbjh5a">
+                                    <link id="lgwbjh5b" targetId="l834xt6m"/>
+                                 </jumpTo>
+                              </flow>
+                              <link id="lgwbjh31" targetId="lgwbjh32" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="not-empty">
+                                       <arg name="field">{$temp.tempExpenses}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="lgwbjh34" targetId="lgwbjh35" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="empty">
+                                       <arg name="field">{$temp.tempExpenses}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                           </container>
+                        </flow>
+                        <link id="lgw9f6r2" targetId="lgw9f6r3" type="containerLink">
+                           <condition source="formula">
+                              <function name="not-empty">
+                                 <arg name="field">{$temp.tempReportEntries}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="lgw9f6r5" targetId="lgw9f6r6" type="containerLink">
+                           <condition source="formula">
+                              <function name="empty">
+                                 <arg name="field">{$temp.tempReportEntries}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                     </container>
+                  </flow>
+                  <flow id="l834xt6t">
+                     <container id="l83czn9u" type="exclusive">
+                        <title>outNextPage</title>
+                        <flow id="l83czn9x">
+                           <assignment id="l83cznai">
+                              <title>Assignment to tempOffset</title>
+                              <operation source="formula" to="temp.tempOffset">
+                                 <expression language="XQuery">util:iif(fn:contains($output.outNextPage, 'offset'), 'offset'||fn:substring-after($output.outNextPage , 'offset'), '')</expression>
+                              </operation>
+                              <link id="l83cznaj" targetId="l83cznac"/>
+                           </assignment>
+                           <jumpTo id="l83cznac">
+                              <link id="l83cznad" targetId="l7nzou9f"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="l83czna0">
+                           <assignment id="l83cznau">
+                              <title>Assignment to outReportPayload</title>
+                              <operation source="formula" to="output.outReportPayload">
+                                 <expression language="XQuery">'Report_Id,Report_Name,User,User_NS_Code,User_Name,Total_Amount,Currency_Code,Line_Item_Report_Id,Line_Item_Amount,Line_Item_Dept,Line_Item_Memo_Name,AccountID'||'&amp;#xa;'||$temp.tempMergedResponse </expression>
+                              </operation>
+                              <link id="l83cznb5" targetId="l83cznb4"/>
+                           </assignment>
+                           <end id="l83cznb4"/>
+                        </flow>
+                        <link id="l83czn9w" targetId="l83czn9x" type="containerLink">
+                           <condition source="formula">
+                              <function name="contains">
+                                 <arg name="left">{$output.outNextPage}</arg>
+                                 <arg name="right">offset</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="l83czn9z" targetId="l83czna0" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <link id="l834xt6p" targetId="l834xt6q" type="containerLink">
+                     <condition source="formula">
+                        <function name="not-empty">
+                           <arg name="field">{$temp.tempReports}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="l834xt6s" targetId="l834xt6t" type="containerLink">
+                     <condition source="formula">
+                        <function name="empty">
+                           <arg name="field">{$temp.tempReports}</arg>
+                        </function>
+                     </condition>
+                  </link>
+               </container>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>78709a2a-8d60-498d-b659-9fda3ecbe767</ns1:Id>
+               <ns1:Name>testConcur</ns1:Name>
+               <ns1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</ns1:CreatedBy>
+               <ns1:CreationDate>2024-02-15T16:46:10Z</ns1:CreationDate>
+               <ns1:ModifiedBy>jghadigaonkar@kinaxis.com.SAML2</ns1:ModifiedBy>
+               <ns1:ModificationDate>2024-02-15T16:46:10Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+	 "inScope": "EXPRPT identity.user.core.read expense.report.read spend.list.read spend.listitem.read",
+	 "inCreatedAfter": "2023-05-01",
+	 "inApprStatusCode": "A_APPR",
+	 "inPaymetStatusCode": "P_PAID",
+	 "inLimit": "100"
+}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>dPTGMwO7x4FiqWahxkiUI9</types1:GUID>
+      <types1:DisplayName>ConcurExpenseReports_v4 - Copy 1</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:52:01.998Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

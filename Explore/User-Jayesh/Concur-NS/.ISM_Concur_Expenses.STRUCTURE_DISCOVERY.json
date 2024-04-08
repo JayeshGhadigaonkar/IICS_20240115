@@ -1,0 +1,28 @@
+{
+  "objectInfo" : {
+    "id" : "dzAeqGffHuMkF5DL4UmxyP",
+    "name" : "ISM_Concur_Expenses",
+    "type" : "STRUCTURE_DISCOVERY",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CQZ3000000000002F"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : null,
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "updateTime" : "2024-04-08T15:52:03.087Z",
+  "objectRefs" : [ ]
+}

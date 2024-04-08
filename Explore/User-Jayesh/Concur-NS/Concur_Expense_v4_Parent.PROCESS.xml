@@ -1,0 +1,342 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>iY3AxtPk7HNCnch-gt-5904319-2024-02-15T16:46:02.813Z::pd.xml</types1:EntryId>
+      <types1:Name>Concur_Expense_v4_Parent-2</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:SA-Group1-UAT</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-02-15T16:46:03Z</types1:CreationDate>
+      <types1:ModifiedBy>jghadigaonkar@kinaxis.com.SAML2</types1:ModifiedBy>
+      <types1:ModificationDate>2024-03-26T21:10:17Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>jghadigaonkar@kinaxis.com.SAML2</types1:PublishedBy>
+      <types1:PublicationDate>2024-03-26T21:10:30Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.Concur_Expense_v4_Parent-2/Concur_Expense_v4_Parent-2.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="Concur_Expense_v4_Parent"
+                  name="Concur_Expense_v4_Parent-2"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags>.agent:SA-Group1-UAT</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="inScope" required="true" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="inCreatedAfter"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="inApprStatusCode"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="inPaymetStatusCode"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="inLimit" required="true" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="InprocessingPaymentDateBefore"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="InprocessingPaymentDateAfter"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="InUser" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="outPayload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="Auth" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_offset" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Reports" type="objectlist">
+                  <options>
+                     <option name="referenceTo">AC-Concur-v4-2:PO_ExpenseReports</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">90hIh7SBJl1fqQbBGvDGUh</option>
+                  </options>
+               </field>
+               <field description="" name="tempMergedResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_StartTime" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+               <targetLocation>SA-Group1-UAT</targetLocation>
+               <rest>
+                  <allowedGroups>
+                     <group>Kinaxis Corp</group>
+                  </allowedGroups>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="lu7y7wyt" targetId="lu7y550m"/>
+               </start>
+               <service id="lu7y550m">
+                  <title>Get Refresh Token</title>
+                  <serviceName>AC-Concur-v4-2:Get Refresh Token</serviceName>
+                  <serviceGUID>90hIh7SBJl1fqQbBGvDGUh</serviceGUID>
+                  <serviceInput>
+                     <parameter name="scope" source="field" updatable="true">input.inScope</parameter>
+                  </serviceInput>
+                  <link id="lu7y550o" targetId="livgu5xr"/>
+               </service>
+               <service id="livgu5xz">
+                  <title>RetrieveReports_v3</title>
+                  <serviceName>AC-Concur-v4-2:RetrieveReports_v3</serviceName>
+                  <serviceGUID>90hIh7SBJl1fqQbBGvDGUh</serviceGUID>
+                  <serviceInput>
+                     <parameter name="user" source="field" updatable="true">input.InUser</parameter>
+                     <parameter name="Authorization" source="field" updatable="true">temp.Auth</parameter>
+                     <parameter name="approvalStatusCode" source="field" updatable="true">input.inApprStatusCode</parameter>
+                     <parameter name="paymentStatusCode" source="field" updatable="true">input.inPaymetStatusCode</parameter>
+                     <parameter name="createDateAfter" source="field" updatable="true">input.inCreatedAfter</parameter>
+                     <parameter name="limit" source="field" updatable="true">input.inLimit</parameter>
+                     <parameter name="offset" source="field" updatable="true">temp.temp_offset</parameter>
+                     <parameter name="processingPaymentDateBefore" source="field" updatable="true">input.InprocessingPaymentDateBefore</parameter>
+                     <parameter name="processingPaymentDateAfter" source="field" updatable="true">input.InprocessingPaymentDateAfter</parameter>
+                  </serviceInput>
+                  <link id="livimaf0" targetId="livimaez"/>
+               </service>
+               <assignment id="livgu5xr">
+                  <title>Assignment to Auth, temp_offset etc.</title>
+                  <operation source="formula" to="temp.Auth">
+                     <expression language="XQuery">'Bearer '||$output.access_token </expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_offset">
+                     <expression language="XQuery">''</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_StartTime">
+                     <expression language="XQuery">fn:current-dateTime()</expression>
+                  </operation>
+                  <link id="livgu5y0" targetId="livgu5xz"/>
+               </assignment>
+               <assignment id="livimaez">
+                  <title>Assignment to temp_Reports</title>
+                  <operation source="field" to="temp.temp_Reports">output.outReports</operation>
+                  <link id="livimaf6" targetId="livimaf5"/>
+               </assignment>
+               <container id="livimaf5" type="exclusive">
+                  <title>temp_Reports_loop</title>
+                  <flow id="livimaf9">
+                     <service id="lu7y7wyu">
+                        <title>Get Refresh Token_Refresh</title>
+                        <serviceName>AC-Get-Refresh-Token:Get_Refresh_Token_Intermittent</serviceName>
+                        <serviceGUID>hrN9F9eMEAYkFotsl4CjKS</serviceGUID>
+                        <serviceInput/>
+                        <link id="lu7y7x07" targetId="lu7y7x06"/>
+                     </service>
+                     <assignment id="lu7y7x06">
+                        <title>Assignment to Auth</title>
+                        <operation source="formula" to="temp.Auth">
+                           <expression language="XQuery">'Bearer '||$output.Refresh_Access_Token </expression>
+                        </operation>
+                        <link id="lu7y7x08" targetId="lj2qlfdj"/>
+                     </assignment>
+                     <assignment id="lj2qlfe8">
+                        <title>Assignment to tempMergedResponse, temp_Reports</title>
+                        <operation source="field" to="temp.temp_Reports">output.outReports_Child</operation>
+                        <operation source="formula" to="temp.tempMergedResponse">
+                           <expression language="XQuery">$temp.tempMergedResponse||$output.outMergedResponse_child </expression>
+                        </operation>
+                        <link id="lu8vewdp" targetId="livimagf"/>
+                     </assignment>
+                     <subflow id="lj2qlfdj">
+                        <title>Concur_Expense_v4_child</title>
+                        <subflowGUID>aYx8xudOeWxhU3ceYs7E89</subflowGUID>
+                        <subflowPath>Concur_Expense_v4_child-2</subflowPath>
+                        <runForEach>false</runForEach>
+                        <input>
+                           <parameter name="inReports" source="field" updatable="true">temp.temp_Reports</parameter>
+                           <parameter name="inAuth" source="field" updatable="true">temp.Auth</parameter>
+                        </input>
+                        <outputDef>
+                           <field name="outMergedResponse_child" type="string">
+                              <options>
+                                 <option name="required">false</option>
+                              </options>
+                           </field>
+                           <field name="outReports_Child" type="objectlist">
+                              <options>
+                                 <option name="referenceTo">AC-Concur-v4-2:PO_ExpenseReports</option>
+                                 <option hide="true" name="multiSelect">true</option>
+                                 <option name="required">false</option>
+                                 <option name="isCopy">true</option>
+                                 <option name="guid">90hIh7SBJl1fqQbBGvDGUh</option>
+                              </options>
+                           </field>
+                        </outputDef>
+                        <link id="lj2qlfe9" targetId="lj2qlfe8"/>
+                     </subflow>
+                     <jumpTo id="livimagf">
+                        <link id="livimagg" targetId="livimaf5"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="livimafc">
+                     <container id="livimaft" type="exclusive">
+                        <title>outNextPage</title>
+                        <flow id="livlmqz9">
+                           <assignment id="livlmqzl">
+                              <title>Assignment to temp_offset</title>
+                              <operation source="formula" to="temp.temp_offset">
+                                 <expression language="XQuery">util:iif
+	(fn:contains($output.outNextPage, 'offset'),
+    'offset'||util:iif
+    	(fn:contains(fn:substring-after($output.outNextPage, 'offset'), '&amp;amp;'), 
+        	fn:substring-before(fn:substring-after($output.outNextPage, 'offset'), '&amp;amp;'), 
+            fn:substring-after($output.outNextPage, 'offset')) ,
+    '')</expression>
+                              </operation>
+                              <link id="livlmqzv" targetId="livlmqzt"/>
+                           </assignment>
+                           <jumpTo id="livlmqzt">
+                              <link id="livlmqzu" targetId="livgu5xz"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="livlmqzc">
+                           <assignment id="livlmr1a">
+                              <title>Assignment to outPayload</title>
+                              <operation source="formula" to="output.outPayload">
+                                 <expression language="XQuery">'Report_Id,Report_Name,User,User_NS_Code,User_Name,Total_Amount,Currency_Code,Expense_Id,Line_Item_Memo_Name,Line_Item_Amt,ExpenseType,IsBillable,Line_Item_Dept,AccountID'||'&amp;#xa;'||$temp.tempMergedResponse</expression>
+                              </operation>
+                              <link id="livlmr1b" targetId="livlmqze"/>
+                           </assignment>
+                           <end id="livlmqze">
+                              <title>End</title>
+                           </end>
+                        </flow>
+                        <link id="livlmqz7" targetId="livlmqz9" type="containerLink">
+                           <condition source="formula">
+                              <function name="contains">
+                                 <arg name="left">{$output.outNextPage}</arg>
+                                 <arg name="right">offset</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="livlmqz8" targetId="livlmqzc" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <link id="livimaf8" targetId="livimaf9" type="containerLink">
+                     <condition source="formula">
+                        <function name="not-empty">
+                           <arg name="field">{$temp.temp_Reports}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="livimafb" targetId="livimafc" type="containerLink">
+                     <condition source="formula">
+                        <function name="empty">
+                           <arg name="field">{$temp.temp_Reports}</arg>
+                        </function>
+                     </condition>
+                  </link>
+               </container>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>6fb40e92-f658-4a66-b3d9-e133ba6fff0f</ns1:Id>
+               <ns1:Name>test</ns1:Name>
+               <ns1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</ns1:CreatedBy>
+               <ns1:CreationDate>2024-02-15T16:46:03Z</ns1:CreationDate>
+               <ns1:ModifiedBy>jghadigaonkar@kinaxis.com.SAML2</ns1:ModifiedBy>
+               <ns1:ModificationDate>2024-02-15T16:46:03Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+	 "inScope": "EXPRPT identity.user.core.read expense.report.read spend.list.read spend.listitem.read",
+	 "inCreatedAfter": "2023-07-01",
+	 "inApprStatusCode": "A_APPR",
+	 "inPaymetStatusCode": "P_PAID",
+	 "inLimit": "100"
+}</ns1:Data>
+            </ns1:SampleData>
+            <ns1:SampleData>
+               <ns1:Id>bab2fd0f-a705-4301-87db-ca4bce303b82</ns1:Id>
+               <ns1:Name>Test2</ns1:Name>
+               <ns1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</ns1:CreatedBy>
+               <ns1:CreationDate>2024-03-20T01:45:59Z</ns1:CreationDate>
+               <ns1:ModifiedBy>jghadigaonkar@kinaxis.com.SAML2</ns1:ModifiedBy>
+               <ns1:ModificationDate>2024-03-20T01:47:31Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+	 "inScope": "EXPRPT identity.user.core.read expense.report.read spend.list.read spend.listitem.read",
+	 "inCreatedAfter": "",
+	 "inApprStatusCode": "A_APPR",
+	 "inPaymetStatusCode": "P_PAID",
+	 "inLimit": "100",
+	 "InprocessingPaymentDateBefore": "2024-03-14",
+	 "InprocessingPaymentDateAfter": "2024-03-07"
+}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>91wzwXyfVVhgYjSLrBdqqz</types1:GUID>
+      <types1:DisplayName>Concur_Expense_v4_Parent</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:52:02.236Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

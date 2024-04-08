@@ -1,0 +1,2188 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>vJ89SfSmbduaa-gt-5610279-2024-02-15T16:46:01.35Z::svc.xml</types1:EntryId>
+      <types1:Name>SC_Concur_v4-2</types1:Name>
+      <types1:ParentFlowIds>eI96xZ6or3rp3yD-gt-5610311-2024-02-15T16:46:01.507Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-02-15T16:46:01Z</types1:CreationDate>
+      <types1:ModifiedBy>jghadigaonkar@kinaxis.com.SAML2</types1:ModifiedBy>
+      <types1:ModificationDate>2024-03-20T01:12:36Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>jghadigaonkar@kinaxis.com.SAML2</types1:PublishedBy>
+      <types1:PublicationDate>2024-03-20T01:13:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SC_Concur_v4_2/SC_Concur_v4_2_svcDef.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="SC_Concur_v4"
+                            label=""
+                            name="SC_Concur_v4-2"
+                            uuid="36cecd43-b83a-42e4-8328-7eec20d9d753">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    label="Url"
+                                    masked="false"
+                                    name="Url"
+                                    required="false"
+                                    testWith="https://us2.api.concursolutions.com"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Get Refresh Token"
+                       maxRedirects="100"
+                       name="Get Refresh Token"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="scope"
+                                nogen="true"
+                                required="true"
+                                testWith="EXPRPT EXPRPT identity.user.core.read expense.report.read spend.list.read spend.listitem.read"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/oauth2/v0/token"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                        </httpHeaders>
+                        <body>client_id=92a52a00-5ac6-4896-aa23-e54f989ef275
+&amp;amp;client_secret=0a51d07f-e7c8-488d-a3f9-19fd0223a57d
+&amp;amp;grant_type=refresh_token
+&amp;amp;refresh_token=3pgoiqv3ktm5dy3j3mb1m8p3gvyky5
+&amp;amp;scope={$scope}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="access_token"
+                            property="access_token"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RetrieveReports_v3"
+                       maxRedirects="100"
+                       name="RetrieveReports_v3"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="user"
+                                required="true"
+                                testWith="ALL"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNzEwODk5NjU1LCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE3MTA4OTYwNDUsImlhdCI6MTcxMDg5NjA1NX0.GNZOHGPZqJzk5zUlI2tHqKJLzpgdAUymBEZR5s4zT7RgQyJsq1l6qNHGnQdVk88swVolaWk0nCFkQVstXS0h66KOF2cZ-Mt7-qiGSbFq7yae2evfdDypRh_lrN_5JPJS6D_wstRkBmo_2WLW_kITv6M1ARgtWO1r2YMgosBQpgQzZfKKSc8YLhWToVWksEuCJTZ-bYElKU-PH73GOgeLMZSWHtDOnlul-x-6CBtNoy9XpN5lo56zaHE89tVkuDfAr-VXZ9UtmmyxEIbiUYuc3UfvKG1_HM2LoOwjKk-c7lDuTxBkCZgqPiVuj9t8KTzCKepTd7a8WY71guHq5Jaxuw"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="approvalStatusCode"
+                                required="true"
+                                testWith="A_APPR"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="paymentStatusCode"
+                                required="true"
+                                testWith="P_PAID"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="createDateAfter"
+                                nogen="true"
+                                required="false"
+                                testWith="2024-03-06"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="limit"
+                                required="true"
+                                testWith="100"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="offset"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="processingPaymentDateBefore"
+                                required="true"
+                                testWith="2024-03-14"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="processingPaymentDateAfter"
+                                required="true"
+                                testWith="2024-03-07"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/api/v3.0/expense/reports?{$offset}"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="outReports" type="objectlist">
+                        <options>
+                           <option name="referenceTo">PO_ExpenseReports</option>
+                        </options>
+                        <xquery>{for $x at $i in util:simplifyXml($RESTResponse)//Reports/Items/Report
+return &lt;PO_ExpenseReports&gt;
+	&lt;ExpenseHeader&gt;"{$x/ID/text()}","{$x/Name/text()}","{$x/OwnerLoginID/text()}","{$x/Custom17/Value/text()}","{$x/OwnerName/text()}","{$x/Total/text()}","{$x/CurrencyCode/text()}"&lt;/ExpenseHeader&gt;
+    &lt;ReportID&gt;{$x/ID/text()}&lt;/ReportID&gt;
+    &lt;User&gt;{$x/OwnerLoginID/text()}&lt;/User&gt;
+&lt;/PO_ExpenseReports&gt;}</xquery>
+                     </field>
+                     <field description="" name="outNextPage" type="string">
+                        <xquery>{util:simplifyXml($RESTResponse)//Reports/NextPage/text()}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Identityv4Users"
+                       maxRedirects="100"
+                       name="Identityv4Users"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="userName"
+                                required="true"
+                                testWith="bdean@kinaxis.com"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNzEwODMxMzIzLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE3MTA4Mjc3MTMsImlhdCI6MTcxMDgyNzcyM30.cb4PlprdmdxMlSXuPtKGsk5M90o0spjZnE2DiYXkTsw9J6zPBDvFNVLhfYawpEeMjZFfYKVQNINZ9aDez25kW62Qk0_tB7gV0pMw7CZEQ7Kf7-KE2JuWI0mYngF8SPPsqAPj0UzhJFBgfSkkbX8lEIuBLJN9aUE079ZzP3CBDhUelpwbVcaE54wWcfWLXOskRgxt3Vhd_dPZTGw7uKPAZReZLpCyn2SAXEpsKEZIMm-L0mFe6_uZ0fuI7IhNuxn1TbIcQsAlZzLPpowtVX8bWOTxbicJObgZmiidR9Z-tPT30kcp6u8TpQxZ1sxe0vpyHR611Q_7U4s7hcaHupAMrw"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/profile/identity/v4/Users"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="outUsers" type="reference" xmlElement=".">
+                        <options>
+                           <option name="referenceTo">root</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RetrieveReportDetails"
+                       maxRedirects="100"
+                       name="RetrieveReportDetails"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNjg5ODU0NTc1LCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE2ODk4NTA5NjUsImlhdCI6MTY4OTg1MDk3NX0.twH4-I_UXDbYi_Duu4L9vwoFNWdGedxwmNWbEhrGTSN6SWqRxX8s0P6igjYwHtX6aUwcEsyXJi0fKVyRwg4iegZMC17ACyXmuZzN1nfrWIDYoJQo2fEAXNo9F6lEiQ5H0kkTNDyWChs6bcziDInynv6RoFKjJccwkmAN3dR8okbUPJiTYYgV_87gSac2QDi8o1yqFoKMTdCnPUri4q7giJxMkR_GojC_YtzPe8pd1h48ChL2zfbdBgzKKXN_ZEBVxol8yqb_JFY6JTWY8bUUAAVWEMJcD9nMK2r1q8CK1dwusvB_FVDk66vg_hSVYR83pJiTwUGhdJvPi9G3A7jb1w"
+                                type="string"/>
+                     <parameter name="userID"
+                                nogen="true"
+                                required="true"
+                                testWith="ff7527f8-2cb7-4af2-b3d6-9b2acf28f37c"
+                                type="string"/>
+                     <parameter name="contextType"
+                                nogen="true"
+                                required="true"
+                                testWith="TRAVELER"
+                                type="string"/>
+                     <parameter name="reportId"
+                                nogen="true"
+                                required="true"
+                                testWith="D386456BB4484802BE2A"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/expensereports/v4/users/{$userID}/context/{$contextType}/reports/{$reportId}"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="outExpensesv4" type="reference">
+                        <options>
+                           <option name="referenceTo">root</option>
+                        </options>
+                        <xquery>{let $dta := util:parseJSON(fn:replace(fn:replace($RESTResponse/rest:payload/text(), '0E-8', '0'), ': 0.0,', ''))
+return
+util:simplifyXml(&lt;root&gt;
+{
+$dta
+}&lt;/root&gt;)}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RetrieveExpenseSummaries"
+                       maxRedirects="100"
+                       name="RetrieveExpenseSummaries"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNzEwNzk4NTUyLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE3MTA3OTQ5NDIsImlhdCI6MTcxMDc5NDk1Mn0.s3ChzgqvwXzJDGANI4rVXNFJ9WkLiUu61S6nkjLHOLpPCLiZNbZOxCAtI_WoNrvepgC_Az-_qLjPsN3ooq6dkZ7AE_W--K0uObwbxRwtWd4CRpZt3kj-nn4M1Ek6YOiUWSOtRSUjHH14zbYuAHOa8b_ZBpeykeinf4gUexb7tho-1TZFrcxC93HVZgsKiyF3DOP2wAVaX9TdWYSNc6Yy9zcjr_YflofmPEwpPIRk-hyTRQlchTdDOwcHTWTqk_Nz9RJ5N5TjVx4MfBSmki-w1EU-a9NtpRq5VHzgrpyatLw_ywiFv9kQignrGeB0stC2XebKeI88_nvW65h5ifCr6A"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="userID"
+                                nogen="true"
+                                required="true"
+                                testWith="fbee23a3-42b9-4c58-a66a-9361c26bf75d"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="contextType"
+                                nogen="true"
+                                required="true"
+                                testWith="TRAVELER"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="reportId"
+                                nogen="true"
+                                required="true"
+                                testWith="64F0D5199D334793B329"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/expensereports/v4/users/{$userID}/context/{$contextType}/reports/{$reportId}/expenses?includeItemizations=true"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="outExpenseSummaries" type="reference">
+                        <options>
+                           <option name="referenceTo">root</option>
+                        </options>
+                        <xquery>{let $dta := util:parseJSON(fn:replace(fn:replace($RESTResponse/rest:payload/text(), '0E-8', '0'), ': 0.0,', ''))
+return
+util:simplifyXml(&lt;root&gt;
+{
+$dta
+}&lt;/root&gt;)}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RetrieveExpenses"
+                       maxRedirects="100"
+                       name="RetrieveExpenses"
+                       preemptiveAuth="true"
+                       responseEncoding="UTF-8">
+                  <description/>
+                  <input>
+                     <parameter name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNjg5MzU1NzYzLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE2ODkzNTIxNTMsImlhdCI6MTY4OTM1MjE2M30.VwYDH67W1uLJXQpvVGbBTEkMdNBfVtuGXTisj_2SjlvdA4wwwb5G_JG5gfE_XuR_FYOSUNkgRKuE2JzzC22BTiplpxGuuQScq_Pvd8wyxZKwFDfJE3MQiamPmS1as70nhWdZ_0RxaRtEHZlHl-EHfl-kUe29lF9qUtURFtqyOENFlQgbxD6PsdHlREkC4iwYOdgTPpwZ2ept8IraOIGtrLdpXZD-5u0sYs2aR68pVVUTf6CGaFewZu8kKaJqfXMOyxSgdzBnAMp9P1eeY1k-Ilu1t_R6S9A8JN8CFkWOBYO9qB3U4B6AfuD7FqTwzR2GS8Zs-ZiNwhUb88IEex-RHA"
+                                type="string"/>
+                     <parameter name="userID"
+                                nogen="true"
+                                required="true"
+                                testWith="bd5fe02e-cfd2-4e1a-93f4-33c85a334522"
+                                type="string"/>
+                     <parameter name="contextType"
+                                nogen="true"
+                                required="true"
+                                testWith="TRAVELER"
+                                type="string"/>
+                     <parameter name="reportId"
+                                nogen="true"
+                                required="true"
+                                testWith="9644D39016594BAEBBC5"
+                                type="string"/>
+                     <parameter name="expenseId"
+                                nogen="true"
+                                required="true"
+                                testWith="8078114FF938E343BDC7298306A0F16C"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/expensereports/v4/users/{$userID}/context/{$contextType}/reports/{$reportId}/expenses"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="outTaxPostedAmount" type="string">
+                        <xquery>{$RESTResponse/rest:payload/text()}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RetrieveAllocations"
+                       maxRedirects="100"
+                       name="RetrieveAllocations"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNjg2NjYyNjAyLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE2ODY2NTg5OTIsImlhdCI6MTY4NjY1OTAwMn0.bVhr-aAPwGP33wBlZN488bE9H4qK5HmXB4sHp_i2vBk0cB6rLusbDUPs68PT2eudCXbB7jLJFldj8UBd98oq-7rJYsTvWSAzsw9Q18DZdncbTcOOQ43ISEAOPbq9-Zbm_axF4HcTF1okLACmd0PPZqvTNKjvAWZRZptdLsK8sVo91m1Q21nPfM7z9Z8pLlACpn4xMIO5vHA7mFxRG5xfXSsBvahZvIqyLw5DmWmzn1TcmBh7qpD8KzwQRpAqpr7TenPoFqT0IRWvbiFJQnYD4DPCG8NONbJ-Cx5F8FtrsnBy_3eXNVAy_52HjlsY6lga_FBSEqxws63x_KGnFHIUQA"
+                                type="string"/>
+                     <parameter name="contextType"
+                                nogen="true"
+                                required="true"
+                                testWith="TRAVELER"
+                                type="string"/>
+                     <parameter name="reportId"
+                                nogen="true"
+                                required="true"
+                                testWith="6E22869003EF4AC68566"
+                                type="string"/>
+                     <parameter name="expenseId"
+                                nogen="true"
+                                required="true"
+                                testWith="635641FC5BE6C946976251779FBA26C0"
+                                type="string"/>
+                     <parameter name="userID"
+                                nogen="true"
+                                required="true"
+                                testWith="cd83b984-deab-4cd9-b88d-8bbcb876b5d5"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/expensereports/v4/users/{$userID}/context/{$contextType}/reports/{$reportId}/expenses/{$expenseId}/allocations"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RetrieveExpenseByExpenseId"
+                       maxRedirects="100"
+                       name="RetrieveExpenseByExpenseId"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="userID"
+                                nogen="true"
+                                required="true"
+                                testWith="2c1ee494-e3da-42da-b392-1852ec9f3056"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNzA5MTU4NzQ3LCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE3MDkxNTUxMzcsImlhdCI6MTcwOTE1NTE0N30.fjIvWvL6or70pAAjhH85D-kFu_dLzwqH3CqB6xiCRD60zzqagZy3S7_uGeVKPA9ivvvNVKoXoOVOIZRTX5PNrFKoaAjBFBD5zHGFNIumtMCbIHMAQdTseLaDQ_LH7je5mjF2ijqQYxlgNkGCVGS_pQU8CoaG913kLPvKrppVu8XXv-xK8PxTiwAdNDD12t0wN8MOhG-wN_FNjE4DTxPWhQKYnEa7PbObhyMzXWtHOtWy72qw6eL38onwRC6IkWkKfffBXyxtCSsy5KY6h22URKHXbFgAJ9UgkBkGqGY1Zcy3k5VQn6gbDN53tXGms7iEl9Mw9NSS_9Fg4op52m0F-w"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="contextType"
+                                nogen="true"
+                                required="true"
+                                testWith="TRAVELER"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="reportId"
+                                nogen="true"
+                                required="true"
+                                testWith="710D4BA24A3E4BF88F72"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="expenseId"
+                                nogen="true"
+                                required="true"
+                                testWith="5FA611FA035EEE46A58C423207B8EA19"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/expensereports/v4/users/{$userID}/context/{$contextType}/reports/{$reportId}/expenses/{$expenseId}"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="outExpenseById" type="reference">
+                        <options>
+                           <option name="referenceTo">root</option>
+                        </options>
+                        <xquery>{let $dta := util:parseJSON(fn:replace(fn:replace($RESTResponse/rest:payload/text(), '0E-8', '0'), ': 0.0,', ''))
+return
+util:simplifyXml(&lt;root&gt;
+{
+$dta
+}&lt;/root&gt;)}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RetrieveItemizations"
+                       maxRedirects="100"
+                       name="RetrieveItemizations"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="Authorization"
+                                nogen="true"
+                                required="false"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNjg3MDIwNjgxLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE2ODcwMTcwNzEsImlhdCI6MTY4NzAxNzA4MX0.Mqj9FjPEzQaU6iaAH7ICBoAov07rJDrtUShfzlkeP7g7NSSINUt3rc_LERb0lOEZLCRj63e8vIpV5OOaxJ6FMHs-1rE-lCcpDBw4CQWbCkiKtBvwOoIaW8QyLugEScB2ZIxpWsoeUBpphsQDfsSWaee93eAA3okUre9eqakd0a3Z03huKcuVa4YVqnP1nHHNLL0EgKMDsbsImrCFVFvssvn2YDw-WaYtTdVnPTfjuLyS3reO-2l7wpUs9YKRIv0POoSbcMZhClyCEH6R-nUcOD2PdK_Uq35x1aLsJv9y4Y2nx8XSWv-qakH6GXAMAI9tGl-1zite1myWPFKcUZky4w"
+                                type="string"/>
+                     <parameter name="userID"
+                                nogen="true"
+                                required="false"
+                                testWith="4cdad582-6019-4c67-9f34-1ff1a756f8e1"
+                                type="string"/>
+                     <parameter name="contextType"
+                                nogen="true"
+                                required="false"
+                                testWith="TRAVELER"
+                                type="string"/>
+                     <parameter name="reportId"
+                                nogen="true"
+                                required="false"
+                                testWith="1F83A6605FD34F47A4C0"
+                                type="string"/>
+                     <parameter name="expenseId"
+                                nogen="true"
+                                required="false"
+                                testWith="88276077638B5A4BA2CEB302F3A207A8"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/expensereports/v4/users/{$userID}/context/{$contextType}/reports/{$reportId}/expenses/{$expenseId}/?includeItemizations"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="deptItemId" type="string">
+                        <xquery>{util:iif(util:isNull(fn:substring-before(fn:substring-after(fn:replace($RESTResponse/rest:payload/text(), '0E-8', '0'), 'orgUnit2","value":"'), '"')), '', fn:substring-before(fn:substring-after(fn:replace($RESTResponse/rest:payload/text(), '0E-8', '0'), 'orgUnit2","value":"'), '"'))}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RetrieveExpenseTaxDetails"
+                       maxRedirects="100"
+                       name="RetrieveExpenseTaxDetails"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNzA4NzE0NDY0LCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE3MDg3MTA4NTQsImlhdCI6MTcwODcxMDg2NH0.N8R1XEwgCWZ5IP6tN_7APH545wDrl6-5rDmWh0i_QOK8QwnY88EwKfBsx8iQM1i2AqlcsMCG44cvci4GIBkqw3EkVEYvhuUh_i_p2MIfhVtx61zXkyBXPzv2EjeMDt7I9LZaW6Enams2SEErgmu_DGDlqD9G254vMJiPQuA6tBEKMwK-0aT4MeKmgCnlVQzoNU1G_q6AySkLRofC6pK19IryfJtzAnOPmRVgX0-hKzPKm-Jh2q_JfA5OHiAkoFc-TWBw2tC3ZuIOg6YLAri_GIPXpUWeMnJLr2kRxYU8K9mEW8xS0EGuRNB2FmVCvkCYt70eQGu_cwfCPYmLVLBwFA"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="userID"
+                                nogen="true"
+                                required="true"
+                                testWith="8cb7e324-b0ba-4025-8cf3-092bcdab2450"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="contextType"
+                                nogen="true"
+                                required="true"
+                                testWith="TRAVELER"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="reportId"
+                                nogen="true"
+                                required="true"
+                                testWith="4554A832A042420AAC30"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="expenseId"
+                                nogen="true"
+                                required="true"
+                                testWith="937776123177D84A91A71BF5AFC96D07"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/expensereports/v4/users/{$userID}/context/{$contextType}/reports/{$reportId}/expenses/{$expenseId}/tax"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="outExpenseTax" type="reference">
+                        <options>
+                           <option name="referenceTo">root</option>
+                        </options>
+                        <xquery>{let $dta := util:parseJSON(fn:replace(fn:replace($RESTResponse/rest:payload/text(), '0E-8', '0'), ': 0.0,', ''))
+return
+util:simplifyXml(&lt;root&gt;
+{
+$dta
+}&lt;/root&gt;)}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="ListItems"
+                       maxRedirects="100"
+                       name="ListItems"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="id"
+                                required="true"
+                                testWith="642E7724FC65AE4C9C7B1615E1972869"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNzA4NzE0NDY0LCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE3MDg3MTA4NTQsImlhdCI6MTcwODcxMDg2NH0.N8R1XEwgCWZ5IP6tN_7APH545wDrl6-5rDmWh0i_QOK8QwnY88EwKfBsx8iQM1i2AqlcsMCG44cvci4GIBkqw3EkVEYvhuUh_i_p2MIfhVtx61zXkyBXPzv2EjeMDt7I9LZaW6Enams2SEErgmu_DGDlqD9G254vMJiPQuA6tBEKMwK-0aT4MeKmgCnlVQzoNU1G_q6AySkLRofC6pK19IryfJtzAnOPmRVgX0-hKzPKm-Jh2q_JfA5OHiAkoFc-TWBw2tC3ZuIOg6YLAri_GIPXpUWeMnJLr2kRxYU8K9mEW8xS0EGuRNB2FmVCvkCYt70eQGu_cwfCPYmLVLBwFA"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://us2.api.concursolutions.com/list/v4/items"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="list_item_code"
+                            property="code"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RetrieveChildItemizations"
+                       maxRedirects="100"
+                       name="RetrieveChildItemizations"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="Authorization"
+                                nogen="true"
+                                required="false"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNjg3MDIwNjgxLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE2ODcwMTcwNzEsImlhdCI6MTY4NzAxNzA4MX0.Mqj9FjPEzQaU6iaAH7ICBoAov07rJDrtUShfzlkeP7g7NSSINUt3rc_LERb0lOEZLCRj63e8vIpV5OOaxJ6FMHs-1rE-lCcpDBw4CQWbCkiKtBvwOoIaW8QyLugEScB2ZIxpWsoeUBpphsQDfsSWaee93eAA3okUre9eqakd0a3Z03huKcuVa4YVqnP1nHHNLL0EgKMDsbsImrCFVFvssvn2YDw-WaYtTdVnPTfjuLyS3reO-2l7wpUs9YKRIv0POoSbcMZhClyCEH6R-nUcOD2PdK_Uq35x1aLsJv9y4Y2nx8XSWv-qakH6GXAMAI9tGl-1zite1myWPFKcUZky4w"
+                                type="string"/>
+                     <parameter name="userID"
+                                nogen="true"
+                                required="false"
+                                testWith="4cdad582-6019-4c67-9f34-1ff1a756f8e1"
+                                type="string"/>
+                     <parameter name="contextType"
+                                nogen="true"
+                                required="false"
+                                testWith="TRAVELER"
+                                type="string"/>
+                     <parameter name="reportId"
+                                nogen="true"
+                                required="false"
+                                testWith="1F83A6605FD34F47A4C0"
+                                type="string"/>
+                     <parameter name="expenseId"
+                                nogen="true"
+                                required="false"
+                                testWith="E5BF05DA326B224FBDF2CD11C84393FD"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/expensereports/v4/users/{$userID}/context/{$contextType}/reports/{$reportId}/expenses/{$expenseId}/?includeItemizations=true"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RetrieveAllocationsById"
+                       maxRedirects="100"
+                       name="RetrieveAllocationsById"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="Authorization"
+                                nogen="true"
+                                required="false"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIkVYUFJQVCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiZXhwZW5zZS5yZXBvcnQucmVhZCIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiXSwiYXVkIjoiKiIsImNvbmN1ci5hcHBJZCI6IjkyYTUyYTAwLTVhYzYtNDg5Ni1hYTIzLWU1NGY5ODllZjI3NSIsInN1YiI6Ijc0MzQ2NmRlLWViOTAtNDdiZS1iMmJhLWZiNjUyODYyYjViNiIsImlzcyI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL3ByaW5jaXBhbHMvNzQzNDY2ZGUtZWI5MC00N2JlLWIyYmEtZmI2NTI4NjJiNWI2IiwiZXhwIjoxNjg2NjYwNDIxLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJjb21wYW55IiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy85MmE1MmEwMC01YWM2LTQ4OTYtYWEyMy1lNTRmOTg5ZWYyNzUiLCJuYmYiOjE2ODY2NTY4MTEsImlhdCI6MTY4NjY1NjgyMX0.rQAnxb-bc-w6eJE16ckzfHER4jBwfz8hlJAenwmBVhUfPqI0YR9MG20V5W21GbX9anH-Jq81k6NhjfqOL3teloBthgJkclGchcld5cE1jd4-fR04ot4T41yJa1rXh1DyYtuiliIhvzOSNlrBW7mwx7NluZ-G9lp--113SaPsErFh5QXBtZqjrCBMPFs0JLWq_VdFeaKtxa7xJ9zxhjD_i7fzs2v6l0KCAcCfi4iSWLPJ5NPjWmTFdpkw91jQ7d4OdxmjpgsQQAUq2EZToXIEDqNjMHNXVxBLtLFpAVR_BgKNa8bnkyYVr78jyQC_Zm1ZRAElmBvghdLnqNE1l9hKjw"
+                                type="string"/>
+                     <parameter name="contextType"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="reportId"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="expenseId"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="userID"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="allocationId" required="false" testWith="" type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$Url}/expensereports/v4/users/{$userID}/context/{$contextType}/reports/{$reportId}/expenses/{$expenseId}/allocations/{allocationId}"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO_ExpenseReports_elements">
+                  <description/>
+                  <detail>
+                     <field name="ID" nullable="true" required="false" type="string"/>
+                     <field name="OwnerName" nullable="true" required="false" type="string"/>
+                     <field name="VendorCodeCustom17"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="CurrencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="memoName" nullable="true" required="false" type="string"/>
+                     <field name="OwnerLoginID"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="Total" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO_ExpenseReport_Entries_elements">
+                  <description/>
+                  <detail>
+                     <field name="ReportID" nullable="true" required="false" type="string"/>
+                     <field name="ApprovedAmount"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="Description"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="Department"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO_ExpenseReports">
+                  <description/>
+                  <detail>
+                     <field name="ExpenseHeader"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="ReportID" nullable="true" required="false" type="string"/>
+                     <field name="User" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO_ExpenseReport_Entries">
+                  <description/>
+                  <detail>
+                     <field name="ExpenseLineItemEntry"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="EntryID" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO_Allocations">
+                  <description/>
+                  <detail>
+                     <field name="AccountID" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Resources">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="preferredLanguage"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="localeOverrides"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">localeOverrides</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="timezone" nullable="true" required="false" type="string"/>
+                     <field name="displayName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="nickName" nullable="true" required="false" type="string"/>
+                     <field name="meta" nullable="true" required="false" type="reference">
+                        <options>
+                           <option name="referenceTo">meta</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="schemas" nullable="true" required="false" type="string"/>
+                     <field name="name" nullable="true" required="false" type="reference">
+                        <options>
+                           <option name="referenceTo">name</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="active" nullable="true" required="false" type="string"/>
+                     <field name="id" nullable="true" required="false" type="string"/>
+                     <field name="title" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="localeOverrides">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="preferenceDefaultCalView"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="preferenceNumberFormat"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="preferenceFirstDayOfWeek"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="preferenceHourMinuteSeparator"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="preferenceNegativeCurrencyFormat"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="preference24Hour"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="preferenceCurrencySymbolLocation"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="preferenceDistance"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="preferenceDateFormat"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="preferenceStartDayViewHour"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                     <field name="preferenceNegativeNumberFormat"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                     <field name="preferenceEndDayViewHour"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="meta">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="created" nullable="true" required="false" type="string"/>
+                     <field name="location" nullable="true" required="false" type="string"/>
+                     <field name="lastModified"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="version" nullable="true" required="false" type="int"/>
+                     <field name="resourceType"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="name">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="honorificSuffix"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="middleInitial"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="formatted" nullable="true" required="false" type="string"/>
+                     <field name="givenName" nullable="true" required="false" type="string"/>
+                     <field name="familyName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="familyNamePrefix"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="honorificPrefix"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="middleName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="root">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="emptyName"
+                            nullable="true"
+                            required="false"
+                            type="objectlist">
+                        <options>
+                           <option name="referenceTo">emptyName</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="totalResults" nullable="true" required="false" type="int"/>
+                     <field name="startIndex" nullable="true" required="false" type="int"/>
+                     <field name="itemsPerPage" nullable="true" required="false" type="int"/>
+                     <field name="schemas" nullable="true" required="false" type="string"/>
+                     <field name="Resources"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">Resources</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="customData"
+                            nullable="true"
+                            required="false"
+                            type="objectlist">
+                        <options>
+                           <option name="referenceTo">customData</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="expenseTaxSummary"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">expenseTaxSummary</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="expenseTaxes"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">expenseTaxes</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="expenseTax1"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">expenseTax1</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="expenseTax2"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="businessPurpose"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="isExpenseBillable"
+                            nullable="true"
+                            required="false"
+                            type="string">
+                        <options/>
+                     </field>
+                     <field name="expenseType"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="relationshipName">Child</option>
+                           <option name="referenceTo">expenseType</option>
+                           <option name="guid">expenseType</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="emptyName">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="approverAdjustedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">approverAdjustedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="ticketNumber"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="jptRouteId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="travelAllowance"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">travelAllowance</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="paymentType"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">paymentType</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="parentExpenseId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="isImageRequired"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="isPersonalExpense"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="exchangeRate"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">exchangeRate</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="vendor" nullable="true" required="false" type="reference">
+                        <options>
+                           <option name="referenceTo">vendor</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="receiptImageId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="transactionAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">transactionAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="ereceiptImageId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="attendeeCount"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                     <field name="canDelete" nullable="true" required="false" type="string"/>
+                     <field name="links" nullable="true" required="false" type="objectlist">
+                        <options>
+                           <option name="referenceTo">links</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="approvedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">approvedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="expenseType"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">expenseType</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="allocationState"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="transactionDate"
+                            nullable="true"
+                            required="false"
+                            type="datetime"/>
+                     <field name="isPaperReceiptRequired"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="postedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">postedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="hasMissingReceiptDeclaration"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="businessPurpose"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="allocationSetId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="imageCertificationStatus"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="hasBlockingExceptions"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="expenseId" nullable="true" required="false" type="string"/>
+                     <field name="isAutoCreated"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="expenseSourceIdentifiers"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">expenseSourceIdentifiers</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="location"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">location</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="fuelTypeListItem"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="hasExceptions"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="claimedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">claimedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="totalTaxPostedAmount"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="approverAdjustedAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="int"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="travelAllowance">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="dailyTravelAllowanceId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="dailyLimitAmount"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="isExpensePartOfTravelAllowance"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="paymentType">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="code" nullable="true" required="false" type="string"/>
+                     <field name="name" nullable="true" required="false" type="string"/>
+                     <field name="id" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="exchangeRate">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="int"/>
+                     <field name="operation" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="vendor">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="name" nullable="true" required="false" type="string"/>
+                     <field name="description"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="id" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="transactionAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="int"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="links">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="method" nullable="true" required="false" type="string"/>
+                     <field name="rel" nullable="true" required="false" type="string"/>
+                     <field name="href" nullable="true" required="false" type="string"/>
+                     <field name="isTemplated"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="approvedAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="int"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="expenseType">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="code" nullable="true" required="false" type="string"/>
+                     <field name="isDeleted"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="listItemId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="name" nullable="true" required="false" type="string"/>
+                     <field name="id" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="postedAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="int"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="expenseSourceIdentifiers">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="creditCardTransactionId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="personalCardTransactionId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="expenseCaptureImageId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="lastAppendedReceiptImageId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="ereceiptId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="jptRouteId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="receiptImageId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="segmentId" nullable="true" required="false" type="string"/>
+                     <field name="quickExpenseId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="ereceiptURL"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="tripId" nullable="true" required="false" type="string"/>
+                     <field name="segmentTypeId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="location">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="countrySubDivisionCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="city" nullable="true" required="false" type="string"/>
+                     <field name="countryCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="name" nullable="true" required="false" type="string"/>
+                     <field name="id" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="claimedAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="int"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="root_expenseById">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="approverAdjustedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">approverAdjustedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="customData"
+                            nullable="true"
+                            required="false"
+                            type="objectlist">
+                        <options>
+                           <option name="referenceTo">customData</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="travelAllowance"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">travelAllowance</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="isExpenseBillable"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="exchangeRate"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">exchangeRate</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="ereceiptImageId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="canDelete" nullable="true" required="false" type="string"/>
+                     <field name="links" nullable="true" required="false" type="objectlist">
+                        <options>
+                           <option name="referenceTo">links</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="mileage" nullable="true" required="false" type="string"/>
+                     <field name="budgetAccrualDate"
+                            nullable="true"
+                            required="false"
+                            type="datetime"/>
+                     <field name="receiptType"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">receiptType</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="authorizationRequestExpenseId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="postedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">postedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="hasMissingReceiptDeclaration"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="imageCertificationStatus"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="isExcludedFromCashAdvanceByUser"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="expenseSourceIdentifiers"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">expenseSourceIdentifiers</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="expenseTaxSummary"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">expenseTaxSummary</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="fuelTypeListItem"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="canAllocate"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="ticketNumber"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="jptRouteId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="isPaperReceiptReceived"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="paymentType"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">paymentType</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="parentExpenseId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="isImageRequired"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="isPersonalExpense"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="merchantTaxId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="vendor" nullable="true" required="false" type="reference">
+                        <options>
+                           <option name="referenceTo">vendor</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="receiptImageId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="transactionAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">transactionAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="attendeeCount"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                     <field name="approvedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">approvedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="xmlReceiptId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxRateLocation"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="isExpenseRejected"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="expenseType"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">expenseType</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="allocationState"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="transactionDate"
+                            nullable="true"
+                            required="false"
+                            type="datetime"/>
+                     <field name="isPaperReceiptRequired"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="businessPurpose"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="allocationSetId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="hasBlockingExceptions"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="expenseId" nullable="true" required="false" type="string"/>
+                     <field name="isAutoCreated"
+                            nullable="true"
+                            required="false"
+                            type="boolean"/>
+                     <field name="location"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">location</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="hasExceptions"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="travel" nullable="true" required="false" type="reference">
+                        <options>
+                           <option name="referenceTo">travel</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="claimedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">claimedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="customData">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="listItemUrl"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="isValid" nullable="true" required="false" type="boolean"/>
+                     <field name="id" nullable="true" required="false" type="string"/>
+                     <field name="value" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="receiptType">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="id" nullable="true" required="false" type="string"/>
+                     <field name="status" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="expenseTaxSummary">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="netReclaimAdjustedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">netReclaimAdjustedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="totalReclaimPostedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">totalReclaimPostedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="totalTaxPostedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">totalTaxPostedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="totalTaxAdjustedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">totalTaxAdjustedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="totalReclaimAdjustedAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">totalReclaimAdjustedAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="vatTaxTotal"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">vatTaxTotal</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="netReclaimAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">netReclaimAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="netTaxAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">netTaxAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="netAdjustedTaxAmount"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">netAdjustedTaxAmount</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="netReclaimAdjustedAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="double"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="totalReclaimPostedAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="double"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="totalTaxPostedAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="double"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="totalTaxAdjustedAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="double"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="totalReclaimAdjustedAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="double"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="vatTaxTotal">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="double"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="netReclaimAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="double"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="netTaxAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="double"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="netAdjustedTaxAmount">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="value" nullable="true" required="false" type="double"/>
+                     <field name="currencyCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="travel">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="airlineFeeTypeName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="ticketNumber"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="startLocation"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="hotelCheckinDate"
+                            nullable="true"
+                            required="false"
+                            type="datetime"/>
+                     <field name="airlineFeeTypeCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="airlineServiceClassName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="carRentalDays"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="airlineServiceClassCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="endLocation"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="hotelCheckoutDate"
+                            nullable="true"
+                            required="false"
+                            type="datetime"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="expenseTaxes">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="reclaimCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxTransactionAmount"
+                            nullable="true"
+                            required="false"
+                            type="double"/>
+                     <field name="taxReclaimPostedAmount"
+                            nullable="true"
+                            required="false"
+                            type="double"/>
+                     <field name="taxRateTypeId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="customData"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxCode" nullable="true" required="false" type="int"/>
+                     <field name="taxFormId" nullable="true" required="false" type="string"/>
+                     <field name="taxRateTypeName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxLabel" nullable="true" required="false" type="string"/>
+                     <field name="taxAuthorityId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxPostedAmount"
+                            nullable="true"
+                            required="false"
+                            type="double"/>
+                     <field name="reclaimTransactionAmount"
+                            nullable="true"
+                            required="false"
+                            type="double"/>
+                     <field name="taxReclaimConfigurationId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxAuthorityName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="expenseTax1">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="reclaimCode"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxTransactionAmount"
+                            nullable="true"
+                            required="false"
+                            type="double"/>
+                     <field name="taxReclaimPostedAmount"
+                            nullable="true"
+                            required="false"
+                            type="double"/>
+                     <field name="taxRateTypeId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="customData"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxCode" nullable="true" required="false" type="int"/>
+                     <field name="taxFormId" nullable="true" required="false" type="string"/>
+                     <field name="taxRateTypeName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxLabel" nullable="true" required="false" type="string"/>
+                     <field name="taxAuthorityId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxPostedAmount"
+                            nullable="true"
+                            required="false"
+                            type="double"/>
+                     <field name="reclaimTransactionAmount"
+                            nullable="true"
+                            required="false"
+                            type="double"/>
+                     <field name="taxReclaimConfigurationId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="taxAuthorityName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="result">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="xml" nullable="true" required="false" type="string"/>
+                     <field name="text" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>a1p9vr5Wlogf9luZaRKGeG</types1:GUID>
+      <types1:DisplayName>SC_Concur_v4</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:51:56.126Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

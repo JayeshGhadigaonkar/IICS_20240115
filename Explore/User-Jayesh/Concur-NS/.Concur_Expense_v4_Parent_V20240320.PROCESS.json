@@ -1,0 +1,65 @@
+{
+  "objectInfo" : {
+    "id" : "2tpofFyeoyDfrJAf8PDn6q",
+    "name" : "Concur_Expense_v4_Parent_V20240320",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "bbf3TzAnOjseGbc-gt-103927310-2024-03-20T04:57:30.017Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : null,
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2024-04-08T15:52:03.074Z",
+  "objectRefs" : [ {
+    "id" : "90hIh7SBJl1fqQbBGvDGUh",
+    "name" : "AC-Concur-v4",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "eI96xZ6or3rp3yD-gt-5610311-2024-02-15T16:46:01.507Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/User-Jayesh/Concur-NS"
+  }, {
+    "id" : "aYx8xudOeWxhU3ceYs7E89",
+    "name" : "Concur_Expense_v4_child",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "AbfOC2XZPnE29Em-gt-5819037-2024-02-15T16:46:01.742Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/User-Jayesh/Concur-NS"
+  } ]
+}

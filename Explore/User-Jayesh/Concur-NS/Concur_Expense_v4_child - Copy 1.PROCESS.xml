@@ -1,0 +1,442 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>lRoPzjlybduaa-gt-5819709-2024-02-15T16:46:10.192Z::pd.xml</types1:EntryId>
+      <types1:Name>Concur_Expense_v4_child_-_Copy_1-2</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-02-15T16:46:10Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="Concur_Expense_v4_child - Copy 1"
+                  name="Concur_Expense_v4_child_-_Copy_1-2"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="inReports" type="objectlist">
+                  <options>
+                     <option name="referenceTo">AC-Concur-v4-2:PO_ExpenseReports</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">90hIh7SBJl1fqQbBGvDGUh</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="inAuth" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="outMergedResponse_child" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="outReports_Child" type="objectlist">
+                  <options>
+                     <option name="referenceTo">AC-Concur-v4-2:PO_ExpenseReports</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">90hIh7SBJl1fqQbBGvDGUh</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="temp_Current_report" type="reference">
+                  <options>
+                     <option name="referenceTo">AC-Concur-v4-2:PO_ExpenseReports</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">90hIh7SBJl1fqQbBGvDGUh</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Context" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tempSummaries" type="objectlist">
+                  <options>
+                     <option name="referenceTo">AC-Concur-v4-2:emptyName</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">90hIh7SBJl1fqQbBGvDGUh</option>
+                  </options>
+               </field>
+               <field description="" name="tempCurrentSummary" type="reference">
+                  <options>
+                     <option name="referenceTo">AC-Concur-v4-2:emptyName</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">90hIh7SBJl1fqQbBGvDGUh</option>
+                  </options>
+               </field>
+               <field description="" name="tempExpenseId" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tempResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tempMergedResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tempCustomDataList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">AC-Concur-v4-2:customData</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">90hIh7SBJl1fqQbBGvDGUh</option>
+                  </options>
+               </field>
+               <field description="" name="tempCurrentCustomData" type="reference">
+                  <options>
+                     <option name="referenceTo">AC-Concur-v4-2:customData</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">90hIh7SBJl1fqQbBGvDGUh</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="livirn9h" targetId="livirn9g"/>
+               </start>
+               <assignment id="livirn9g">
+                  <title>Assignment to temp_Current_report, temp_Context</title>
+                  <operation source="formula" to="temp.temp_Current_report">
+                     <expression language="XQuery">list:head($input.inReports)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_Context">
+                     <expression language="XQuery">'TRAVELER'</expression>
+                  </operation>
+                  <link id="livirn9q" targetId="livirn9p"/>
+               </assignment>
+               <assignment id="livirnb2">
+                  <title>Assignment to tempSummaries</title>
+                  <operation source="field" to="temp.tempSummaries">output.outExpenseSummaries[1]/emptyName</operation>
+                  <link id="livkbssb" targetId="livkbssa"/>
+               </assignment>
+               <service id="livirn9p">
+                  <title>Identityv4Users</title>
+                  <serviceName>AC-Concur-v4-2:Identityv4Users</serviceName>
+                  <serviceGUID>90hIh7SBJl1fqQbBGvDGUh</serviceGUID>
+                  <serviceInput>
+                     <parameter name="userName" source="field" updatable="true">temp.temp_Current_report[1]/User</parameter>
+                     <parameter name="Authorization" source="field" updatable="true">input.inAuth</parameter>
+                  </serviceInput>
+                  <link id="livirna1" targetId="livirna0"/>
+               </service>
+               <service id="livirna0">
+                  <title>RetrieveExpenseSummaries</title>
+                  <serviceName>AC-Concur-v4-2:RetrieveExpenseSummaries</serviceName>
+                  <serviceGUID>90hIh7SBJl1fqQbBGvDGUh</serviceGUID>
+                  <serviceInput>
+                     <parameter name="Authorization" source="field" updatable="true">input.inAuth</parameter>
+                     <parameter name="userID" source="field" updatable="true">output.outUsers[1]/Resources[1]/id</parameter>
+                     <parameter name="contextType" source="field" updatable="true">temp.temp_Context</parameter>
+                     <parameter name="reportId" source="field" updatable="true">temp.temp_Current_report[1]/ReportID</parameter>
+                  </serviceInput>
+                  <link id="livirnb3" targetId="livirnb2"/>
+               </service>
+               <container id="livkbssa" type="exclusive">
+                  <title>tempSummaries</title>
+                  <flow id="livkbsse">
+                     <assignment id="livkbsso">
+                        <title>Assignment to tempSummary</title>
+                        <operation source="formula" to="temp.tempCurrentSummary">
+                           <expression language="XQuery">list:head($temp.tempSummaries )</expression>
+                        </operation>
+                        <link id="livkbswd" targetId="livkbswc"/>
+                     </assignment>
+                     <assignment id="livkbst7">
+                        <title>Assignment to tempExpenseId, tempCustomDataList etc.</title>
+                        <operation source="field" to="temp.tempExpenseId">temp.tempCurrentSummary[1]/expenseId</operation>
+                        <operation source="field" to="temp.tempCustomDataList">output.outExpenseById[1]/customData</operation>
+                        <operation source="formula" to="temp.tempResponse">
+                           <expression language="XQuery">$temp.temp_Current_report[1]/ExpenseHeader||','||$temp.tempExpenseId||','||$output.outExpenseById[1]/businessPurpose </expression>
+                        </operation>
+                        <link id="livmnj2p" targetId="livmnj2o"/>
+                     </assignment>
+                     <service id="livkbswc">
+                        <title>RetrieveExpenseByExpenseId</title>
+                        <serviceName>AC-Concur-v4-2:RetrieveExpenseByExpenseId</serviceName>
+                        <serviceGUID>90hIh7SBJl1fqQbBGvDGUh</serviceGUID>
+                        <serviceInput>
+                           <parameter name="userID" source="field" updatable="true">output.outUsers[1]/Resources[1]/id</parameter>
+                           <parameter name="Authorization" source="field" updatable="true">input.inAuth</parameter>
+                           <parameter name="contextType" source="field" updatable="true">temp.temp_Context</parameter>
+                           <parameter name="reportId" source="field" updatable="true">temp.temp_Current_report[1]/ReportID</parameter>
+                           <parameter name="expenseId" source="field" updatable="true">temp.tempCurrentSummary[1]/expenseId</parameter>
+                        </serviceInput>
+                        <link id="livkbswe" targetId="livkbst7"/>
+                     </service>
+                     <container id="livmnj2o" type="exclusive">
+                        <title>amountLoop</title>
+                        <flow id="livmnj2s">
+                           <assignment id="livmnj37">
+                              <title>Assignment to tempCurrentCustomData</title>
+                              <operation source="formula" to="temp.tempCurrentCustomData">
+                                 <expression language="XQuery">list:head($temp.tempCustomDataList )</expression>
+                              </operation>
+                              <link id="livmnj3p" targetId="livmnj3h"/>
+                           </assignment>
+                           <container id="livmnj3h" type="exclusive">
+                              <title>custom40Check</title>
+                              <flow id="livmnj3i">
+                                 <assignment id="livmnj53">
+                                    <title>Assignment to tempResponse</title>
+                                    <operation source="formula" to="temp.tempResponse">
+                                       <expression language="XQuery">$temp.tempResponse ||','||$temp.tempCustomDataList[1]/value</expression>
+                                    </operation>
+                                    <link id="livmnjkz" targetId="livmnjky"/>
+                                 </assignment>
+                                 <assignment id="livmnjky">
+                                    <title>Assignment to tempCustomDataList_org</title>
+                                    <operation source="field" to="temp.tempCustomDataList">output.outExpenseById[1]/customData</operation>
+                                    <link id="livmnjl0" targetId="livmnjbc"/>
+                                 </assignment>
+                                 <container id="livmnjbc" type="exclusive">
+                                    <title>orgUnitLoop</title>
+                                    <flow id="livmnjbd">
+                                       <assignment id="livmnjbe">
+                                          <title>Assignment to tempCurrentCustomData 1</title>
+                                          <operation source="formula" to="temp.tempCurrentCustomData">
+                                             <expression language="XQuery">list:head($temp.tempCustomDataList )</expression>
+                                          </operation>
+                                          <link id="livmnjbu" targetId="livmnjbf"/>
+                                       </assignment>
+                                       <container id="livmnjbf" type="exclusive">
+                                          <title>orgUnitCheck</title>
+                                          <flow id="livmnjbg">
+                                             <service id="lizy964p">
+                                                <title>ListItems</title>
+                                                <serviceName>AC-Concur-v4-2:ListItems</serviceName>
+                                                <serviceGUID>90hIh7SBJl1fqQbBGvDGUh</serviceGUID>
+                                                <serviceInput>
+                                                   <parameter name="id" source="field" updatable="true">temp.tempCustomDataList[1]/value</parameter>
+                                                   <parameter name="Authorization" source="field" updatable="true">input.inAuth</parameter>
+                                                </serviceInput>
+                                                <link id="lizy964q" targetId="livmnjbh"/>
+                                             </service>
+                                             <service id="lizy95xn">
+                                                <title>RetrieveExpenseTaxDetails</title>
+                                                <serviceName>AC-Concur-v4-2:RetrieveExpenseTaxDetails</serviceName>
+                                                <serviceGUID>90hIh7SBJl1fqQbBGvDGUh</serviceGUID>
+                                                <serviceInput>
+                                                   <parameter name="Authorization" source="field" updatable="true">input.inAuth</parameter>
+                                                   <parameter name="userID" source="field" updatable="true">output.outUsers[1]/Resources[1]/id</parameter>
+                                                   <parameter name="contextType" source="field" updatable="true">temp.temp_Context</parameter>
+                                                   <parameter name="reportId" source="field" updatable="true">temp.temp_Current_report[1]/ReportID</parameter>
+                                                   <parameter name="expenseId" source="field" updatable="true">temp.tempCurrentSummary[1]/expenseId</parameter>
+                                                </serviceInput>
+                                                <link id="lizy95y0" targetId="lizy95xz"/>
+                                             </service>
+                                             <assignment id="livmnjbh">
+                                                <title>Assignment to tempResponse, tempMergedResponse</title>
+                                                <operation source="formula" to="temp.tempResponse">
+                                                   <expression language="XQuery">$temp.tempResponse||','||$output.list_item_code ||','||'AccountId' </expression>
+                                                </operation>
+                                                <operation source="formula" to="temp.tempMergedResponse">
+                                                   <expression language="XQuery">$temp.tempMergedResponse||$temp.tempResponse||'&amp;#xa;'</expression>
+                                                </operation>
+                                                <link id="lizy95xo" targetId="lizy95xn"/>
+                                             </assignment>
+                                             <assignment id="lizy95zo">
+                                                <title>Assignment to tempSummaries</title>
+                                                <operation source="formula" to="temp.tempSummaries">
+                                                   <expression language="XQuery">list:remove($temp.tempSummaries , 1)</expression>
+                                                </operation>
+                                                <link id="lizy95zq" targetId="livmnjk5"/>
+                                             </assignment>
+                                             <container id="lizy95xz" type="exclusive">
+                                                <title>taxCode</title>
+                                                <flow id="lizy95y3">
+                                                   <link id="lizy95y4" targetId="lizy95xz" type="containerLink"/>
+                                                </flow>
+                                                <flow id="lizy95y6">
+                                                   <assignment id="lizy95yz">
+                                                      <title>Assignment to tempResponse, tempMergedResponse</title>
+                                                      <operation source="formula" to="temp.tempResponse">
+                                                         <expression language="XQuery">$temp.temp_Current_report[1]/ExpenseHeader||','||$temp.tempExpenseId||','||$output.outExpenseById[1]/businessPurpose||','||$output.outExpenseTax[1]/expenseTaxes[1]/taxPostedAmount||',29,'||$output.outExpenseTax[1]/expenseTaxes[1]/taxCode </expression>
+                                                      </operation>
+                                                      <operation source="formula" to="temp.tempMergedResponse">
+                                                         <expression language="XQuery">$temp.tempMergedResponse||$temp.tempResponse||'&amp;#xa;'</expression>
+                                                      </operation>
+                                                   </assignment>
+                                                   <link id="lizy95y7" targetId="lizy95xz" type="containerLink"/>
+                                                </flow>
+                                                <link id="lizy95y2" targetId="lizy95y3" type="containerLink">
+                                                   <condition source="formula">
+                                                      <function name="unset">
+                                                         <arg name="field">{$output.outExpenseTax[1]/expenseTaxes[1]/taxCode}</arg>
+                                                      </function>
+                                                   </condition>
+                                                </link>
+                                                <link id="lizy95y5" targetId="lizy95y6" type="containerLink"/>
+                                                <link id="lizy95zp" targetId="lizy95zo"/>
+                                             </container>
+                                             <jumpTo id="livmnjk5">
+                                                <link id="livmnjk6" targetId="livkbssa"/>
+                                             </jumpTo>
+                                          </flow>
+                                          <flow id="livmnjbj">
+                                             <assignment id="livmnjbk">
+                                                <title>Assignment to tempCustomDataList 1</title>
+                                                <operation source="formula" to="temp.tempCustomDataList">
+                                                   <expression language="XQuery">list:remove($temp.tempCustomDataList, 1)</expression>
+                                                </operation>
+                                                <link id="livmnjbz" targetId="livmnjbl"/>
+                                             </assignment>
+                                             <jumpTo id="livmnjbl">
+                                                <link id="livmnjc0" targetId="livmnjbc"/>
+                                             </jumpTo>
+                                          </flow>
+                                          <link id="livmnjbv" targetId="livmnjbg" type="containerLink">
+                                             <condition source="formula">
+                                                <function name="string-equals">
+                                                   <arg name="left">{$temp.tempCurrentCustomData[1]/id}</arg>
+                                                   <arg name="right">orgUnit2</arg>
+                                                </function>
+                                             </condition>
+                                          </link>
+                                          <link id="livmnjbw" targetId="livmnjbj" type="containerLink"/>
+                                       </container>
+                                    </flow>
+                                    <flow id="livmnjbn">
+                                       <assignment id="livmnjbo">
+                                          <title>Assignment to tempResponse, tempMergedResponse</title>
+                                          <operation source="formula" to="temp.tempResponse">
+                                             <expression language="XQuery">$temp.tempResponse||','||''||','||$output.outExpenseById[1]/businessPurpose </expression>
+                                          </operation>
+                                          <operation source="formula" to="temp.tempMergedResponse">
+                                             <expression language="XQuery">$temp.tempMergedResponse||$temp.tempResponse||'&amp;#xa;'</expression>
+                                          </operation>
+                                          <link id="livmnjc1" targetId="livmnjbp"/>
+                                       </assignment>
+                                       <jumpTo id="livmnjbp">
+                                          <link id="livmnjc2" targetId="lizy95xn"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <link id="livmnjbr" targetId="livmnjbd" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="not-empty">
+                                             <arg name="field">{$temp.tempCustomDataList}</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="livmnjbs" targetId="livmnjbn" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="empty">
+                                             <arg name="field">{$temp.tempCustomDataList}</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                 </container>
+                              </flow>
+                              <flow id="livmnj3j">
+                                 <assignment id="livmnjhm">
+                                    <title>Assignment to tempCustomDataList</title>
+                                    <operation source="formula" to="temp.tempCustomDataList">
+                                       <expression language="XQuery">list:remove($temp.tempCustomDataList, 1)</expression>
+                                    </operation>
+                                    <link id="livmnjhn" targetId="livmnj79"/>
+                                 </assignment>
+                                 <jumpTo id="livmnj79">
+                                    <link id="livmnj7a" targetId="livmnj2o"/>
+                                 </jumpTo>
+                              </flow>
+                              <link id="livmnj3l" targetId="livmnj3i" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="string-equals">
+                                       <arg name="left">{$temp.tempCurrentCustomData[1]/id}</arg>
+                                       <arg name="right">custom40</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="livmnj3m" targetId="livmnj3j" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <flow id="livmnj2v">
+                           <jumpTo id="livmnj8y">
+                              <link id="livmnj8z" targetId="lizy95xn"/>
+                           </jumpTo>
+                        </flow>
+                        <link id="livmnj2r" targetId="livmnj2s" type="containerLink">
+                           <condition source="formula">
+                              <function name="not-empty">
+                                 <arg name="field">{$temp.tempCustomDataList}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="livmnj2u" targetId="livmnj2v" type="containerLink">
+                           <condition source="formula">
+                              <function name="empty">
+                                 <arg name="field">{$temp.tempCustomDataList}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                     </container>
+                  </flow>
+                  <flow id="livkbssh">
+                     <assignment id="livkbsvq">
+                        <title>Assignment to outMergedResponse_child, outReports</title>
+                        <operation source="field" to="output.outMergedResponse_child">temp.tempMergedResponse</operation>
+                        <operation source="formula" to="output.outReports_Child">
+                           <expression language="XQuery">list:remove($input.inReports, 1)</expression>
+                        </operation>
+                        <link id="livkbsvr" targetId="livkbsux"/>
+                     </assignment>
+                     <end id="livkbsux"/>
+                  </flow>
+                  <link id="livkbssd" targetId="livkbsse" type="containerLink">
+                     <condition source="formula">
+                        <function name="not-empty">
+                           <arg name="field">{$temp.tempSummaries}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="livkbssg" targetId="livkbssh" type="containerLink">
+                     <condition source="formula">
+                        <function name="empty">
+                           <arg name="field">{$temp.tempSummaries}</arg>
+                        </function>
+                     </condition>
+                  </link>
+               </container>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>8R2o5O8pl7qk67G74QcHYr</types1:GUID>
+      <types1:DisplayName>Concur_Expense_v4_child - Copy 1</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:52:02.07Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

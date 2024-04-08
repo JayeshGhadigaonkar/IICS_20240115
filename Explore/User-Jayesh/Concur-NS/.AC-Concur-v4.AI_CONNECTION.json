@@ -1,0 +1,45 @@
+{
+  "objectInfo" : {
+    "id" : "90hIh7SBJl1fqQbBGvDGUh",
+    "name" : "AC-Concur-v4",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "eI96xZ6or3rp3yD-gt-5610311-2024-02-15T16:46:01.507Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2024-04-08T15:52:03.080Z",
+  "objectRefs" : [ {
+    "id" : "a1p9vr5Wlogf9luZaRKGeG",
+    "name" : "SC_Concur_v4",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "vJ89SfSmbduaa-gt-5610279-2024-02-15T16:46:01.35Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/User-Jayesh/Concur-NS"
+  } ]
+}

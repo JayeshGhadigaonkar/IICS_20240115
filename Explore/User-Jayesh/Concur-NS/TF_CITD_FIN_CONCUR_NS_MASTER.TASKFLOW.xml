@@ -1,0 +1,432 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>u98dpgbcggaaaaa-gt-1318294-2024-04-04T05:27:22.331Z::tf.xml</types1:EntryId>
+      <types1:Name>TF_CITD_FIN_CONCUR_NS_MASTER</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-04-04T05:27:22Z</types1:CreationDate>
+      <types1:ModifiedBy>jghadigaonkar@kinaxis.com.SAML2</types1:ModifiedBy>
+      <types1:ModificationDate>2024-04-04T20:59:19Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>jghadigaonkar@kinaxis.com.SAML2</types1:PublishedBy>
+      <types1:PublicationDate>2024-04-04T21:23:15Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/tf.TF_CITD_FIN_CONCUR_NS_MASTER/TF_CITD_FIN_CONCUR_NS_MASTER.tf.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="TF_CITD_FIN_CONCUR_NS_MASTER"
+                   name="TF_CITD_FIN_CONCUR_NS_MASTER"
+                   overrideAPIName="true">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="IN_PRIMARY_BATCH_KEY" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="DT_CITD_FIN_NSUIT_REFERENCE" type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:MT-CITD-FIN-NSUIT-REFERENCE</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="DT_CITD_FIN_CONCUR_NS_VENDORBILL"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:MT-CITD-FIN-CONCUR-NS-VENDORBILL</option>
+                  </options>
+               </field>
+               <field description="" name="temp_CHECK_VENDORBILL" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="MT_CITD_FIN_CONCUR_NS_INT" type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:MT-CITD-FIN-CONCUR-NSUIT-INT</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="TF_CITD_FIN_CONCUR_NS_CREATE_CONCUR_FF"
+                      type="reference">
+                  <options>
+                     <option name="referenceTo">$po:InternalInfaSubTaskflowField</option>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="luksomht" targetId="luksomhs"/>
+               </start>
+               <assignment id="luksomhs">
+                  <title>CREATE_BATCH</title>
+                  <operation source="formula" to="input.IN_PRIMARY_BATCH_KEY">
+                     <expression language="XQuery">date:toChar(
+fn:current-dateTime(), 
+'YYYYMMDDHH24MISS')
+</expression>
+                  </operation>
+                  <link id="lulid4w5" targetId="lulid4w4"/>
+               </assignment>
+               <assignment id="lulhd6bu">
+                  <title>CHECK_VENDORBILL_RECORDS</title>
+                  <operation source="field" to="temp.temp_CHECK_VENDORBILL">temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL[1]/output[1]/Success_Target_Rows</operation>
+                  <link id="lulhd6co" targetId="lulhd6cn"/>
+               </assignment>
+               <subflow id="lulid4w4">
+                  <title>TF_CITD_FIN_CONCUR_NS_CREATE_CONCUR_FF</title>
+                  <subflowGUID>eSBFJ7JipiBbI9VI1lHmYu</subflowGUID>
+                  <subflowPath>TF_CITD_FIN_CONCUR_NS_CREATE_CONCUR_FF</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input/>
+                  <outputDef/>
+                  <link id="lulid4w6" targetId="lulhd679"/>
+               </subflow>
+               <eventContainer id="lulhd679">
+                  <service id="lulhd66l">
+                     <title>DT_CITD_FIN_NSUIT_REFERENCE</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">MT_CITD_FIN_NSUIT_REFERENCE</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">7cOS4hdFLNcjGzAr5FFA6o</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="MT-CITD-FIN-NSUIT-REFERENCE">temp.DT_CITD_FIN_NSUIT_REFERENCE</operation>
+                           <operation source="field" to="MT-CITD-FIN-NSUIT-REFERENCE/inout[1]/InOut_BatchKey">input.IN_PRIMARY_BATCH_KEY</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Log_Id">Log Id</operation>
+                        <operation source="field" to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Task_Id">Task Id</operation>
+                        <operation source="field" to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field" to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_NSUIT_REFERENCE/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="lulhd68d" targetId="lulhd690"/>
+                  <events>
+                     <catch faultField="temp.DT_CITD_FIN_NSUIT_REFERENCE/fault"
+                            id="lulhd677"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.DT_CITD_FIN_NSUIT_REFERENCE/fault"
+                            id="lulhd678"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <eventContainer id="lulhd690">
+                  <service id="lulhd68c">
+                     <title>DT_CITD_FIN_CONCUR_NS_VENDORBILL</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">MT_CITD_FIN_CONCUR_NS_VENDORBILL</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">1HvTPVYgY3XjTr3pxcG3eB</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="MT-CITD-FIN-CONCUR-NS-VENDORBILL">temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Log_Id">Log Id</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Start_Time">Start Time</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="lulhd6bv" targetId="lulhd6bu"/>
+                  <events>
+                     <catch faultField="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/fault"
+                            id="lulhd68y"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.DT_CITD_FIN_CONCUR_NS_VENDORBILL/fault"
+                            id="lulhd68z"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <container id="lulhd6cn" type="exclusive">
+                  <title>CHECK_VENDORBILL</title>
+                  <flow id="lulhd6cr">
+                     <throw id="lulhd6dg">
+                        <title>Throw 1</title>
+                        <throwInput>
+                           <parameter name="code" source="formula" updatable="true">
+                              <expression language="XQuery">'ERROR: VENDORBILL RECORDS ARE 0'</expression>
+                           </parameter>
+                           <parameter name="detail" source="formula" updatable="true">
+                              <expression language="XQuery">'ERROR: VENDORBILL RECORDS ARE 0'</expression>
+                           </parameter>
+                           <parameter name="reason" source="formula" updatable="true">
+                              <expression language="XQuery">'ERROR: VENDORBILL RECORDS ARE 0'</expression>
+                           </parameter>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <flow id="lulhd6cu">
+                     <eventContainer id="lulhd6el">
+                        <service id="lulhd6du">
+                           <title>MT_CITD_FIN_CONCUR_NS_INT</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                              <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                              <parameter name="Task Name" source="constant" updatable="true">MT_CITD_FIN_CONCUR_NSUIT_INT</parameter>
+                              <parameter name="GUID" source="constant" updatable="true">jA2hf9vZKaneAFK2fIxc0r</parameter>
+                              <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                              <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="MT-CITD-FIN-CONCUR-NSUIT-INT">temp.MT_CITD_FIN_CONCUR_NS_INT</operation>
+                                 <operation source="field"
+                                            to="MT-CITD-FIN-CONCUR-NSUIT-INT/inout[1]/InOut_BATCH_KEY">input.IN_PRIMARY_BATCH_KEY</operation>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Object_Name">Object Name</operation>
+                              <operation source="field" to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Log_Id">Log Id</operation>
+                              <operation source="field" to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Task_Id">Task Id</operation>
+                              <operation source="field" to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Task_Status">Task Status</operation>
+                              <operation source="field"
+                                         to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Success_Source_Rows">Success Source Rows</operation>
+                              <operation source="field"
+                                         to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Failed_Source_Rows">Failed Source Rows</operation>
+                              <operation source="field"
+                                         to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Success_Target_Rows">Success Target Rows</operation>
+                              <operation source="field"
+                                         to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Failed_Target_Rows">Failed Target Rows</operation>
+                              <operation source="field" to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/Error_Message">Error Message</operation>
+                              <operation source="field"
+                                         to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/TotalTransErrors">Total Transformation Errors</operation>
+                              <operation source="field"
+                                         to="temp.MT_CITD_FIN_CONCUR_NS_INT/output/FirstErrorCode">First Error Code</operation>
+                              <operation source="field"
+                                         to="temp.MT_CITD_FIN_CONCUR_NS_INT/inout/InOut_BATCH_KEY">InOut_BATCH_KEY</operation>
+                              <operation source="field"
+                                         to="temp.MT_CITD_FIN_CONCUR_NS_INT/inout/InOut_BATCH_NAME">InOut_BATCH_NAME</operation>
+                              <operation source="field"
+                                         to="temp.MT_CITD_FIN_CONCUR_NS_INT/inout/InOut_BATCH_STATUS">InOut_BATCH_STATUS</operation>
+                           </serviceOutput>
+                        </service>
+                        <events>
+                           <catch faultField="temp.MT_CITD_FIN_CONCUR_NS_INT/fault"
+                                  id="lulhd6ej"
+                                  interrupting="true"
+                                  name="error">
+                              <suspend/>
+                           </catch>
+                           <catch faultField="temp.MT_CITD_FIN_CONCUR_NS_INT/fault"
+                                  id="lulhd6ek"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <link id="lulhd6cv" targetId="lulhd6cn" type="containerLink"/>
+                  </flow>
+                  <link id="lulhd6cq" targetId="lulhd6cr" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$temp.temp_CHECK_VENDORBILL}</arg>
+                           <arg name="right">0</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="lulhd6ct" targetId="lulhd6cu" type="containerLink"/>
+                  <link id="lulhd6cp" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-CITD-FIN-NSUIT-REFERENCE"
+                              isByCopy="true"
+                              name="MT-CITD-FIN-NSUIT-REFERENCE">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-CITD-FIN-CONCUR-NS-VENDORBILL"
+                              isByCopy="true"
+                              name="MT-CITD-FIN-CONCUR-NS-VENDORBILL">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-CITD-FIN-CONCUR-NSUIT-INT"
+                              isByCopy="true"
+                              name="MT-CITD-FIN-CONCUR-NSUIT-INT">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="InternalInfaSubTaskflowField"
+                              isByCopy="true"
+                              name="InternalInfaSubTaskflowField">
+                  <description>This process object represents a subtaskflow type reference field.</description>
+                  <tags/>
+                  <detail/>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>fOccj2VHjG4ejqdrSMWc6e</types1:GUID>
+      <types1:DisplayName>TF_CITD_FIN_CONCUR_NS_MASTER</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:52:02.312Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

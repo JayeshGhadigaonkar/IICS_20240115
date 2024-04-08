@@ -1,0 +1,662 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>msK4PvbcjIw8jIw-gt-2202468-2024-02-28T20:02:30.207Z::tf.xml</types1:EntryId>
+      <types1:Name>TF_CITD_FIN_CONCUR_NS_CREATE_CONCUR_FF</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description>Create Concur Flat file using this Orchestration</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-02-28T20:02:30Z</types1:CreationDate>
+      <types1:ModifiedBy>jghadigaonkar@kinaxis.com.SAML2</types1:ModifiedBy>
+      <types1:ModificationDate>2024-04-04T21:22:57Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>jghadigaonkar@kinaxis.com.SAML2</types1:PublishedBy>
+      <types1:PublicationDate>2024-04-04T21:23:15Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/tf.TF_CITD_FIN_CONCUR_NS_CREATE_CONCUR_FF/TF_CITD_FIN_CONCUR_NS_CREATE_CONCUR_FF.tf.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="TF_CITD_FIN_CONCUR_NS_CREATE_CONCUR_FF"
+                   name="TF_CITD_FIN_CONCUR_NS_CREATE_CONCUR_FF"
+                   overrideAPIName="true">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description>Create Concur Flat file using this Orchestration</description>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="temp_created_after" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Cnt_Level" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Check_Level" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Override_Flag" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="MT_GET_RUN_DATES" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:MT-Concur-NS-Get-RunDates-Override</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="DT_Concur_GetExpenses_v4_File"
+                      type="reference">
+                  <options>
+                     <option name="referenceTo">$po:MT-Concur-GetExpenses-v4-File</option>
+                  </options>
+               </field>
+               <field description="" name="MT_GET_RUN_DATES_SYSDATE" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:MT-Concur-NS-Get-RunDates-Sysdate</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="MT_CONCUR_GET_EXPENSES_FF_SYSDATE"
+                      type="reference">
+                  <options>
+                     <option name="referenceTo">$po:MT-Concur-GetExpenses-v4-File</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:MT-CITD-FIN-CONCUR-NS-GET-OVERRIDE-FLAG</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="lulj56d1" targetId="lulj56du"/>
+               </start>
+               <eventContainer id="lulj56du">
+                  <service id="lulj56d0">
+                     <title>DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">MT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">aUkKOEmbnfmiEHe467Qx4O</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="MT-CITD-FIN-CONCUR-NS-GET-OVERRIDE-FLAG">temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Object_Name">Object Name</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Run_Id">Run Id</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Log_Id">Log Id</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Start_Time">Start Time</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/output/FirstErrorCode">First Error Code</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/inout/InOut_Override_Flag">InOut_Override_Flag</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="lulj56d2" targetId="lkazirc8"/>
+                  <events>
+                     <catch faultField="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/fault"
+                            id="lulj56ds"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG/fault"
+                            id="lulj56dt"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <assignment id="lkazirc8">
+                  <title>Initialize Date</title>
+                  <operation source="formula" to="temp.temp_created_after">
+                     <expression language="XQuery">fn:concat('"', format-date(fn:current-date() - xs:dayTimeDuration('P1D') , '[Y0001]-[M01]-[D01]'),'"')</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_Cnt_Level">
+                     <expression language="XQuery">1</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_Check_Level">
+                     <expression language="XQuery">0</expression>
+                  </operation>
+                  <operation source="field" to="temp.temp_Override_Flag">temp.DT_CITD_FIN_CONCUR_NS_GET_OVERRIDE_FLAG[1]/inout[1]/InOut_Override_Flag</operation>
+                  <link id="lu91zab6" targetId="lu91zab5"/>
+               </assignment>
+               <container id="lu91zab5" type="exclusive">
+                  <title>Override_Flag</title>
+                  <flow id="lu91zab9">
+                     <container id="lu91zaf9" type="exclusive">
+                        <title>Decision_Override_Dates</title>
+                        <flow id="lu91zafa">
+                           <assignment id="lu91zafb">
+                              <title>Assign_Counter_1</title>
+                              <operation source="field"
+                                         to="temp.MT_GET_RUN_DATES[1]/inout[1]/InOut_Level_Run_Dates">temp.temp_Cnt_Level</operation>
+                              <link id="lu91zafm" targetId="lu91zafc"/>
+                           </assignment>
+                           <assignment id="lu91zafg">
+                              <title>Increment_Counter_1</title>
+                              <operation source="formula" to="temp.temp_Cnt_Level">
+                                 <expression language="XQuery">$temp.temp_Cnt_Level + 1</expression>
+                              </operation>
+                              <operation source="formula" to="temp.temp_Check_Level">
+                                 <expression language="XQuery">util:iif($temp.temp_Cnt_Level=8,1,0)</expression>
+                              </operation>
+                              <link id="lu91zafp" targetId="lu91zafh"/>
+                           </assignment>
+                           <eventContainer id="lu91zafc">
+                              <service id="lu91zafd">
+                                 <title>MT_GET_RUN_DATES</title>
+                                 <serviceName>ICSExecuteDataTask</serviceName>
+                                 <serviceGUID/>
+                                 <serviceInput>
+                                    <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                    <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                                    <parameter name="Task Name" source="constant" updatable="true">MT_Concur_NS_Get_RunDates_Override</parameter>
+                                    <parameter name="GUID" source="constant" updatable="true">2A27unJACEUetPqOqhovEV</parameter>
+                                    <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                    <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                                    <parameter name="taskField" source="nested">
+                                       <operation source="field" to="MT-Concur-NS-Get-RunDates-Override">temp.MT_GET_RUN_DATES</operation>
+                                    </parameter>
+                                 </serviceInput>
+                                 <serviceOutput>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Object_Name">Object Name</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Run_Id">Run Id</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Log_Id">Log Id</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Task_Id">Task Id</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Task_Status">Task Status</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Success_Source_Rows">Success Source Rows</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Success_Target_Rows">Success Target Rows</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Start_Time">Start Time</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/End_Time">End Time</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/Error_Message">Error Message</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/TotalTransErrors">Total Transformation Errors</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/output/FirstErrorCode">First Error Code</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/inout/InOut_Current_From_Date">InOut_Current_From_Date</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/inout/InOut_Current_To_Date">InOut_Current_To_Date</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/inout/InOut_Level_Run_Dates">InOut_Level_Run_Dates</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/inout/InOut_Input_Date">InOut_Input_Date</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES/inout/InOut_Override_Flag">InOut_Override_Flag</operation>
+                                 </serviceOutput>
+                              </service>
+                              <link id="lu91zafn" targetId="lu91zafe"/>
+                              <events>
+                                 <catch faultField="temp.MT_GET_RUN_DATES/fault"
+                                        id="lu8hr52t"
+                                        interrupting="true"
+                                        name="error">
+                                    <suspend/>
+                                 </catch>
+                                 <catch faultField="temp.MT_GET_RUN_DATES/fault"
+                                        id="lu8hr52u"
+                                        interrupting="true"
+                                        name="warning"/>
+                              </events>
+                           </eventContainer>
+                           <eventContainer id="lu91zafe">
+                              <service id="lu91zaff">
+                                 <title>DT_Concur_GetExpenses_v4_File</title>
+                                 <serviceName>ICSExecuteDataTask</serviceName>
+                                 <serviceGUID/>
+                                 <serviceInput>
+                                    <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                    <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                                    <parameter name="Task Name" source="constant" updatable="true">MT_Concur_GetExpenses_v4_File</parameter>
+                                    <parameter name="GUID" source="constant" updatable="true">41R8pRwbuDMdagIQxaNUCD</parameter>
+                                    <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                    <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                                    <parameter name="taskField" source="nested">
+                                       <operation source="field" to="MT-Concur-GetExpenses-v4-File">temp.DT_Concur_GetExpenses_v4_File</operation>
+                                       <operation source="field"
+                                                  to="MT-Concur-GetExpenses-v4-File/inout[1]/in_out_process_pymt_dt_after">temp.MT_GET_RUN_DATES[1]/inout[1]/InOut_Current_From_Date</operation>
+                                       <operation source="field"
+                                                  to="MT-Concur-GetExpenses-v4-File/inout[1]/in_out_process_pymt_dt_before">temp.MT_GET_RUN_DATES[1]/inout[1]/InOut_Current_To_Date</operation>
+                                    </parameter>
+                                 </serviceInput>
+                                 <serviceOutput>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/output/Object_Name">Object Name</operation>
+                                    <operation source="field" to="temp.DT_Concur_GetExpenses_v4_File/output/Run_Id">Run Id</operation>
+                                    <operation source="field" to="temp.DT_Concur_GetExpenses_v4_File/output/Log_Id">Log Id</operation>
+                                    <operation source="field" to="temp.DT_Concur_GetExpenses_v4_File/output/Task_Id">Task Id</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/output/Task_Status">Task Status</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/output/Success_Source_Rows">Success Source Rows</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/output/Success_Target_Rows">Success Target Rows</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/output/Start_Time">Start Time</operation>
+                                    <operation source="field" to="temp.DT_Concur_GetExpenses_v4_File/output/End_Time">End Time</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/output/Error_Message">Error Message</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/output/TotalTransErrors">Total Transformation Errors</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/output/FirstErrorCode">First Error Code</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/inout/in_out_CreatedAfter">in_out_CreatedAfter</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/inout/in_out_process_pymt_dt_after">in_out_process_pymt_dt_after</operation>
+                                    <operation source="field"
+                                               to="temp.DT_Concur_GetExpenses_v4_File/inout/in_out_process_pymt_dt_before">in_out_process_pymt_dt_before</operation>
+                                 </serviceOutput>
+                              </service>
+                              <link id="lu91zafo" targetId="lu91zafg"/>
+                              <events>
+                                 <catch faultField="temp.DT_Concur_GetExpenses_v4_File/fault"
+                                        id="lu8sp2kq"
+                                        interrupting="true"
+                                        name="error">
+                                    <suspend/>
+                                 </catch>
+                                 <catch faultField="temp.DT_Concur_GetExpenses_v4_File/fault"
+                                        id="lu8sp2kr"
+                                        interrupting="true"
+                                        name="warning"/>
+                              </events>
+                           </eventContainer>
+                           <jumpTo id="lu91zafh">
+                              <link id="lu91zafq" targetId="lu91zaf9"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="lu91zafi">
+                           <end id="lu91zafj"/>
+                        </flow>
+                        <link id="lu91zafk" targetId="lu91zafa" type="containerLink">
+                           <condition source="formula">
+                              <function name="string-equals">
+                                 <arg name="left">{$temp.temp_Check_Level}</arg>
+                                 <arg name="right">0</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="lu91zafl" targetId="lu91zafi" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <flow id="lu91zabc">
+                     <container id="lu91zalk" type="exclusive">
+                        <title>Decision_Systtem_Dates</title>
+                        <flow id="lu91zalm">
+                           <assignment id="lu91zamt">
+                              <title>Assign_Counter_2</title>
+                              <operation source="field"
+                                         to="temp.MT_GET_RUN_DATES_SYSDATE[1]/inout[1]/InOut_Level_Run_Dates">temp.temp_Cnt_Level</operation>
+                              <link id="lu91zamz" targetId="lu91zao9"/>
+                           </assignment>
+                           <assignment id="lu94roft">
+                              <title>Increment_Counter_2</title>
+                              <operation source="formula" to="temp.temp_Cnt_Level">
+                                 <expression language="XQuery">$temp.temp_Cnt_Level + 1</expression>
+                              </operation>
+                              <operation source="formula" to="temp.temp_Check_Level">
+                                 <expression language="XQuery">util:iif($temp.temp_Cnt_Level=8,1,0)</expression>
+                              </operation>
+                              <link id="lu94rog8" targetId="lu94rog6"/>
+                           </assignment>
+                           <eventContainer id="lu91zao9">
+                              <service id="lu91zamy">
+                                 <title>MT_GET_RUN_DATES_SYSDATE</title>
+                                 <serviceName>ICSExecuteDataTask</serviceName>
+                                 <serviceGUID/>
+                                 <serviceInput>
+                                    <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                    <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                                    <parameter name="Task Name" source="constant" updatable="true">MT_Concur_NS_Get_RunDates_Sysdate</parameter>
+                                    <parameter name="GUID" source="constant" updatable="true">bnNOhEdJyQ8kRUYZk8EUCj</parameter>
+                                    <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                    <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                                    <parameter name="taskField" source="nested">
+                                       <operation source="field" to="MT-Concur-NS-Get-RunDates-Sysdate">temp.MT_GET_RUN_DATES_SYSDATE</operation>
+                                    </parameter>
+                                 </serviceInput>
+                                 <serviceOutput>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES_SYSDATE/output/Object_Name">Object Name</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES_SYSDATE/output/Run_Id">Run Id</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES_SYSDATE/output/Log_Id">Log Id</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES_SYSDATE/output/Task_Id">Task Id</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES_SYSDATE/output/Task_Status">Task Status</operation>
+                                    <operation source="field"
+                                               to="temp.MT_GET_RUN_DATES_SYSDATE/output/Success_Source_Rows">Success Source Rows</operation>
+                                    <operation source="field"
+                                               to="temp.MT_GET_RUN_DATES_SYSDATE/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                    <operation source="field"
+                                               to="temp.MT_GET_RUN_DATES_SYSDATE/output/Success_Target_Rows">Success Target Rows</operation>
+                                    <operation source="field"
+                                               to="temp.MT_GET_RUN_DATES_SYSDATE/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES_SYSDATE/output/Start_Time">Start Time</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES_SYSDATE/output/End_Time">End Time</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES_SYSDATE/output/Error_Message">Error Message</operation>
+                                    <operation source="field"
+                                               to="temp.MT_GET_RUN_DATES_SYSDATE/output/TotalTransErrors">Total Transformation Errors</operation>
+                                    <operation source="field" to="temp.MT_GET_RUN_DATES_SYSDATE/output/FirstErrorCode">First Error Code</operation>
+                                    <operation source="field"
+                                               to="temp.MT_GET_RUN_DATES_SYSDATE/inout/InOut_Current_From_Date">InOut_Current_From_Date</operation>
+                                    <operation source="field"
+                                               to="temp.MT_GET_RUN_DATES_SYSDATE/inout/InOut_Current_To_Date">InOut_Current_To_Date</operation>
+                                    <operation source="field"
+                                               to="temp.MT_GET_RUN_DATES_SYSDATE/inout/InOut_Level_Run_Dates">InOut_Level_Run_Dates</operation>
+                                    <operation source="field"
+                                               to="temp.MT_GET_RUN_DATES_SYSDATE/inout/InOut_Input_Date">InOut_Input_Date</operation>
+                                    <operation source="field"
+                                               to="temp.MT_GET_RUN_DATES_SYSDATE/inout/InOut_Override_Flag">InOut_Override_Flag</operation>
+                                 </serviceOutput>
+                              </service>
+                              <link id="lu94rof0" targetId="lu94rofp"/>
+                              <events>
+                                 <catch faultField="temp.MT_GET_RUN_DATES_SYSDATE/fault"
+                                        id="lu91zao7"
+                                        interrupting="true"
+                                        name="error">
+                                    <suspend/>
+                                 </catch>
+                                 <catch faultField="temp.MT_GET_RUN_DATES_SYSDATE/fault"
+                                        id="lu91zao8"
+                                        interrupting="true"
+                                        name="warning"/>
+                              </events>
+                           </eventContainer>
+                           <eventContainer id="lu94rofp">
+                              <service id="lu94roez">
+                                 <title>MT_CONCUR_GET_EXPENSES_FF_SYSDATE</title>
+                                 <serviceName>ICSExecuteDataTask</serviceName>
+                                 <serviceGUID/>
+                                 <serviceInput>
+                                    <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                    <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                                    <parameter name="Task Name" source="constant" updatable="true">MT_Concur_GetExpenses_v4_File</parameter>
+                                    <parameter name="GUID" source="constant" updatable="true">41R8pRwbuDMdagIQxaNUCD</parameter>
+                                    <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                    <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                                    <parameter name="taskField" source="nested">
+                                       <operation source="field" to="MT-Concur-GetExpenses-v4-File">temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE</operation>
+                                       <operation source="field"
+                                                  to="MT-Concur-GetExpenses-v4-File/inout[1]/in_out_process_pymt_dt_after">temp.MT_GET_RUN_DATES_SYSDATE[1]/inout[1]/InOut_Current_From_Date</operation>
+                                       <operation source="field"
+                                                  to="MT-Concur-GetExpenses-v4-File/inout[1]/in_out_process_pymt_dt_before">temp.MT_GET_RUN_DATES_SYSDATE[1]/inout[1]/InOut_Current_To_Date</operation>
+                                    </parameter>
+                                 </serviceInput>
+                                 <serviceOutput>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Object_Name">Object Name</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Run_Id">Run Id</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Log_Id">Log Id</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Task_Id">Task Id</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Task_Status">Task Status</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Success_Source_Rows">Success Source Rows</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Success_Target_Rows">Success Target Rows</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Start_Time">Start Time</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/End_Time">End Time</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/Error_Message">Error Message</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/TotalTransErrors">Total Transformation Errors</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/output/FirstErrorCode">First Error Code</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/inout/in_out_CreatedAfter">in_out_CreatedAfter</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/inout/in_out_process_pymt_dt_after">in_out_process_pymt_dt_after</operation>
+                                    <operation source="field"
+                                               to="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/inout/in_out_process_pymt_dt_before">in_out_process_pymt_dt_before</operation>
+                                 </serviceOutput>
+                              </service>
+                              <link id="lu94rofu" targetId="lu94roft"/>
+                              <events>
+                                 <catch faultField="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/fault"
+                                        id="lu91zarj"
+                                        interrupting="true"
+                                        name="error">
+                                    <suspend/>
+                                 </catch>
+                                 <catch faultField="temp.MT_CONCUR_GET_EXPENSES_FF_SYSDATE/fault"
+                                        id="lu91zark"
+                                        interrupting="true"
+                                        name="warning"/>
+                              </events>
+                           </eventContainer>
+                           <jumpTo id="lu94rog6">
+                              <link id="lu94rog7" targetId="lu91zalk"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="lu91zalp">
+                           <end id="lu91zalx">
+                              <title>End 1</title>
+                           </end>
+                        </flow>
+                        <link id="lu91zall" targetId="lu91zalm" type="containerLink">
+                           <condition source="formula">
+                              <function name="contains">
+                                 <arg name="left">{$temp.temp_Check_Level}</arg>
+                                 <arg name="right">0</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="lu91zalo" targetId="lu91zalp" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <link id="lu91zab8" targetId="lu91zab9" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$temp.temp_Override_Flag}</arg>
+                           <arg name="right">Yes</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="lu91zabb" targetId="lu91zabc" type="containerLink"/>
+               </container>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-Concur-NS-Get-RunDates-Override"
+                              isByCopy="true"
+                              name="MT-Concur-NS-Get-RunDates-Override">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-Concur-GetExpenses-v4-File"
+                              isByCopy="true"
+                              name="MT-Concur-GetExpenses-v4-File">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-Concur-NS-Get-RunDates-Sysdate"
+                              isByCopy="true"
+                              name="MT-Concur-NS-Get-RunDates-Sysdate">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-CITD-FIN-CONCUR-NS-GET-OVERRIDE-FLAG"
+                              isByCopy="true"
+                              name="MT-CITD-FIN-CONCUR-NS-GET-OVERRIDE-FLAG">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>eSBFJ7JipiBbI9VI1lHmYu</types1:GUID>
+      <types1:DisplayName>TF_CITD_FIN_CONCUR_NS_CREATE_CONCUR_FF</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:52:01.936Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

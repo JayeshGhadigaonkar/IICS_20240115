@@ -1,0 +1,261 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>1seBfWoAXUCZ4nz-gt-4531056-2024-02-15T16:46:32.844Z::tf.xml</types1:EntryId>
+      <types1:Name>TF-Concur_NetSuite_Expenses-2</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-02-15T16:46:33Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="TF-Concur_NetSuite_Expenses"
+                   name="TF-Concur_NetSuite_Expenses-2"
+                   overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description=""
+                      name="MT_Concur_GetExpenses_v4_File"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:MT-Concur-GetExpenses-v4-File</option>
+                  </options>
+               </field>
+               <field description="" name="MT_FF_Concur_NS_Bill_Upsert" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:MT-FF-Concur-NS-Bill-Upsert</option>
+                  </options>
+               </field>
+               <field description="" name="temp_created_after" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="lkazirc9" targetId="lkazirc8"/>
+               </start>
+               <assignment id="lkazirc8">
+                  <title>Initialize Date</title>
+                  <operation source="formula" to="temp.temp_created_after">
+                     <expression language="XQuery">fn:concat('"', format-date(fn:current-date() - xs:dayTimeDuration('P7D') , '[Y0001]-[M01]-[D01]'),'"')</expression>
+                  </operation>
+                  <link id="lkazirhv" targetId="lkazirhu"/>
+               </assignment>
+               <assignment id="lkazirhu">
+                  <title>Set Created Date</title>
+                  <operation source="field"
+                             to="temp.MT_Concur_GetExpenses_v4_File[1]/inout[1]/in_out_CreatedAfter">temp.temp_created_after</operation>
+                  <link id="lkazirhw" targetId="lkazird9"/>
+               </assignment>
+               <eventContainer id="lkazird9">
+                  <service id="lkazircd">
+                     <title>MT_Concur_GetExpenses_v4_File</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">MT_Concur_GetExpenses_v4_File</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">41R8pRwbuDMdagIQxaNUCD</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="MT-Concur-GetExpenses-v4-File">temp.MT_Concur_GetExpenses_v4_File</operation>
+                           <operation source="field"
+                                      to="MT-Concur-GetExpenses-v4-File/inout[1]/in_out_CreatedAfter">temp.temp_created_after</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.MT_Concur_GetExpenses_v4_File/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.MT_Concur_GetExpenses_v4_File/output/Log_Id">Log Id</operation>
+                        <operation source="field" to="temp.MT_Concur_GetExpenses_v4_File/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.MT_Concur_GetExpenses_v4_File/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/output/FirstErrorCode">First Error Code</operation>
+                        <operation source="field"
+                                   to="temp.MT_Concur_GetExpenses_v4_File/inout/in_out_CreatedAfter">in_out_CreatedAfter</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="lkazirck" targetId="lkazirey"/>
+                  <events>
+                     <catch faultField="temp.MT_Concur_GetExpenses_v4_File/fault"
+                            id="lkazird7"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.MT_Concur_GetExpenses_v4_File/fault"
+                            id="lkazird8"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <eventContainer id="lkazirey">
+                  <service id="lkazircj">
+                     <title>MT_FF_Concur_NS_Bill_Upsert</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">MT_FF_Concur_NS_Bill_Upsert</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">gtCWgr8zqKNbhVFPiLKeo0</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="MT-FF-Concur-NS-Bill-Upsert">temp.MT_FF_Concur_NS_Bill_Upsert</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Log_Id">Log Id</operation>
+                        <operation source="field" to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Task_Id">Task Id</operation>
+                        <operation source="field" to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field" to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.MT_FF_Concur_NS_Bill_Upsert/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.MT_FF_Concur_NS_Bill_Upsert/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.MT_FF_Concur_NS_Bill_Upsert/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.MT_FF_Concur_NS_Bill_Upsert/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="lkazircl" targetId="c"/>
+                  <events>
+                     <catch faultField="temp.MT_FF_Concur_NS_Bill_Upsert/fault"
+                            id="lkazirew"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.MT_FF_Concur_NS_Bill_Upsert/fault"
+                            id="lkazirex"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-Concur-GetExpenses-v4-File"
+                              isByCopy="true"
+                              name="MT-Concur-GetExpenses-v4-File">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-FF-Concur-NS-Bill-Upsert"
+                              isByCopy="true"
+                              name="MT-FF-Concur-NS-Bill-Upsert">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>6wrGNCmMUSzgNtfJArLkEd</types1:GUID>
+      <types1:DisplayName>TF-Concur_NetSuite_Expenses</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:52:01.958Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

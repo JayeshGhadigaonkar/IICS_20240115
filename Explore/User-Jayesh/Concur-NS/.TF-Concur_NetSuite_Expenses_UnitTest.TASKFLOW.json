@@ -1,0 +1,48 @@
+{
+  "objectInfo" : {
+    "id" : "3KIxyDH4mAjgM8FSjL526z",
+    "name" : "TF-Concur_NetSuite_Expenses_UnitTest",
+    "type" : "TASKFLOW",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "LMVX3cjk91pqrzY-gt-9825465-2024-02-16T19:19:24.605Z::tf.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2024-04-08T15:52:03.066Z",
+  "objectRefs" : [ {
+    "id" : "41R8pRwbuDMdagIQxaNUCD",
+    "name" : "MT_Concur_GetExpenses_v4_File",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CQZ0Z0000000001CI"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/User-Jayesh/Concur-NS"
+  } ]
+}

@@ -1,0 +1,45 @@
+{
+  "objectInfo" : {
+    "id" : "8TwZymmxWmUdmnSYhy5iAg",
+    "name" : "ConcurExpenseReports_v4 - Copy 1 - Copy 1",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "COGfPuYZ06NYcmY-gt-5905467-2024-02-15T16:46:14.465Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : null,
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2024-04-08T15:52:03.057Z",
+  "objectRefs" : [ {
+    "id" : "f6XE0cx59uqiS6R5AkbNGZ",
+    "name" : "AC-Concur-Prod",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Rpf6JfOMWSwxF1T-gt-5610845-2024-02-15T16:46:08.69Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : null,
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/User-Jayesh/Concur-NS"
+  } ]
+}

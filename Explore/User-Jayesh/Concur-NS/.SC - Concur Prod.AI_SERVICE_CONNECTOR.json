@@ -1,0 +1,25 @@
+{
+  "objectInfo" : {
+    "id" : "1PJvXVeYzdVi0qz2r2d40v",
+    "name" : "SC - Concur Prod",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "HJLMrJ4pbgchwAQ-gt-5898409-2024-02-15T16:46:07.353Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : null,
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2024-04-08T15:52:03.061Z",
+  "objectRefs" : [ ]
+}

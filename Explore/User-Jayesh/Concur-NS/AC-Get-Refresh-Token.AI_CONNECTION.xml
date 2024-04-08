@@ -1,0 +1,49 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>m7O2htghGZ5i4rs-gt-144301919-2024-03-26T14:41:40.198Z::conn.xml</types1:EntryId>
+      <types1:Name>AC-Get-Refresh-Token</types1:Name>
+      <types1:ParentFlowIds>iY3AxtPk7HNCnch-gt-5904319-2024-02-15T16:46:02.813Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-03-26T14:41:40Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>jghadigaonkar@kinaxis.com.SAML2</types1:PublishedBy>
+      <types1:PublicationDate>2024-03-26T14:41:46Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/AC-Get-Refresh-Token/AC-Get-Refresh-Token.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="AC-Get-Refresh-Token"
+                     label="AC-Get-Refresh-Token"
+                     name="AC-Get-Refresh-Token">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="false"
+                          name="URL"
+                          value="https://us2.api.concursolutions.com"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/SC_Get_Refresh_Token/SC_Get_Refresh_Token_svcDef.xml"
+                               guid="l9aBpkFNp6HdWKaFbtbX4A"
+                               name="SC_Get_Refresh_Token"
+                               supportsConnectionTest="false"
+                               uuid="19ec0993-9820-43b8-8421-ec4e54b1fe28">
+               <description>20240325 - To handle intermittent token expiry every hour.</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>hrN9F9eMEAYkFotsl4CjKS</types1:GUID>
+      <types1:DisplayName>AC-Get-Refresh-Token</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:52:00.15Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

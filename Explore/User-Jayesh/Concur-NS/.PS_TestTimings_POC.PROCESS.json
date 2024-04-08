@@ -1,0 +1,25 @@
+{
+  "objectInfo" : {
+    "id" : "749jCd6LSJYiCnlHGRhYm4",
+    "name" : "PS_TestTimings_POC",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "B5RgpDqotxGomUh-gt-141081419-2024-03-26T02:20:06.446Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2024-04-08T15:52:03.078Z",
+  "objectRefs" : [ ]
+}

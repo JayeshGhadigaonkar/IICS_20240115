@@ -1,0 +1,137 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>SDLnzYLnzYLnzYL-gt-5818789-2024-02-15T16:45:58.724Z::svc.xml</types1:EntryId>
+      <types1:Name>SC-Concur-Sandbox-2</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-02-15T16:45:59Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="SC-Concur-Sandbox"
+                            label=""
+                            name="SC-Concur-Sandbox-2"
+                            uuid="86f33d37-8d18-430a-a542-31e58365aded">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    masked="false"
+                                    name="AuthUrl"
+                                    required="false"
+                                    testWith="https://us-impl.api.concursolutions.com"
+                                    type="string"/>
+               <connectionAttribute description=""
+                                    masked="false"
+                                    name="ApiUrl"
+                                    required="false"
+                                    testWith="https://implementation.concursolutions.com"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="AuthToken"
+                       maxRedirects="100"
+                       name="AuthToken"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="scope"
+                                nogen="true"
+                                required="false"
+                                testWith="identity.user.enterprise.read"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$AuthUrl}/oauth2/v0/token"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                        </httpHeaders>
+                        <body>client_id=daee2b7d-eed8-4ddc-929f-dbcca12368a1
+&amp;amp;client_secret=2d5b22f9-3e7f-4351-ad10-6a0a78044f1a
+&amp;amp;grant_type=refresh_token
+&amp;amp;refresh_token=2qmfdvh3b7x0mh9y2btwymc2ksc4l1
+&amp;amp;scope={$scope}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetUsers"
+                       maxRedirects="100"
+                       name="GetUsers"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="access_token"
+                                required="false"
+                                testWith="eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbInVzZXIucmVhZCJdLCJhdWQiOiIqIiwiY29uY3VyLnByb2ZpbGUiOiJodHRwczovL3VzLWltcGwuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9wcmluY2lwYWxzL2E5NmVjOGFkLTNkOWUtNGQ0ZS05MTNmLWFkZTVlOTYxYTU4NyIsImNvbmN1ci52ZXJzaW9uIjozLCJjb25jdXIudHlwZSI6ImNvbXBhbnkiLCJjb25jdXIuYXBwIjoiaHR0cHM6Ly91cy1pbXBsLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvYXBwcy9kYWVlMmI3ZC1lZWQ4LTRkZGMtOTI5Zi1kYmNjYTEyMzY4YTEiLCJzdWIiOiJhOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJpc3MiOiJodHRwczovL3VzLWltcGwuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20iLCJleHAiOjE2NDM4MzQxMTksImNvbmN1ci5hcHBJZCI6ImRhZWUyYjdkLWVlZDgtNGRkYy05MjlmLWRiY2NhMTIzNjhhMSIsIm5iZiI6MTY0MzgzMDUwOSwiaWF0IjoxNjQzODMwNTE5fQ.ZlHYFYXkgtt_vBoAKz3Gk2fDFZTO8QlGbxtVr55EF7U7CXxqC5NYVksvqDip9E83p8hapfUTPsBjh2-S_fF3luCk3p8XxjRC3qEHNio9nl56C49or7jWEYqsXCePpjE-Ja_n6Ha1_95AxgxxexDJY4vBBx9V4YYMRGQB53iHKMDNUBsuhXJE4J0rp0JHIr_-bFzZ_9JM5tRu8uWwNd1XDAliqSgksYGa6mYJIl0KWuf4aHARN9ycOyTUhK9D3fO6xmg9HicsIOnS0IqGHpoty65npLV8zsv44xyeDwPkAmW9om4yoGLfmvJPlxKlyumJAGz63_WZ2vEYW78CxQgaxw"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding url="{$ApiUrl}/api/user/v1.0/user" verb="GET">
+                        <httpHeaders>
+                           <header name="Authorization">Bearer {$access_token}</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="root">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="access_token"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="refresh_token"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="refresh_expires_in"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                     <field name="scope" nullable="true" required="false" type="string"/>
+                     <field name="token_type"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="expires_in" nullable="true" required="false" type="int"/>
+                     <field name="geolocation"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>j9BTyP1js0ikI4EnQfTbSR</types1:GUID>
+      <types1:DisplayName>SC-Concur-Sandbox</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:51:56.19Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

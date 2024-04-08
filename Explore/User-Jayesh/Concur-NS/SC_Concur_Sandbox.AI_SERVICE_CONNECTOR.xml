@@ -1,0 +1,388 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>neO0fXs3C6LlRkP-gt-5906807-2024-02-15T16:46:28.225Z::svc.xml</types1:EntryId>
+      <types1:Name>SC_Concur_Sandbox-4</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>jghadigaonkar@kinaxis.com.SAML2</types1:CreatedBy>
+      <types1:CreationDate>2024-02-15T16:46:28Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="SC_Concur_Sandbox"
+                            label=""
+                            name="SC_Concur_Sandbox-4"
+                            uuid="516c7e19-39f6-4f9a-95a3-cd08366a324e">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    label="URL"
+                                    masked="false"
+                                    name="URL"
+                                    required="false"
+                                    testWith="https://us-impl.api.concursolutions.com"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Get Refresh Token"
+                       maxRedirects="100"
+                       name="Get Refresh Token"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="scope"
+                                required="false"
+                                testWith="identity.user.coresensitive.read identity.user.core.read identity.user.ids.read identity.user.enterprise.read user.provision.read travel.user.private.read travel.user.general.read user.provision.write identity.user.coreenterprise.writeonly identity.user.coreenterprise.writeonly spend.user.general.writeonly&#xA;"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/oauth2/v0/token"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                        </httpHeaders>
+                        <body>client_id=66ecc299-8053-4347-9bdd-af1f56fea1f6
+&amp;amp;client_secret=f797dbc0-a74f-4dc1-8ff1-ccf7547cdeb2
+&amp;amp;grant_type=refresh_token
+&amp;amp;refresh_token=3hlqr0b2gjm5dgyb2ht05m82btekdt
+&amp;amp;scope={$scope}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="access_token"
+                            property="access_token"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Authorize _ Use this to obtain refresh token"
+                       maxRedirects="100"
+                       name="Authorize _ Use this to obtain refresh token"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/oauth2/v0/token"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                        </httpHeaders>
+                        <body>client_id=66ecc299-8053-4347-9bdd-af1f56fea1f6
+&amp;amp;client_secret=f797dbc0-a74f-4dc1-8ff1-ccf7547cdeb2
+&amp;amp;username=a96ec8ad-3d9e-4d4e-913f-ade5e961a587
+&amp;amp;password=at-3ndattq3i8m5ymn53epy5kj294izk2
+&amp;amp;grant_type=password
+&amp;amp;credtype=authtoken</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="IdentityV4Users"
+                       maxRedirects="100"
+                       name="IdentityV4Users"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbImlkZW50aXR5LnVzZXIuY29yZXNlbnNpdGl2ZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3JlLnJlYWQiLCJpZGVudGl0eS51c2VyLmlkcy5yZWFkIiwiaWRlbnRpdHkudXNlci5lbnRlcnByaXNlLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi5yZWFkIiwidHJhdmVsLnVzZXIucHJpdmF0ZS5yZWFkIiwidHJhdmVsLnVzZXIuZ2VuZXJhbC5yZWFkIiwidXNlci5wcm92aXNpb24ud3JpdGUiLCJpZGVudGl0eS51c2VyLmNvcmVlbnRlcnByaXNlLndyaXRlb25seSIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5Iiwic3BlbmQudXNlci5nZW5lcmFsLndyaXRlb25seSJdLCJhdWQiOiIqIiwiY29uY3VyLmFwcElkIjoiNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2Iiwic3ViIjoiYTk2ZWM4YWQtM2Q5ZS00ZDRlLTkxM2YtYWRlNWU5NjFhNTg3IiwiaXNzIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20iLCJjb25jdXIucHJvZmlsZSI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9hOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJleHAiOjE2OTA4MTkzNDcsImNvbmN1ci52ZXJzaW9uIjozLCJjb25jdXIudHlwZSI6ImNvbXBhbnkiLCJjb25jdXIuYXBwIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9hcHBzLzY2ZWNjMjk5LTgwNTMtNDM0Ny05YmRkLWFmMWY1NmZlYTFmNiIsIm5iZiI6MTY5MDgxNTczNywiaWF0IjoxNjkwODE1NzQ3fQ.dmvSCyN0x6a8bqoF54ncbK68a0ngXCNljskINnS_NROAoIQQ88C85jRMitt2VdIOW7nRE839o9KDLlmuK0Hpb7VcoKKh6Z7e4n-bzfhxSibbP6QfWMKFGQpYGr-1dklaKEHiHEBZ7mGANGCq7D_hHiGlq7XgM9eKQ1ooVP7YPs0ddey1pAYPSevQx9rVNyjcDavE8MK2jF5hrcseEfYJy1huP06pK6TAwWxjgfWo1AvjvyiZH3do8VCf90wcj3fSAhfYbfIiHMyXXiTkDp6jGqIO3nXkmnsoqYRPnApPA5rq5HkzG0hBXEh7m7vvp61auKymAJrh4UJ9yooexatXbg&#xA;"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="userName"
+                                required="true"
+                                testWith="tparekh@kinaxis.com.uat&#xA;"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="count"
+                                nogen="true"
+                                required="false"
+                                testWith="100"
+                                type="double"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/profile/identity/v4.1/Users/"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="response" type="string" xmlElement=""/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="TravelByUserID"
+                       maxRedirects="100"
+                       name="TravelByUserID"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbImlkZW50aXR5LnVzZXIuY29yZXNlbnNpdGl2ZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3JlLnJlYWQiLCJpZGVudGl0eS51c2VyLmlkcy5yZWFkIiwiaWRlbnRpdHkudXNlci5lbnRlcnByaXNlLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi5yZWFkIiwidHJhdmVsLnVzZXIucHJpdmF0ZS5yZWFkIiwidHJhdmVsLnVzZXIuZ2VuZXJhbC5yZWFkIiwidXNlci5wcm92aXNpb24ud3JpdGUiLCJpZGVudGl0eS51c2VyLmNvcmVlbnRlcnByaXNlLndyaXRlb25seSIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5Iiwic3BlbmQudXNlci5nZW5lcmFsLndyaXRlb25seSJdLCJhdWQiOiIqIiwiY29uY3VyLmFwcElkIjoiNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2Iiwic3ViIjoiYTk2ZWM4YWQtM2Q5ZS00ZDRlLTkxM2YtYWRlNWU5NjFhNTg3IiwiaXNzIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20iLCJjb25jdXIucHJvZmlsZSI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9hOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJleHAiOjE2OTA4OTU1MzIsImNvbmN1ci52ZXJzaW9uIjozLCJjb25jdXIudHlwZSI6ImNvbXBhbnkiLCJjb25jdXIuYXBwIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9hcHBzLzY2ZWNjMjk5LTgwNTMtNDM0Ny05YmRkLWFmMWY1NmZlYTFmNiIsIm5iZiI6MTY5MDg5MTkyMiwiaWF0IjoxNjkwODkxOTMyfQ.SKocdtDehvu88Gi-VNqKdbXVHYoUepw5pDulf6N-pQKr54oj2TphcffdtMiJDCNqZQOnbeFQ5q2LJA-bheaYpjCBpB07UHkixraz3K_v8ywJyNbzq-gMiwgizeg6BrTIBgpFH5JC0aPKSCHYQc_eBIh9pJkxhVWDnWuhWfwH5pxUyoCGuqGpe5LiElamhasTzHAaTO0pn7KoO6hVwpaxxsAzWF_iKt3HBiP-CjaTiCvatHnTTsWk0HUbTob2C-qe9lWlTEUZwYG8jBhl8F3nRvZna8b1Cw8kzxQjakLmgXAqTz5B841CC7GFQkHsEUtIFwvVjnYpykKZk5GkNF9A6g&#xA;"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="user_id"
+                                nogen="true"
+                                required="true"
+                                testWith="7cedb942-4909-46b8-b172-8f5347eb4727&#xA;"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/travel/v4/Users/{$user_id}"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="BulkUpdateUser"
+                       maxRedirects="100"
+                       name="BulkUpdateUser"
+                       preemptiveAuth="true"
+                       responseEncoding="UTF-8">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbImlkZW50aXR5LnVzZXIuY29yZXNlbnNpdGl2ZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3JlLnJlYWQiLCJpZGVudGl0eS51c2VyLmlkcy5yZWFkIiwiaWRlbnRpdHkudXNlci5lbnRlcnByaXNlLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi5yZWFkIiwidHJhdmVsLnVzZXIucHJpdmF0ZS5yZWFkIiwidHJhdmVsLnVzZXIuZ2VuZXJhbC5yZWFkIiwidXNlci5wcm92aXNpb24ud3JpdGUiLCJpZGVudGl0eS51c2VyLmNvcmVlbnRlcnByaXNlLndyaXRlb25seSIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5Iiwic3BlbmQudXNlci5nZW5lcmFsLndyaXRlb25seSJdLCJhdWQiOiIqIiwiY29uY3VyLmFwcElkIjoiNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2Iiwic3ViIjoiYTk2ZWM4YWQtM2Q5ZS00ZDRlLTkxM2YtYWRlNWU5NjFhNTg3IiwiaXNzIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20iLCJjb25jdXIucHJvZmlsZSI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9hOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJleHAiOjE2OTA4OTU1MzIsImNvbmN1ci52ZXJzaW9uIjozLCJjb25jdXIudHlwZSI6ImNvbXBhbnkiLCJjb25jdXIuYXBwIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9hcHBzLzY2ZWNjMjk5LTgwNTMtNDM0Ny05YmRkLWFmMWY1NmZlYTFmNiIsIm5iZiI6MTY5MDg5MTkyMiwiaWF0IjoxNjkwODkxOTMyfQ.SKocdtDehvu88Gi-VNqKdbXVHYoUepw5pDulf6N-pQKr54oj2TphcffdtMiJDCNqZQOnbeFQ5q2LJA-bheaYpjCBpB07UHkixraz3K_v8ywJyNbzq-gMiwgizeg6BrTIBgpFH5JC0aPKSCHYQc_eBIh9pJkxhVWDnWuhWfwH5pxUyoCGuqGpe5LiElamhasTzHAaTO0pn7KoO6hVwpaxxsAzWF_iKt3HBiP-CjaTiCvatHnTTsWk0HUbTob2C-qe9lWlTEUZwYG8jBhl8F3nRvZna8b1Cw8kzxQjakLmgXAqTz5B841CC7GFQkHsEUtIFwvVjnYpykKZk5GkNF9A6g&#xA;"
+                                type="string"/>
+                     <parameter description="&#xA;"
+                                label=""
+                                name="id"
+                                nogen="true"
+                                required="true"
+                                testWith="7cedb942-4909-46b8-b172-8f5347eb4727&#xA;"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="body"
+                                required="false"
+                                testWith="{&#xA;    &#34;schemas&#34;: [&#xA;        &#34;urn:ietf:params:scim:api:messages:2.0:BulkRequest&#34;,&#xA;        &#34;urn:ietf:params:scim:api:messages:2.0:PatchOp&#34;&#xA;        &#xA;    ],&#xA;    &#34;failOnErrors&#34;: 1,&#xA;    &#34;Operations&#34;: [&#xA;        {&#xA;            &#34;method&#34;: &#34;PATCH&#34;,&#xA;            &#34;path&#34;: &#34;/Users/7cedb942-4909-46b8-b172-8f5347eb4727&#34;,&#xA;            &#34;data&#34;: {&#xA;                &#34;Operations&#34;: [&#xA;            {&#xA;&#x9;&#x9;&#x9;&#x9;&#34;op&#34;: &#34;replace&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#34;path&#34;: &#34;active&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#34;value&#34;: true&#xA;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#34;op&#34;: &#34;replace&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#34;path&#34;: &#34;urnietfparamsscimschemasextensionenterprise2.0User:manager:value&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#34;value&#34;: &#34;e4be217c-2783-4c91-84b0-2ad00b48dac8&#34;&#xA;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#34;op&#34;: &#34;replace&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#34;path&#34;: &#34;urnietfparamsscimschemasextensionenterprise2.0User:manager:employeeNumber&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#34;value&#34;: &#34;5144&#34;&#xA;&#x9;&#x9;&#x9;}]}&#xA;        }&#xA;    ]&#xA;}&#xA;"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/provisioning/v4/Bulk/"
+                                        verb="POST">
+                        <authentication>
+                           <username/>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                        <body>{$body}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="SpendByUserID"
+                       maxRedirects="100"
+                       name="SpendByUserID"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbImlkZW50aXR5LnVzZXIuY29yZXNlbnNpdGl2ZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3JlLnJlYWQiLCJpZGVudGl0eS51c2VyLmlkcy5yZWFkIiwiaWRlbnRpdHkudXNlci5lbnRlcnByaXNlLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi5yZWFkIiwidHJhdmVsLnVzZXIucHJpdmF0ZS5yZWFkIiwidHJhdmVsLnVzZXIuZ2VuZXJhbC5yZWFkIiwidXNlci5wcm92aXNpb24ud3JpdGUiLCJpZGVudGl0eS51c2VyLmNvcmVlbnRlcnByaXNlLndyaXRlb25seSIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5Iiwic3BlbmQudXNlci5nZW5lcmFsLndyaXRlb25seSJdLCJhdWQiOiIqIiwiY29uY3VyLmFwcElkIjoiNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2Iiwic3ViIjoiYTk2ZWM4YWQtM2Q5ZS00ZDRlLTkxM2YtYWRlNWU5NjFhNTg3IiwiaXNzIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20iLCJjb25jdXIucHJvZmlsZSI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9hOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJleHAiOjE2OTA4MTkzNDcsImNvbmN1ci52ZXJzaW9uIjozLCJjb25jdXIudHlwZSI6ImNvbXBhbnkiLCJjb25jdXIuYXBwIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9hcHBzLzY2ZWNjMjk5LTgwNTMtNDM0Ny05YmRkLWFmMWY1NmZlYTFmNiIsIm5iZiI6MTY5MDgxNTczNywiaWF0IjoxNjkwODE1NzQ3fQ.dmvSCyN0x6a8bqoF54ncbK68a0ngXCNljskINnS_NROAoIQQ88C85jRMitt2VdIOW7nRE839o9KDLlmuK0Hpb7VcoKKh6Z7e4n-bzfhxSibbP6QfWMKFGQpYGr-1dklaKEHiHEBZ7mGANGCq7D_hHiGlq7XgM9eKQ1ooVP7YPs0ddey1pAYPSevQx9rVNyjcDavE8MK2jF5hrcseEfYJy1huP06pK6TAwWxjgfWo1AvjvyiZH3do8VCf90wcj3fSAhfYbfIiHMyXXiTkDp6jGqIO3nXkmnsoqYRPnApPA5rq5HkzG0hBXEh7m7vvp61auKymAJrh4UJ9yooexatXbg&#xA;"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="id"
+                                required="true"
+                                testWith="7cedb942-4909-46b8-b172-8f5347eb4727&#xA;"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/profile/spend/v4/Users/{$id}"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="BulkCreateUser"
+                       maxRedirects="100"
+                       name="BulkCreateUser"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbImlkZW50aXR5LnVzZXIuY29yZXNlbnNpdGl2ZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3JlLnJlYWQiLCJpZGVudGl0eS51c2VyLmlkcy5yZWFkIiwiaWRlbnRpdHkudXNlci5lbnRlcnByaXNlLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi5yZWFkIiwidHJhdmVsLnVzZXIucHJpdmF0ZS5yZWFkIiwidHJhdmVsLnVzZXIuZ2VuZXJhbC5yZWFkIiwidXNlci5wcm92aXNpb24ud3JpdGUiLCJpZGVudGl0eS51c2VyLmNvcmVlbnRlcnByaXNlLndyaXRlb25seSIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5Iiwic3BlbmQudXNlci5nZW5lcmFsLndyaXRlb25seSJdLCJhdWQiOiIqIiwiY29uY3VyLmFwcElkIjoiNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2Iiwic3ViIjoiYTk2ZWM4YWQtM2Q5ZS00ZDRlLTkxM2YtYWRlNWU5NjFhNTg3IiwiaXNzIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20iLCJjb25jdXIucHJvZmlsZSI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9hOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJleHAiOjE2OTA4OTU1MzIsImNvbmN1ci52ZXJzaW9uIjozLCJjb25jdXIudHlwZSI6ImNvbXBhbnkiLCJjb25jdXIuYXBwIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9hcHBzLzY2ZWNjMjk5LTgwNTMtNDM0Ny05YmRkLWFmMWY1NmZlYTFmNiIsIm5iZiI6MTY5MDg5MTkyMiwiaWF0IjoxNjkwODkxOTMyfQ.SKocdtDehvu88Gi-VNqKdbXVHYoUepw5pDulf6N-pQKr54oj2TphcffdtMiJDCNqZQOnbeFQ5q2LJA-bheaYpjCBpB07UHkixraz3K_v8ywJyNbzq-gMiwgizeg6BrTIBgpFH5JC0aPKSCHYQc_eBIh9pJkxhVWDnWuhWfwH5pxUyoCGuqGpe5LiElamhasTzHAaTO0pn7KoO6hVwpaxxsAzWF_iKt3HBiP-CjaTiCvatHnTTsWk0HUbTob2C-qe9lWlTEUZwYG8jBhl8F3nRvZna8b1Cw8kzxQjakLmgXAqTz5B841CC7GFQkHsEUtIFwvVjnYpykKZk5GkNF9A6g&#xA;"
+                                type="string"/>
+                     <parameter description="&#xA;&#xA;"
+                                label=""
+                                name="body"
+                                required="true"
+                                testWith="{&#xA;&#x9;&#34;schemas&#34;: [&#xA;&#x9;&#x9;&#34;urn:ietf:params:scim:api:messages:2.0:BulkRequest&#34;&#xA;&#x9;],&#xA;&#x9;&#34;failOnErrors&#34;: 1,&#xA;&#x9;&#34;Operations&#34;: [&#xA;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#34;method&#34;: &#34;POST&#34;,&#xA;&#x9;&#x9;&#x9;&#34;path&#34;: &#34;/Users&#34;,&#xA;&#x9;&#x9;&#x9;&#34;bulkId&#34;: &#34;Seattle&#34;,&#xA;&#x9;&#x9;&#x9;&#34;data&#34;: {&#xA;&#x9;&#x9;&#x9;&#x9;&#34;userName&#34;: &#34;testing_informatica_0408@kinaxis.com&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#34;active&#34;: true,&#xA;&#x9;&#x9;&#x9;&#x9;&#34;preferredLanguage&#34;: &#34;en-US&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#34;name&#34;: {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;formatted&#34;: &#34;testing_informatica_0408&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;legalName&#34;: &#34;Informatica&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;middleName&#34;: &#34;TEST&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;familyName&#34;: &#34;Onboarding&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;givenName&#34;: &#34;Informatica&#34;&#xA;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#34;displayName&#34;: &#34;Informatica Test&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#34;entitlements&#34;: [&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;Expense&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;Invoice&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;Request&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;Travel&#34;&#xA;&#x9;&#x9;&#x9;&#x9;],&#xA;&#x9;&#x9;&#x9;&#x9;&#34;emergencyContacts&#34;: [&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;name&#34;: &#34;Emergency Contact&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;relationship&#34;: &#34;Other&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;streetAddress&#34;: &#34;911 Universal City Plaza  Hollywood, CA 91608 US&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;region&#34;: &#34;CA&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;phones&#34;: [&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;555-555-5555&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;],&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;postalCode&#34;: &#34;91608&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;emails&#34;: [&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;john.doe1ddd95@cs-sso-us-prod.com&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;],&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;country&#34;: &#34;US&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;],&#xA;&#x9;&#x9;&#x9;&#x9;&#34;addresses&#34;: [&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;type&#34;: &#34;work&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;streetAddress&#34;: &#34;911 Universal City Plaza&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;locality&#34;: &#34;Hollywood&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;region&#34;: &#34;CA&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;postalCode&#34;: &#34;91608&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;country&#34;: &#34;US&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;type&#34;: &#34;home&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;streetAddress&#34;: &#34;911 Universal City Plaza&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;locality&#34;: &#34;Hollywood&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;region&#34;: &#34;CA&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;postalCode&#34;: &#34;91608&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;country&#34;: &#34;US&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;type&#34;: &#34;other&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;streetAddress&#34;: &#34;911 Universal City Plaza&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;locality&#34;: &#34;Hollywood&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;region&#34;: &#34;CA&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;postalCode&#34;: &#34;91608&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;country&#34;: &#34;US&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;type&#34;: &#34;shipping&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;streetAddress&#34;: &#34;911 Universal City Plaza&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;locality&#34;: &#34;Hollywood&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;region&#34;: &#34;CA&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;postalCode&#34;: &#34;91608&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;country&#34;: &#34;US&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;],&#xA;&#x9;&#x9;&#x9;&#x9;&#34;phoneNumbers&#34;: [&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;value&#34;: &#34;555-555-5555&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;display&#34;: &#34;work&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;type&#34;: &#34;work&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;value&#34;: &#34;555-555-5556&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;type&#34;: &#34;home&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;display&#34;: &#34;home&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;],&#xA;&#x9;&#x9;&#x9;&#x9;&#34;emails&#34;: [&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;value&#34;: &#34;testing_informatica_0408@kinaxis.com&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;type&#34;: &#34;work&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;value&#34;: &#34;testing_informatica_0408@kinaxisHOME.com&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;type&#34;: &#34;home&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;],&#xA;&#x9;&#x9;&#x9;&#x9;&#34;urn:ietf:params:scim:schemas:extension:enterprise:2.0:User&#34;: {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;employeeNumber&#34;: &#34;NST0408&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;companyId&#34;: &#34;a96ec8ad-3d9e-4d4e-913f-ade5e961a587&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;department&#34;: &#34;Data TEST Team&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;costCenter&#34;: &#34;2050&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;manager&#34;: {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;value&#34;: &#34;e4be217c-2783-4c91-84b0-2ad00b48dac8&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;employeeNumber&#34;: &#34;6946&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#34;urn:ietf:params:scim:schemas:extension:spend:2.0:User&#34;: {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;locale&#34;: &#34;en-US&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;country&#34;: &#34;US&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;stateProvince&#34;: &#34;TEST State&#34;,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;reimbursementCurrency&#34;: &#34;CAD&#34;&#xA;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#34;urn:ietf:params:scim:schemas:extension:spend:2.0:Role&#34;: {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;roles&#34;: [&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;roleName&#34;: &#34;EXP_USER&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;roleName&#34;: &#34;TRAVEL_USER&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;roleName&#34;: &#34;EXP_TRAVEL_AND_EXPENSE_USER&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;]&#xA;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#34;urn:ietf:params:scim:schemas:extension:travel:2.0:User&#34;: {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;ruleClass&#34;: {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;id&#34;: 10011119&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;},&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;manager&#34;: {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#34;employeeNumber&#34;: &#34;6946&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}&#xA;&#x9;]&#xA;}"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/provisioning/v4/Bulk/"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                        <body>{$body}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Get Provision Status"
+                       maxRedirects="100"
+                       name="Get Provision Status"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="Authorization"
+                                nogen="true"
+                                required="true"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbImlkZW50aXR5LnVzZXIuY29yZXNlbnNpdGl2ZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3JlLnJlYWQiLCJpZGVudGl0eS51c2VyLmlkcy5yZWFkIiwiaWRlbnRpdHkudXNlci5lbnRlcnByaXNlLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi5yZWFkIiwidHJhdmVsLnVzZXIucHJpdmF0ZS5yZWFkIiwidHJhdmVsLnVzZXIuZ2VuZXJhbC5yZWFkIiwidXNlci5wcm92aXNpb24ud3JpdGUiLCJpZGVudGl0eS51c2VyLmNvcmVlbnRlcnByaXNlLndyaXRlb25seSIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5Iiwic3BlbmQudXNlci5nZW5lcmFsLndyaXRlb25seSJdLCJhdWQiOiIqIiwiY29uY3VyLmFwcElkIjoiNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2Iiwic3ViIjoiYTk2ZWM4YWQtM2Q5ZS00ZDRlLTkxM2YtYWRlNWU5NjFhNTg3IiwiaXNzIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20iLCJjb25jdXIucHJvZmlsZSI6Imh0dHBzOi8vdXMyLmFwaS5jb25jdXJzb2x1dGlvbnMuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9hOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJleHAiOjE2OTExNTU2MTUsImNvbmN1ci52ZXJzaW9uIjozLCJjb25jdXIudHlwZSI6ImNvbXBhbnkiLCJjb25jdXIuYXBwIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9hcHBzLzY2ZWNjMjk5LTgwNTMtNDM0Ny05YmRkLWFmMWY1NmZlYTFmNiIsIm5iZiI6MTY5MTE1MjAwNSwiaWF0IjoxNjkxMTUyMDE1fQ.RIwN4RFSwW6zUByMBC94EJIWjMZW3bI3X1N8K5riqxTrugntuV9JiUy6uw1iMv5Fit8XUS8zi9lE0HYoSbSYFB8a4fc9ucnGTjye_2HrCBKym9YYkaQw2YNTky8luQoV2jWxsDGnJmCuaqhFn9x2D-cDoAz5jfCciUj3JDyz8eUNhgBy0tqLa05ydqnIksCEIISskUp1DXvBqDWBzuvLnwYOsIsmfcdvnXQODlFBA8avVIhxEDppwSL_rczKlRrvGW8l8P5-5kLk1SNoCCyXuZe3hbWYzvHv8-uw-uQMaQAl1euaesV0Dv7xaoqP4gOHAdh4bthFaAq7KFETqFXbaA&#xA;"
+                                type="string"/>
+                     <parameter description="&#xA;"
+                                label=""
+                                name="provision-id"
+                                nogen="true"
+                                required="true"
+                                testWith="90465c1c-c3c5-44d5-a383-c079d701104b"
+                                type="string"/>
+                     <parameter description="&#xA;"
+                                label=""
+                                name="attributes"
+                                required="true"
+                                testWith="operations"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/profile/v4/provisions/{provision-id}/status"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <otherParams>
+                           <otherParam inheritance="" name="attributes"/>
+                        </otherParams>
+                        <httpHeaders>
+                           <header name="Authorization">{$Authorization}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>5T0UIhRstkQbOWKzQ18nmT</types1:GUID>
+      <types1:DisplayName>SC_Concur_Sandbox</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-04-08T15:51:56.103Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
