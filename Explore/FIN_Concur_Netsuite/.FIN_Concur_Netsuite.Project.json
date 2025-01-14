@@ -1,0 +1,25 @@
+{
+  "objectInfo" : {
+    "id" : "3XfJhihcGbig5zYuyd0J8z",
+    "name" : "FIN_Concur_Netsuite",
+    "type" : "Project",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "Finance - Integration between Concur and Netsuite",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "updateTime" : "2025-01-14T20:20:47.269Z",
+  "objectRefs" : [ ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}
