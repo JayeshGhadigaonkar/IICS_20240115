@@ -1,7 +1,7 @@
 {
   "objectInfo" : {
     "id" : "aZ8VBgmFOiOl9DPAROyP6e",
-    "name" : "SC_FIS_GETREPORTS",
+    "name" : "SC_FIS_GET_REPORTS",
     "type" : "AI_SERVICE_CONNECTOR",
     "metadata" : {
       "modelVersion" : {
@@ -20,7 +20,7 @@
     }
   },
   "dataFileExtension" : "xml",
-  "updateTime" : "2025-01-14T20:20:47.268Z",
+  "updateTime" : "2025-01-14T22:10:10.089Z",
   "objectRefs" : [ ],
   "readableFileExtension" : null,
   "readableFilePresent" : false

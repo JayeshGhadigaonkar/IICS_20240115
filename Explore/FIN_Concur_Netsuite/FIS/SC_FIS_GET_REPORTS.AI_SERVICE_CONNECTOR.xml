@@ -1,0 +1,260 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>K8ZAZf5kck8jKBm-gt-88702263-2025-01-14T20:13:07.559Z::svc.xml</types1:EntryId>
+      <types1:Name>SC_FIS_GET_REPORTS</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>Step1 -  To get approved reports from Concur</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>TestGitSetup</types1:CreatedBy>
+      <types1:CreationDate>2025-01-14T20:13:08Z</types1:CreationDate>
+      <types1:ModifiedBy>TestGitSetup</types1:ModifiedBy>
+      <types1:ModificationDate>2025-01-14T22:09:21Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
+      <types1:PublicationDate>2025-01-14T22:09:23Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SC_FIS_GET_REPORTS/SC_FIS_GET_REPORTS_svcDef.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="SC_FIS_GET_REPORTS"
+                            label=""
+                            name="SC_FIS_GET_REPORTS"
+                            uuid="03a8c210-24e2-4ae9-ac91-bb96f9592553">
+            <description>Step1 -  To get approved reports from Concur</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description="Base Url"
+                                    label="URL"
+                                    masked="false"
+                                    name="URL"
+                                    required="false"
+                                    testWith="https://us2.api.concursolutions.com/financialintegration/fi/v4"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GET_REPORTS_STEP1"
+                       maxRedirects="100"
+                       name="GET_REPORTS_STEP1"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="In_Authorization"
+                                nogen="true"
+                                required="false"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIm9wZW5pZCIsImV4cGVuc2UucmVwb3J0LnJlYWQiLCJleHBlbnNlLnJlcG9ydC5yZWFkd3JpdGUiLCJyZWFsdGltZWluZ2VzdC5sb2NhdGlvbi53cml0ZW9ubHkiLCJyZWNlaXB0cy5yZWFkIiwicmVjZWlwdHMud3JpdGUiLCJyZWNlaXB0cy53cml0ZW9ubHkiLCJ1c2VyLnJlYWQiLCJ1c2VyLndyaXRlIiwiY29tcGFueS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5jb3JlLnJlYWQiLCJpZGVudGl0eS5jb21wYW55LmNvcmUud3JpdGVvbmx5IiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS53cml0ZW9ubHkiLCJpZGVudGl0eS5jb21wYW55Lm5vdGlmaWNhdGlvbi5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5ub3RpZmljYXRpb24ud3JpdGVvbmx5IiwiY3JlZGl0Y2FyZGFjY291bnQucmVhZCIsInRyYXZlbHJlcXVlc3Qud3JpdGUiLCJ0cmF2ZWxyZXF1ZXN0LmV4dGVybmFsc3lzdGVtd29ya2Zsb3cud3JpdGUiLCJtaWxlYWdlLmpvdXJuZXkucmVhZCIsIm1pbGVhZ2Uuam91cm5leS53cml0ZW9ubHkiLCJtaWxlYWdlLnZlaGljbGUucmVhZCIsIm1pbGVhZ2UudmVoaWNsZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJhdGUucmVhZCIsIm1pbGVhZ2UucmF0ZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJvdXRlLnJlYWQiLCJtaWxlYWdlLnJvdXRlLndyaXRlb25seSIsImZpc2NhbGNhbGVuZGFyLnJlYWQiLCJmaXNjYWxjYWxlbmRhci53cml0ZSIsImJ1ZGdldGl0ZW0ucmVhZCIsImJ1ZGdldGl0ZW0ud3JpdGUiLCJ1c2VyX3JlYWQiLCJBVFRFTkQiLCJDT05GSUciLCJDT05SRVEiLCJFUkVDUFQiLCJFVlMiLCJFWFBSUFQiLCJDQ0FSRCIsIkJBTksiLCJFWFRSQ1QiLCJGSVNWQyIsIkZPUCIsIkdIT1NUIiwiSU1BR0UiLCJJTlNHSFQiLCJJTlZQTVQiLCJJTlZQTyIsIklOVlRWIiwiSU5WVkVOIiwiSVRJTkVSIiwiSk9CTE9HIiwiTElTVCIsIk1UTkciLCJOT1RJRiIsIlBBWUJBVCIsIlJDVElNRyIsIlNVUFNWQyIsIlRBWElOViIsIlRSVlBSRiIsIlBBU1NWIiwiQ09NUEQiLCJFTUVSRyIsIlRTQUkiLCJUTUNTUCIsIk1FRElDIiwiVU5VVFgiLCJUUlZQVFMiLCJUV1MiLCJVU0VSIiwiQ09NUEFOWSIsImxvY2F0ZS5sb2NhdGlvbi5yZWFkIiwibG9jYXRlLmxvY2F0aW9uLndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LnJlYWQiLCJsb2NhbGl0eS5yZWFkIiwibG9jYWxpdHkud3JpdGUiLCJpbnZvaWNlLnBhcnRuZXJwYXltZW50LndyaXRlIiwiaW52b2ljZS5wcm92aWRlcnBheW1lbnQud3JpdGUiLCJjcmVzLmNvbmZpZy53cml0ZSIsImNyZXMud3JpdGUiLCJmdW5kc21hbmFnZW1lbnQucmVhZCIsImZ1bmRzbWFuYWdlbWVudC53cml0ZSIsImFmZXMuY29uZmlnLndyaXRlIiwiYWZlcy53cml0ZSIsInRyYXZlbGFsbG93YW5jZS5hbGxvd2FuY2VkYXlzLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi53cml0ZSIsInVzZXIucHJvdmlzaW9uLnJlYWQiLCJxdWlja2V4cGVuc2Uud3JpdGVvbmx5IiwiZXZlbnRzLnRvcGljLnJlYWQiLCJpZGVudGl0eS51c2VyLmV2ZW50LnJlYWQiLCJleHBlbnNlLmV4Y2hhbmdlcmF0ZS53cml0ZW9ubHkiLCJwcm9maWxlLnVzZXIuZ2VuZXJhbHVzZXIucmVhZCIsInByb2ZpbGUudXNlci5nZW5lcmFsZW1wbG95ZWUucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiLCJzcGVuZC5saXN0aXRlbS53cml0ZSIsInNwZW5kLmxpc3RpdGVtLmRlbGV0ZSIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3Qud3JpdGUiLCJzcGVuZC5saXN0LmRlbGV0ZSIsImV4cGVuc2UucmVwb3J0LndvcmtmbG93c3RhdHVzLndyaXRlIiwidHJhdmVsLml0aW5lcmFyeS5yZWFkIiwiaWRlbnRpdHkudXNlci5pZHMucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3Jlc2Vuc2l0aXZlLnJlYWQiLCJpZGVudGl0eS51c2VyLmVudGVycHJpc2UucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5IiwiaWRlbnRpdHkudXNlci5leHRlcm5hbElELndyaXRlb25seSIsImNhc2hhZHZhbmNlLnJlYWQiLCJjYXNoYWR2YW5jZS53cml0ZSIsInRyYXZlbC51c2VyLmdlbmVyYWwucmVhZCIsInRyYXZlbC51c2VyLnByaXZhdGUucmVhZCIsImlkZW50aXR5LnVzZXIuc2FwLnJlYWQiLCJpZGVudGl0eS51c2VyLnNhcC53cml0ZW9ubHkiLCJzcGVuZC51c2VyLmdlbmVyYWwucmVhZCIsInNwZW5kLnVzZXIuZ2VuZXJhbC53cml0ZW9ubHkiLCJzcGVuZC5hY2NvdW50aW5naW50ZWdyYXRpb24ucmVhZCIsInNwZW5kLmFjY291bnRpbmdpbnRlZ3JhdGlvbi53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5jb21wbGlhbmNlLnJlYWQiLCJpbnZvaWNlLnBheW1lbnRjb25maXJtYXRpb24ucmVhZCIsImludm9pY2UucGF5bWVudGNvbmZpcm1hdGlvbi53cml0ZSIsImRvY3VtZW50LnRheC5jb21wbGlhbmNlLnJlYWQiLCJ0cmF2ZWwudW51c2VkdGlja2V0cy53cml0ZSIsImF0dGVuZGVlLnJlYWQiLCJhdHRlbmRlZS53cml0ZW9ubHkiLCJhdHRlbmRlZS53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5yZWFkIiwidHJhdmVsLmhvdGVsLndyaXRlIl0sImF1ZCI6IioiLCJjb25jdXIuYXBwSWQiOiI2NmVjYzI5OS04MDUzLTQzNDctOWJkZC1hZjFmNTZmZWExZjYiLCJzdWIiOiJhOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJpc3MiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbSIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9wcmluY2lwYWxzL2E5NmVjOGFkLTNkOWUtNGQ0ZS05MTNmLWFkZTVlOTYxYTU4NyIsImV4cCI6MTczNjg5MDM5MywiY29uY3VyLnZlcnNpb24iOjMsImNvbmN1ci50eXBlIjoiY29tcGFueSIsImNvbmN1ci5hcHAiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL2FwcHMvNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2IiwibmJmIjoxNzM2ODg2NzgzLCJpYXQiOjE3MzY4ODY3OTN9.UInw5NxtZ24ygoWUC5P397nWeTb1zjtw0KaJp5SPv5ixY1ZaRz1hAFgf8cQTveN6EiSEvElea6cSqLf-N1cgpHkqhyP-7_CPQKIyosRc2boEEUmCaGgquaiZyjVNYVb7RHcPef_YZLN_6gXeqNew75jt47oi8DLw2FzXI5Br4rmS8Rc-6jjYn3Uu96HEGUKlw4up4uATXN9rVmFdSt3fEdTM-fceRW3pfHE3WfEcjCaRzn-RuohoJh1nWJKYTe-r6iE4eXdc7ZWtQJiFbX9kAxF0IWmht1YqizCIH4S68X-yVETiK2qdmZwXHZpM4YO2jC9WljjAjNiZlfyKGI7vAw"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="page"
+                                required="false"
+                                testWith="0"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/companies/transactiontypes/expense/transactions"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$In_Authorization}</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="PS_OUT_GET_REPORTS"
+                            property="PS_OUT_GET_REPORTS"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="POST_TRANSACTION_ACK_STEP2"
+                       maxRedirects="100"
+                       name="POST_TRANSACTION_ACK_STEP2"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="In_Report_ID"
+                                nogen="true"
+                                required="false"
+                                testWith="123"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Authorization"
+                                nogen="true"
+                                required="false"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIm9wZW5pZCIsImV4cGVuc2UucmVwb3J0LnJlYWQiLCJleHBlbnNlLnJlcG9ydC5yZWFkd3JpdGUiLCJyZWFsdGltZWluZ2VzdC5sb2NhdGlvbi53cml0ZW9ubHkiLCJyZWNlaXB0cy5yZWFkIiwicmVjZWlwdHMud3JpdGUiLCJyZWNlaXB0cy53cml0ZW9ubHkiLCJ1c2VyLnJlYWQiLCJ1c2VyLndyaXRlIiwiY29tcGFueS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5jb3JlLnJlYWQiLCJpZGVudGl0eS5jb21wYW55LmNvcmUud3JpdGVvbmx5IiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS53cml0ZW9ubHkiLCJpZGVudGl0eS5jb21wYW55Lm5vdGlmaWNhdGlvbi5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5ub3RpZmljYXRpb24ud3JpdGVvbmx5IiwiY3JlZGl0Y2FyZGFjY291bnQucmVhZCIsInRyYXZlbHJlcXVlc3Qud3JpdGUiLCJ0cmF2ZWxyZXF1ZXN0LmV4dGVybmFsc3lzdGVtd29ya2Zsb3cud3JpdGUiLCJtaWxlYWdlLmpvdXJuZXkucmVhZCIsIm1pbGVhZ2Uuam91cm5leS53cml0ZW9ubHkiLCJtaWxlYWdlLnZlaGljbGUucmVhZCIsIm1pbGVhZ2UudmVoaWNsZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJhdGUucmVhZCIsIm1pbGVhZ2UucmF0ZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJvdXRlLnJlYWQiLCJtaWxlYWdlLnJvdXRlLndyaXRlb25seSIsImZpc2NhbGNhbGVuZGFyLnJlYWQiLCJmaXNjYWxjYWxlbmRhci53cml0ZSIsImJ1ZGdldGl0ZW0ucmVhZCIsImJ1ZGdldGl0ZW0ud3JpdGUiLCJ1c2VyX3JlYWQiLCJBVFRFTkQiLCJDT05GSUciLCJDT05SRVEiLCJFUkVDUFQiLCJFVlMiLCJFWFBSUFQiLCJDQ0FSRCIsIkJBTksiLCJFWFRSQ1QiLCJGSVNWQyIsIkZPUCIsIkdIT1NUIiwiSU1BR0UiLCJJTlNHSFQiLCJJTlZQTVQiLCJJTlZQTyIsIklOVlRWIiwiSU5WVkVOIiwiSVRJTkVSIiwiSk9CTE9HIiwiTElTVCIsIk1UTkciLCJOT1RJRiIsIlBBWUJBVCIsIlJDVElNRyIsIlNVUFNWQyIsIlRBWElOViIsIlRSVlBSRiIsIlBBU1NWIiwiQ09NUEQiLCJFTUVSRyIsIlRTQUkiLCJUTUNTUCIsIk1FRElDIiwiVU5VVFgiLCJUUlZQVFMiLCJUV1MiLCJVU0VSIiwiQ09NUEFOWSIsImxvY2F0ZS5sb2NhdGlvbi5yZWFkIiwibG9jYXRlLmxvY2F0aW9uLndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LnJlYWQiLCJsb2NhbGl0eS5yZWFkIiwibG9jYWxpdHkud3JpdGUiLCJpbnZvaWNlLnBhcnRuZXJwYXltZW50LndyaXRlIiwiaW52b2ljZS5wcm92aWRlcnBheW1lbnQud3JpdGUiLCJjcmVzLmNvbmZpZy53cml0ZSIsImNyZXMud3JpdGUiLCJmdW5kc21hbmFnZW1lbnQucmVhZCIsImZ1bmRzbWFuYWdlbWVudC53cml0ZSIsImFmZXMuY29uZmlnLndyaXRlIiwiYWZlcy53cml0ZSIsInRyYXZlbGFsbG93YW5jZS5hbGxvd2FuY2VkYXlzLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi53cml0ZSIsInVzZXIucHJvdmlzaW9uLnJlYWQiLCJxdWlja2V4cGVuc2Uud3JpdGVvbmx5IiwiZXZlbnRzLnRvcGljLnJlYWQiLCJpZGVudGl0eS51c2VyLmV2ZW50LnJlYWQiLCJleHBlbnNlLmV4Y2hhbmdlcmF0ZS53cml0ZW9ubHkiLCJwcm9maWxlLnVzZXIuZ2VuZXJhbHVzZXIucmVhZCIsInByb2ZpbGUudXNlci5nZW5lcmFsZW1wbG95ZWUucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiLCJzcGVuZC5saXN0aXRlbS53cml0ZSIsInNwZW5kLmxpc3RpdGVtLmRlbGV0ZSIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3Qud3JpdGUiLCJzcGVuZC5saXN0LmRlbGV0ZSIsImV4cGVuc2UucmVwb3J0LndvcmtmbG93c3RhdHVzLndyaXRlIiwidHJhdmVsLml0aW5lcmFyeS5yZWFkIiwiaWRlbnRpdHkudXNlci5pZHMucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3Jlc2Vuc2l0aXZlLnJlYWQiLCJpZGVudGl0eS51c2VyLmVudGVycHJpc2UucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5IiwiaWRlbnRpdHkudXNlci5leHRlcm5hbElELndyaXRlb25seSIsImNhc2hhZHZhbmNlLnJlYWQiLCJjYXNoYWR2YW5jZS53cml0ZSIsInRyYXZlbC51c2VyLmdlbmVyYWwucmVhZCIsInRyYXZlbC51c2VyLnByaXZhdGUucmVhZCIsImlkZW50aXR5LnVzZXIuc2FwLnJlYWQiLCJpZGVudGl0eS51c2VyLnNhcC53cml0ZW9ubHkiLCJzcGVuZC51c2VyLmdlbmVyYWwucmVhZCIsInNwZW5kLnVzZXIuZ2VuZXJhbC53cml0ZW9ubHkiLCJzcGVuZC5hY2NvdW50aW5naW50ZWdyYXRpb24ucmVhZCIsInNwZW5kLmFjY291bnRpbmdpbnRlZ3JhdGlvbi53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5jb21wbGlhbmNlLnJlYWQiLCJpbnZvaWNlLnBheW1lbnRjb25maXJtYXRpb24ucmVhZCIsImludm9pY2UucGF5bWVudGNvbmZpcm1hdGlvbi53cml0ZSIsImRvY3VtZW50LnRheC5jb21wbGlhbmNlLnJlYWQiLCJ0cmF2ZWwudW51c2VkdGlja2V0cy53cml0ZSIsImF0dGVuZGVlLnJlYWQiLCJhdHRlbmRlZS53cml0ZW9ubHkiLCJhdHRlbmRlZS53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5yZWFkIiwidHJhdmVsLmhvdGVsLndyaXRlIl0sImF1ZCI6IioiLCJjb25jdXIuYXBwSWQiOiI2NmVjYzI5OS04MDUzLTQzNDctOWJkZC1hZjFmNTZmZWExZjYiLCJzdWIiOiJhOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJpc3MiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbSIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9wcmluY2lwYWxzL2E5NmVjOGFkLTNkOWUtNGQ0ZS05MTNmLWFkZTVlOTYxYTU4NyIsImV4cCI6MTczNjg5MDM5MywiY29uY3VyLnZlcnNpb24iOjMsImNvbmN1ci50eXBlIjoiY29tcGFueSIsImNvbmN1ci5hcHAiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL2FwcHMvNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2IiwibmJmIjoxNzM2ODg2NzgzLCJpYXQiOjE3MzY4ODY3OTN9.UInw5NxtZ24ygoWUC5P397nWeTb1zjtw0KaJp5SPv5ixY1ZaRz1hAFgf8cQTveN6EiSEvElea6cSqLf-N1cgpHkqhyP-7_CPQKIyosRc2boEEUmCaGgquaiZyjVNYVb7RHcPef_YZLN_6gXeqNew75jt47oi8DLw2FzXI5Br4rmS8Rc-6jjYn3Uu96HEGUKlw4up4uATXN9rVmFdSt3fEdTM-fceRW3pfHE3WfEcjCaRzn-RuohoJh1nWJKYTe-r6iE4eXdc7ZWtQJiFbX9kAxF0IWmht1YqizCIH4S68X-yVETiK2qdmZwXHZpM4YO2jC9WljjAjNiZlfyKGI7vAw"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{ $URL }/companies/transactiontypes/expense/transactions/acknowledgements"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$In_Authorization}</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                        <body>{{
+"ids": [ "{$In_Report_ID}" ]
+}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="OUT_STEP2_ACK"
+                            property="OUT_STEP2_ACK"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="POST_TRANSACTION_CNFM_STEP3"
+                       maxRedirects="100"
+                       name="POST_TRANSACTION_CNFM_STEP3"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="In_Authorization"
+                                nogen="true"
+                                required="false"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIm9wZW5pZCIsImV4cGVuc2UucmVwb3J0LnJlYWQiLCJleHBlbnNlLnJlcG9ydC5yZWFkd3JpdGUiLCJyZWFsdGltZWluZ2VzdC5sb2NhdGlvbi53cml0ZW9ubHkiLCJyZWNlaXB0cy5yZWFkIiwicmVjZWlwdHMud3JpdGUiLCJyZWNlaXB0cy53cml0ZW9ubHkiLCJ1c2VyLnJlYWQiLCJ1c2VyLndyaXRlIiwiY29tcGFueS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5jb3JlLnJlYWQiLCJpZGVudGl0eS5jb21wYW55LmNvcmUud3JpdGVvbmx5IiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS53cml0ZW9ubHkiLCJpZGVudGl0eS5jb21wYW55Lm5vdGlmaWNhdGlvbi5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5ub3RpZmljYXRpb24ud3JpdGVvbmx5IiwiY3JlZGl0Y2FyZGFjY291bnQucmVhZCIsInRyYXZlbHJlcXVlc3Qud3JpdGUiLCJ0cmF2ZWxyZXF1ZXN0LmV4dGVybmFsc3lzdGVtd29ya2Zsb3cud3JpdGUiLCJtaWxlYWdlLmpvdXJuZXkucmVhZCIsIm1pbGVhZ2Uuam91cm5leS53cml0ZW9ubHkiLCJtaWxlYWdlLnZlaGljbGUucmVhZCIsIm1pbGVhZ2UudmVoaWNsZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJhdGUucmVhZCIsIm1pbGVhZ2UucmF0ZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJvdXRlLnJlYWQiLCJtaWxlYWdlLnJvdXRlLndyaXRlb25seSIsImZpc2NhbGNhbGVuZGFyLnJlYWQiLCJmaXNjYWxjYWxlbmRhci53cml0ZSIsImJ1ZGdldGl0ZW0ucmVhZCIsImJ1ZGdldGl0ZW0ud3JpdGUiLCJ1c2VyX3JlYWQiLCJBVFRFTkQiLCJDT05GSUciLCJDT05SRVEiLCJFUkVDUFQiLCJFVlMiLCJFWFBSUFQiLCJDQ0FSRCIsIkJBTksiLCJFWFRSQ1QiLCJGSVNWQyIsIkZPUCIsIkdIT1NUIiwiSU1BR0UiLCJJTlNHSFQiLCJJTlZQTVQiLCJJTlZQTyIsIklOVlRWIiwiSU5WVkVOIiwiSVRJTkVSIiwiSk9CTE9HIiwiTElTVCIsIk1UTkciLCJOT1RJRiIsIlBBWUJBVCIsIlJDVElNRyIsIlNVUFNWQyIsIlRBWElOViIsIlRSVlBSRiIsIlBBU1NWIiwiQ09NUEQiLCJFTUVSRyIsIlRTQUkiLCJUTUNTUCIsIk1FRElDIiwiVU5VVFgiLCJUUlZQVFMiLCJUV1MiLCJVU0VSIiwiQ09NUEFOWSIsImxvY2F0ZS5sb2NhdGlvbi5yZWFkIiwibG9jYXRlLmxvY2F0aW9uLndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LnJlYWQiLCJsb2NhbGl0eS5yZWFkIiwibG9jYWxpdHkud3JpdGUiLCJpbnZvaWNlLnBhcnRuZXJwYXltZW50LndyaXRlIiwiaW52b2ljZS5wcm92aWRlcnBheW1lbnQud3JpdGUiLCJjcmVzLmNvbmZpZy53cml0ZSIsImNyZXMud3JpdGUiLCJmdW5kc21hbmFnZW1lbnQucmVhZCIsImZ1bmRzbWFuYWdlbWVudC53cml0ZSIsImFmZXMuY29uZmlnLndyaXRlIiwiYWZlcy53cml0ZSIsInRyYXZlbGFsbG93YW5jZS5hbGxvd2FuY2VkYXlzLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi53cml0ZSIsInVzZXIucHJvdmlzaW9uLnJlYWQiLCJxdWlja2V4cGVuc2Uud3JpdGVvbmx5IiwiZXZlbnRzLnRvcGljLnJlYWQiLCJpZGVudGl0eS51c2VyLmV2ZW50LnJlYWQiLCJleHBlbnNlLmV4Y2hhbmdlcmF0ZS53cml0ZW9ubHkiLCJwcm9maWxlLnVzZXIuZ2VuZXJhbHVzZXIucmVhZCIsInByb2ZpbGUudXNlci5nZW5lcmFsZW1wbG95ZWUucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiLCJzcGVuZC5saXN0aXRlbS53cml0ZSIsInNwZW5kLmxpc3RpdGVtLmRlbGV0ZSIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3Qud3JpdGUiLCJzcGVuZC5saXN0LmRlbGV0ZSIsImV4cGVuc2UucmVwb3J0LndvcmtmbG93c3RhdHVzLndyaXRlIiwidHJhdmVsLml0aW5lcmFyeS5yZWFkIiwiaWRlbnRpdHkudXNlci5pZHMucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3Jlc2Vuc2l0aXZlLnJlYWQiLCJpZGVudGl0eS51c2VyLmVudGVycHJpc2UucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5IiwiaWRlbnRpdHkudXNlci5leHRlcm5hbElELndyaXRlb25seSIsImNhc2hhZHZhbmNlLnJlYWQiLCJjYXNoYWR2YW5jZS53cml0ZSIsInRyYXZlbC51c2VyLmdlbmVyYWwucmVhZCIsInRyYXZlbC51c2VyLnByaXZhdGUucmVhZCIsImlkZW50aXR5LnVzZXIuc2FwLnJlYWQiLCJpZGVudGl0eS51c2VyLnNhcC53cml0ZW9ubHkiLCJzcGVuZC51c2VyLmdlbmVyYWwucmVhZCIsInNwZW5kLnVzZXIuZ2VuZXJhbC53cml0ZW9ubHkiLCJzcGVuZC5hY2NvdW50aW5naW50ZWdyYXRpb24ucmVhZCIsInNwZW5kLmFjY291bnRpbmdpbnRlZ3JhdGlvbi53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5jb21wbGlhbmNlLnJlYWQiLCJpbnZvaWNlLnBheW1lbnRjb25maXJtYXRpb24ucmVhZCIsImludm9pY2UucGF5bWVudGNvbmZpcm1hdGlvbi53cml0ZSIsImRvY3VtZW50LnRheC5jb21wbGlhbmNlLnJlYWQiLCJ0cmF2ZWwudW51c2VkdGlja2V0cy53cml0ZSIsImF0dGVuZGVlLnJlYWQiLCJhdHRlbmRlZS53cml0ZW9ubHkiLCJhdHRlbmRlZS53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5yZWFkIiwidHJhdmVsLmhvdGVsLndyaXRlIl0sImF1ZCI6IioiLCJjb25jdXIuYXBwSWQiOiI2NmVjYzI5OS04MDUzLTQzNDctOWJkZC1hZjFmNTZmZWExZjYiLCJzdWIiOiJhOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJpc3MiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbSIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9wcmluY2lwYWxzL2E5NmVjOGFkLTNkOWUtNGQ0ZS05MTNmLWFkZTVlOTYxYTU4NyIsImV4cCI6MTczNjg5NjA0NCwiY29uY3VyLnZlcnNpb24iOjMsImNvbmN1ci50eXBlIjoiY29tcGFueSIsImNvbmN1ci5hcHAiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL2FwcHMvNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2IiwibmJmIjoxNzM2ODkyNDM0LCJpYXQiOjE3MzY4OTI0NDR9.EhTXo142qVhEEA_eONnmKJ0gwdH4sByTvOexYeuLDS5ov0XHpG__DD2X9F3wb3E44CeXu7R3yqqDQeAouiDLiXCRX49grVJvS0Ga0fsUrgm30H-uUnzzPv6A6YEeLNPoxMR3B4aoprOozw-ybeM0EtXXiL68yEikwzHtjMY00SusqE-R61htHi79LEwgqgrqiDltum-uSIejbE5KxlHZVRVjyuLe8ffqP4xxQRGkJuh9UtYyyGVrwhv_mJa2mab1qhLQn7RbiKJ5RiyUsrbMYqUzM1eeUV8Wj0Rx-gj2pcnkkdeElIdAxoTdxYipN-XaXSI7gMyHGqx8yM-o3C8i1g"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_ComapnyID"
+                                nogen="true"
+                                required="false"
+                                testWith="250003703"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_FiscalYear"
+                                nogen="true"
+                                required="false"
+                                testWith="2025"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_PostingDate"
+                                nogen="true"
+                                required="false"
+                                testWith="2025-01-15"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_MessageID"
+                                nogen="true"
+                                required="false"
+                                testWith="SomeText"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_MessageShortText"
+                                nogen="true"
+                                required="false"
+                                testWith="SomeText1"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Report_ID"
+                                nogen="true"
+                                required="false"
+                                testWith="123"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Status"
+                                nogen="true"
+                                required="false"
+                                testWith="success"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/companies/transactiontypes/expense/transactions/postingconfirmations"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$In_Authorization}</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                        <body>{{
+"systemId":"",
+  "postingConfirmations":
+  [
+    {{
+      "docId":"{$In_Report_ID}",
+      "overallPostingStatusCode":"{$In_Status}",
+      "postingDocs":[
+        {{
+          "companyId":"{$In_ComapnyID}",
+          "documentNumber":"ABC",
+          "fiscalYear":"{ $In_FiscalYear }",
+          "paymentRelevantLineItems":[],
+          "postingDate":"{$In_PostingDate}"
+        }}
+        ],
+      "systemMessages":
+      [
+       {{
+          "concurTransactionLineItemId":"",
+          "messageId":"{ $In_MessageID }",
+          "messageLanguage":"EN",
+          "messageLongText":"",
+          "messageShortText":"{ $In_MessageShortText }"
+        }}
+      ]
+    }}
+  ]
+}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="OUT_STEP3_CNFM"
+                            property="OUT_STEP3_CNFM"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>aZ8VBgmFOiOl9DPAROyP6e</types1:GUID>
+      <types1:DisplayName>SC_FIS_GET_REPORTS</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-01-14T22:10:09.929Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
