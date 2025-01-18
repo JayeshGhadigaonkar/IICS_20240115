@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "iKxuxkFbkQoknaTBEPxtKP",
+    "name" : "AC-GET-FIS-CONCUR-DETAILS",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "6GcoiRu5V1FyuRZ-gt-1524613-2025-01-18T21:47:47.919Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-01-18T21:48:56.501Z",
+  "objectRefs" : [ {
+    "id" : "aZ8VBgmFOiOl9DPAROyP6e",
+    "name" : "SC_FIS_GET_REPORTS",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "K8ZAZf5kck8jKBm-gt-88702263-2025-01-14T20:13:07.559Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Step1 -  To get approved reports from Concur",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/FIN_Concur_Netsuite/FIS"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}
