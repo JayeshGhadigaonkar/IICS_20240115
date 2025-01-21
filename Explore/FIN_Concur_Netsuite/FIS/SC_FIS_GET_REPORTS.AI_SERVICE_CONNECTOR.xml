@@ -3,6 +3,7 @@
    <types1:Item>
       <types1:EntryId>K8ZAZf5kck8jKBm-gt-88702263-2025-01-14T20:13:07.559Z::svc.xml</types1:EntryId>
       <types1:Name>SC_FIS_GET_REPORTS</types1:Name>
+      <types1:ParentFlowIds>6GcoiRu5V1FyuRZ-gt-1524613-2025-01-18T21:47:47.919Z::conn.xml</types1:ParentFlowIds>
       <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
       <types1:Description>Step1 -  To get approved reports from Concur</types1:Description>
       <types1:AppliesTo/>
@@ -13,10 +14,10 @@
       <types1:CreatedBy>TestGitSetup</types1:CreatedBy>
       <types1:CreationDate>2025-01-14T20:13:08Z</types1:CreationDate>
       <types1:ModifiedBy>TestGitSetup</types1:ModifiedBy>
-      <types1:ModificationDate>2025-01-14T22:09:21Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-01-21T18:07:30Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
-      <types1:PublicationDate>2025-01-14T22:09:23Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-01-21T18:07:33Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connector/SC_FIS_GET_REPORTS/SC_FIS_GET_REPORTS_svcDef.xml</types1:PublishedContributionId>
       <types1:Entry>
          <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
@@ -34,7 +35,7 @@
                                     masked="false"
                                     name="URL"
                                     required="false"
-                                    testWith="https://us2.api.concursolutions.com/financialintegration/fi/v4"
+                                    testWith="https://us-impl.api.concursolutions.com/financialintegration/fi/v4"
                                     type="string"/>
             </connectionAttributes>
             <actions>
@@ -53,7 +54,7 @@
                                 name="In_Authorization"
                                 nogen="true"
                                 required="false"
-                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIm9wZW5pZCIsImV4cGVuc2UucmVwb3J0LnJlYWQiLCJleHBlbnNlLnJlcG9ydC5yZWFkd3JpdGUiLCJyZWFsdGltZWluZ2VzdC5sb2NhdGlvbi53cml0ZW9ubHkiLCJyZWNlaXB0cy5yZWFkIiwicmVjZWlwdHMud3JpdGUiLCJyZWNlaXB0cy53cml0ZW9ubHkiLCJ1c2VyLnJlYWQiLCJ1c2VyLndyaXRlIiwiY29tcGFueS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5jb3JlLnJlYWQiLCJpZGVudGl0eS5jb21wYW55LmNvcmUud3JpdGVvbmx5IiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS53cml0ZW9ubHkiLCJpZGVudGl0eS5jb21wYW55Lm5vdGlmaWNhdGlvbi5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5ub3RpZmljYXRpb24ud3JpdGVvbmx5IiwiY3JlZGl0Y2FyZGFjY291bnQucmVhZCIsInRyYXZlbHJlcXVlc3Qud3JpdGUiLCJ0cmF2ZWxyZXF1ZXN0LmV4dGVybmFsc3lzdGVtd29ya2Zsb3cud3JpdGUiLCJtaWxlYWdlLmpvdXJuZXkucmVhZCIsIm1pbGVhZ2Uuam91cm5leS53cml0ZW9ubHkiLCJtaWxlYWdlLnZlaGljbGUucmVhZCIsIm1pbGVhZ2UudmVoaWNsZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJhdGUucmVhZCIsIm1pbGVhZ2UucmF0ZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJvdXRlLnJlYWQiLCJtaWxlYWdlLnJvdXRlLndyaXRlb25seSIsImZpc2NhbGNhbGVuZGFyLnJlYWQiLCJmaXNjYWxjYWxlbmRhci53cml0ZSIsImJ1ZGdldGl0ZW0ucmVhZCIsImJ1ZGdldGl0ZW0ud3JpdGUiLCJ1c2VyX3JlYWQiLCJBVFRFTkQiLCJDT05GSUciLCJDT05SRVEiLCJFUkVDUFQiLCJFVlMiLCJFWFBSUFQiLCJDQ0FSRCIsIkJBTksiLCJFWFRSQ1QiLCJGSVNWQyIsIkZPUCIsIkdIT1NUIiwiSU1BR0UiLCJJTlNHSFQiLCJJTlZQTVQiLCJJTlZQTyIsIklOVlRWIiwiSU5WVkVOIiwiSVRJTkVSIiwiSk9CTE9HIiwiTElTVCIsIk1UTkciLCJOT1RJRiIsIlBBWUJBVCIsIlJDVElNRyIsIlNVUFNWQyIsIlRBWElOViIsIlRSVlBSRiIsIlBBU1NWIiwiQ09NUEQiLCJFTUVSRyIsIlRTQUkiLCJUTUNTUCIsIk1FRElDIiwiVU5VVFgiLCJUUlZQVFMiLCJUV1MiLCJVU0VSIiwiQ09NUEFOWSIsImxvY2F0ZS5sb2NhdGlvbi5yZWFkIiwibG9jYXRlLmxvY2F0aW9uLndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LnJlYWQiLCJsb2NhbGl0eS5yZWFkIiwibG9jYWxpdHkud3JpdGUiLCJpbnZvaWNlLnBhcnRuZXJwYXltZW50LndyaXRlIiwiaW52b2ljZS5wcm92aWRlcnBheW1lbnQud3JpdGUiLCJjcmVzLmNvbmZpZy53cml0ZSIsImNyZXMud3JpdGUiLCJmdW5kc21hbmFnZW1lbnQucmVhZCIsImZ1bmRzbWFuYWdlbWVudC53cml0ZSIsImFmZXMuY29uZmlnLndyaXRlIiwiYWZlcy53cml0ZSIsInRyYXZlbGFsbG93YW5jZS5hbGxvd2FuY2VkYXlzLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi53cml0ZSIsInVzZXIucHJvdmlzaW9uLnJlYWQiLCJxdWlja2V4cGVuc2Uud3JpdGVvbmx5IiwiZXZlbnRzLnRvcGljLnJlYWQiLCJpZGVudGl0eS51c2VyLmV2ZW50LnJlYWQiLCJleHBlbnNlLmV4Y2hhbmdlcmF0ZS53cml0ZW9ubHkiLCJwcm9maWxlLnVzZXIuZ2VuZXJhbHVzZXIucmVhZCIsInByb2ZpbGUudXNlci5nZW5lcmFsZW1wbG95ZWUucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiLCJzcGVuZC5saXN0aXRlbS53cml0ZSIsInNwZW5kLmxpc3RpdGVtLmRlbGV0ZSIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3Qud3JpdGUiLCJzcGVuZC5saXN0LmRlbGV0ZSIsImV4cGVuc2UucmVwb3J0LndvcmtmbG93c3RhdHVzLndyaXRlIiwidHJhdmVsLml0aW5lcmFyeS5yZWFkIiwiaWRlbnRpdHkudXNlci5pZHMucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3Jlc2Vuc2l0aXZlLnJlYWQiLCJpZGVudGl0eS51c2VyLmVudGVycHJpc2UucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5IiwiaWRlbnRpdHkudXNlci5leHRlcm5hbElELndyaXRlb25seSIsImNhc2hhZHZhbmNlLnJlYWQiLCJjYXNoYWR2YW5jZS53cml0ZSIsInRyYXZlbC51c2VyLmdlbmVyYWwucmVhZCIsInRyYXZlbC51c2VyLnByaXZhdGUucmVhZCIsImlkZW50aXR5LnVzZXIuc2FwLnJlYWQiLCJpZGVudGl0eS51c2VyLnNhcC53cml0ZW9ubHkiLCJzcGVuZC51c2VyLmdlbmVyYWwucmVhZCIsInNwZW5kLnVzZXIuZ2VuZXJhbC53cml0ZW9ubHkiLCJzcGVuZC5hY2NvdW50aW5naW50ZWdyYXRpb24ucmVhZCIsInNwZW5kLmFjY291bnRpbmdpbnRlZ3JhdGlvbi53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5jb21wbGlhbmNlLnJlYWQiLCJpbnZvaWNlLnBheW1lbnRjb25maXJtYXRpb24ucmVhZCIsImludm9pY2UucGF5bWVudGNvbmZpcm1hdGlvbi53cml0ZSIsImRvY3VtZW50LnRheC5jb21wbGlhbmNlLnJlYWQiLCJ0cmF2ZWwudW51c2VkdGlja2V0cy53cml0ZSIsImF0dGVuZGVlLnJlYWQiLCJhdHRlbmRlZS53cml0ZW9ubHkiLCJhdHRlbmRlZS53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5yZWFkIiwidHJhdmVsLmhvdGVsLndyaXRlIl0sImF1ZCI6IioiLCJjb25jdXIuYXBwSWQiOiI2NmVjYzI5OS04MDUzLTQzNDctOWJkZC1hZjFmNTZmZWExZjYiLCJzdWIiOiJhOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJpc3MiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbSIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9wcmluY2lwYWxzL2E5NmVjOGFkLTNkOWUtNGQ0ZS05MTNmLWFkZTVlOTYxYTU4NyIsImV4cCI6MTczNjg5MDM5MywiY29uY3VyLnZlcnNpb24iOjMsImNvbmN1ci50eXBlIjoiY29tcGFueSIsImNvbmN1ci5hcHAiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL2FwcHMvNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2IiwibmJmIjoxNzM2ODg2NzgzLCJpYXQiOjE3MzY4ODY3OTN9.UInw5NxtZ24ygoWUC5P397nWeTb1zjtw0KaJp5SPv5ixY1ZaRz1hAFgf8cQTveN6EiSEvElea6cSqLf-N1cgpHkqhyP-7_CPQKIyosRc2boEEUmCaGgquaiZyjVNYVb7RHcPef_YZLN_6gXeqNew75jt47oi8DLw2FzXI5Br4rmS8Rc-6jjYn3Uu96HEGUKlw4up4uATXN9rVmFdSt3fEdTM-fceRW3pfHE3WfEcjCaRzn-RuohoJh1nWJKYTe-r6iE4eXdc7ZWtQJiFbX9kAxF0IWmht1YqizCIH4S68X-yVETiK2qdmZwXHZpM4YO2jC9WljjAjNiZlfyKGI7vAw"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIm9wZW5pZCIsImV4cGVuc2UucmVwb3J0LnJlYWQiLCJleHBlbnNlLnJlcG9ydC5yZWFkd3JpdGUiLCJyZWFsdGltZWluZ2VzdC5sb2NhdGlvbi53cml0ZW9ubHkiLCJyZWNlaXB0cy5yZWFkIiwicmVjZWlwdHMud3JpdGUiLCJyZWNlaXB0cy53cml0ZW9ubHkiLCJ1c2VyLnJlYWQiLCJ1c2VyLndyaXRlIiwiY29tcGFueS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5jb3JlLnJlYWQiLCJpZGVudGl0eS5jb21wYW55LmNvcmUud3JpdGVvbmx5IiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS53cml0ZW9ubHkiLCJpZGVudGl0eS5jb21wYW55Lm5vdGlmaWNhdGlvbi5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5ub3RpZmljYXRpb24ud3JpdGVvbmx5IiwiY3JlZGl0Y2FyZGFjY291bnQucmVhZCIsInRyYXZlbHJlcXVlc3Qud3JpdGUiLCJ0cmF2ZWxyZXF1ZXN0LmV4dGVybmFsc3lzdGVtd29ya2Zsb3cud3JpdGUiLCJtaWxlYWdlLmpvdXJuZXkucmVhZCIsIm1pbGVhZ2Uuam91cm5leS53cml0ZW9ubHkiLCJtaWxlYWdlLnZlaGljbGUucmVhZCIsIm1pbGVhZ2UudmVoaWNsZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJhdGUucmVhZCIsIm1pbGVhZ2UucmF0ZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJvdXRlLnJlYWQiLCJtaWxlYWdlLnJvdXRlLndyaXRlb25seSIsImZpc2NhbGNhbGVuZGFyLnJlYWQiLCJmaXNjYWxjYWxlbmRhci53cml0ZSIsImJ1ZGdldGl0ZW0ucmVhZCIsImJ1ZGdldGl0ZW0ud3JpdGUiLCJ1c2VyX3JlYWQiLCJBVFRFTkQiLCJDT05GSUciLCJDT05SRVEiLCJFUkVDUFQiLCJFVlMiLCJFWFBSUFQiLCJDQ0FSRCIsIkJBTksiLCJFWFRSQ1QiLCJGSVNWQyIsIkZPUCIsIkdIT1NUIiwiSU1BR0UiLCJJTlNHSFQiLCJJTlZQTVQiLCJJTlZQTyIsIklOVlRWIiwiSU5WVkVOIiwiSVRJTkVSIiwiSk9CTE9HIiwiTElTVCIsIk1UTkciLCJOT1RJRiIsIlBBWUJBVCIsIlJDVElNRyIsIlNVUFNWQyIsIlRBWElOViIsIlRSVlBSRiIsIlBBU1NWIiwiQ09NUEQiLCJFTUVSRyIsIlRTQUkiLCJUTUNTUCIsIk1FRElDIiwiVU5VVFgiLCJUUlZQVFMiLCJUV1MiLCJVU0VSIiwiQ09NUEFOWSIsImxvY2F0ZS5sb2NhdGlvbi5yZWFkIiwibG9jYXRlLmxvY2F0aW9uLndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LnJlYWQiLCJsb2NhbGl0eS5yZWFkIiwibG9jYWxpdHkud3JpdGUiLCJpbnZvaWNlLnBhcnRuZXJwYXltZW50LndyaXRlIiwiaW52b2ljZS5wcm92aWRlcnBheW1lbnQud3JpdGUiLCJjcmVzLmNvbmZpZy53cml0ZSIsImNyZXMud3JpdGUiLCJmdW5kc21hbmFnZW1lbnQucmVhZCIsImZ1bmRzbWFuYWdlbWVudC53cml0ZSIsImFmZXMuY29uZmlnLndyaXRlIiwiYWZlcy53cml0ZSIsInRyYXZlbGFsbG93YW5jZS5hbGxvd2FuY2VkYXlzLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi53cml0ZSIsInVzZXIucHJvdmlzaW9uLnJlYWQiLCJxdWlja2V4cGVuc2Uud3JpdGVvbmx5IiwiZXZlbnRzLnRvcGljLnJlYWQiLCJpZGVudGl0eS51c2VyLmV2ZW50LnJlYWQiLCJleHBlbnNlLmV4Y2hhbmdlcmF0ZS53cml0ZW9ubHkiLCJwcm9maWxlLnVzZXIuZ2VuZXJhbHVzZXIucmVhZCIsInByb2ZpbGUudXNlci5nZW5lcmFsZW1wbG95ZWUucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiLCJzcGVuZC5saXN0aXRlbS53cml0ZSIsInNwZW5kLmxpc3RpdGVtLmRlbGV0ZSIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3Qud3JpdGUiLCJzcGVuZC5saXN0LmRlbGV0ZSIsImV4cGVuc2UucmVwb3J0LndvcmtmbG93c3RhdHVzLndyaXRlIiwidHJhdmVsLml0aW5lcmFyeS5yZWFkIiwiaWRlbnRpdHkudXNlci5pZHMucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3Jlc2Vuc2l0aXZlLnJlYWQiLCJpZGVudGl0eS51c2VyLmVudGVycHJpc2UucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5IiwiaWRlbnRpdHkudXNlci5leHRlcm5hbElELndyaXRlb25seSIsImNhc2hhZHZhbmNlLnJlYWQiLCJjYXNoYWR2YW5jZS53cml0ZSIsInRyYXZlbC51c2VyLmdlbmVyYWwucmVhZCIsInRyYXZlbC51c2VyLnByaXZhdGUucmVhZCIsImlkZW50aXR5LnVzZXIuc2FwLnJlYWQiLCJpZGVudGl0eS51c2VyLnNhcC53cml0ZW9ubHkiLCJzcGVuZC51c2VyLmdlbmVyYWwucmVhZCIsInNwZW5kLnVzZXIuZ2VuZXJhbC53cml0ZW9ubHkiLCJzcGVuZC5hY2NvdW50aW5naW50ZWdyYXRpb24ucmVhZCIsInNwZW5kLmFjY291bnRpbmdpbnRlZ3JhdGlvbi53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5jb21wbGlhbmNlLnJlYWQiLCJpbnZvaWNlLnBheW1lbnRjb25maXJtYXRpb24ucmVhZCIsImludm9pY2UucGF5bWVudGNvbmZpcm1hdGlvbi53cml0ZSIsImRvY3VtZW50LnRheC5jb21wbGlhbmNlLnJlYWQiLCJ0cmF2ZWwudW51c2VkdGlja2V0cy53cml0ZSIsImF0dGVuZGVlLnJlYWQiLCJhdHRlbmRlZS53cml0ZW9ubHkiLCJhdHRlbmRlZS53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5yZWFkIiwidHJhdmVsLmhvdGVsLndyaXRlIl0sImF1ZCI6IioiLCJjb25jdXIuYXBwSWQiOiI2NmVjYzI5OS04MDUzLTQzNDctOWJkZC1hZjFmNTZmZWExZjYiLCJzdWIiOiJhOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJpc3MiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbSIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9wcmluY2lwYWxzL2E5NmVjOGFkLTNkOWUtNGQ0ZS05MTNmLWFkZTVlOTYxYTU4NyIsImV4cCI6MTczNzQwMjUxMywiY29uY3VyLnZlcnNpb24iOjMsImNvbmN1ci50eXBlIjoiY29tcGFueSIsImNvbmN1ci5hcHAiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL2FwcHMvNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2IiwibmJmIjoxNzM3Mzk4OTAzLCJpYXQiOjE3MzczOTg5MTN9.J1DtJau-uxGe1pes1rAhQ4jRIDvj7mpu84Q0juS4eCvmAv8fcQYwO0GGEIAL3hWOdWcSdJtT8DpDF3mCy2kJQiSa4f__pCtqr2LgIaOFL-qbZIOXo4B8VHnhVCON0exS3qOvbMEPq-ZPIuJHNMRJvnL2n107iAxWwJQSVPvarS6VKpciDO7okQl-Mt_BeqjdbiCYYte1b6cTK2CBbzAPd4hLl5gA0lZMOfW2ZvkLvkQ9ln6lhgDZweqm0YJKjK1UmUVwxgco36ZYRqz2j5b669AD0zUeIHn6BFqIL23PuKALVEqyUAuZmegCB2VcSF0T5aZbSh2w-A_PJU_CRauBEQ"
                                 type="string"/>
                      <parameter description=""
                                 label=""
@@ -77,10 +78,9 @@
                      </restSimpleBinding>
                   </binding>
                   <output>
-                     <field description=""
-                            name="PS_OUT_GET_REPORTS"
-                            property="PS_OUT_GET_REPORTS"
-                            type="string"/>
+                     <field description="" name="PS_OUT_GET_REPORTS" type="string">
+                        <xquery>{$RESTResponse/rest:payload/text()}</xquery>
+                     </field>
                   </output>
                </action>
                <action category=""
@@ -98,14 +98,14 @@
                                 name="In_Report_ID"
                                 nogen="true"
                                 required="false"
-                                testWith="123"
+                                testWith="144"
                                 type="string"/>
                      <parameter description=""
                                 label=""
                                 name="In_Authorization"
                                 nogen="true"
                                 required="false"
-                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIm9wZW5pZCIsImV4cGVuc2UucmVwb3J0LnJlYWQiLCJleHBlbnNlLnJlcG9ydC5yZWFkd3JpdGUiLCJyZWFsdGltZWluZ2VzdC5sb2NhdGlvbi53cml0ZW9ubHkiLCJyZWNlaXB0cy5yZWFkIiwicmVjZWlwdHMud3JpdGUiLCJyZWNlaXB0cy53cml0ZW9ubHkiLCJ1c2VyLnJlYWQiLCJ1c2VyLndyaXRlIiwiY29tcGFueS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5jb3JlLnJlYWQiLCJpZGVudGl0eS5jb21wYW55LmNvcmUud3JpdGVvbmx5IiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS53cml0ZW9ubHkiLCJpZGVudGl0eS5jb21wYW55Lm5vdGlmaWNhdGlvbi5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5ub3RpZmljYXRpb24ud3JpdGVvbmx5IiwiY3JlZGl0Y2FyZGFjY291bnQucmVhZCIsInRyYXZlbHJlcXVlc3Qud3JpdGUiLCJ0cmF2ZWxyZXF1ZXN0LmV4dGVybmFsc3lzdGVtd29ya2Zsb3cud3JpdGUiLCJtaWxlYWdlLmpvdXJuZXkucmVhZCIsIm1pbGVhZ2Uuam91cm5leS53cml0ZW9ubHkiLCJtaWxlYWdlLnZlaGljbGUucmVhZCIsIm1pbGVhZ2UudmVoaWNsZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJhdGUucmVhZCIsIm1pbGVhZ2UucmF0ZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJvdXRlLnJlYWQiLCJtaWxlYWdlLnJvdXRlLndyaXRlb25seSIsImZpc2NhbGNhbGVuZGFyLnJlYWQiLCJmaXNjYWxjYWxlbmRhci53cml0ZSIsImJ1ZGdldGl0ZW0ucmVhZCIsImJ1ZGdldGl0ZW0ud3JpdGUiLCJ1c2VyX3JlYWQiLCJBVFRFTkQiLCJDT05GSUciLCJDT05SRVEiLCJFUkVDUFQiLCJFVlMiLCJFWFBSUFQiLCJDQ0FSRCIsIkJBTksiLCJFWFRSQ1QiLCJGSVNWQyIsIkZPUCIsIkdIT1NUIiwiSU1BR0UiLCJJTlNHSFQiLCJJTlZQTVQiLCJJTlZQTyIsIklOVlRWIiwiSU5WVkVOIiwiSVRJTkVSIiwiSk9CTE9HIiwiTElTVCIsIk1UTkciLCJOT1RJRiIsIlBBWUJBVCIsIlJDVElNRyIsIlNVUFNWQyIsIlRBWElOViIsIlRSVlBSRiIsIlBBU1NWIiwiQ09NUEQiLCJFTUVSRyIsIlRTQUkiLCJUTUNTUCIsIk1FRElDIiwiVU5VVFgiLCJUUlZQVFMiLCJUV1MiLCJVU0VSIiwiQ09NUEFOWSIsImxvY2F0ZS5sb2NhdGlvbi5yZWFkIiwibG9jYXRlLmxvY2F0aW9uLndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LnJlYWQiLCJsb2NhbGl0eS5yZWFkIiwibG9jYWxpdHkud3JpdGUiLCJpbnZvaWNlLnBhcnRuZXJwYXltZW50LndyaXRlIiwiaW52b2ljZS5wcm92aWRlcnBheW1lbnQud3JpdGUiLCJjcmVzLmNvbmZpZy53cml0ZSIsImNyZXMud3JpdGUiLCJmdW5kc21hbmFnZW1lbnQucmVhZCIsImZ1bmRzbWFuYWdlbWVudC53cml0ZSIsImFmZXMuY29uZmlnLndyaXRlIiwiYWZlcy53cml0ZSIsInRyYXZlbGFsbG93YW5jZS5hbGxvd2FuY2VkYXlzLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi53cml0ZSIsInVzZXIucHJvdmlzaW9uLnJlYWQiLCJxdWlja2V4cGVuc2Uud3JpdGVvbmx5IiwiZXZlbnRzLnRvcGljLnJlYWQiLCJpZGVudGl0eS51c2VyLmV2ZW50LnJlYWQiLCJleHBlbnNlLmV4Y2hhbmdlcmF0ZS53cml0ZW9ubHkiLCJwcm9maWxlLnVzZXIuZ2VuZXJhbHVzZXIucmVhZCIsInByb2ZpbGUudXNlci5nZW5lcmFsZW1wbG95ZWUucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiLCJzcGVuZC5saXN0aXRlbS53cml0ZSIsInNwZW5kLmxpc3RpdGVtLmRlbGV0ZSIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3Qud3JpdGUiLCJzcGVuZC5saXN0LmRlbGV0ZSIsImV4cGVuc2UucmVwb3J0LndvcmtmbG93c3RhdHVzLndyaXRlIiwidHJhdmVsLml0aW5lcmFyeS5yZWFkIiwiaWRlbnRpdHkudXNlci5pZHMucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3Jlc2Vuc2l0aXZlLnJlYWQiLCJpZGVudGl0eS51c2VyLmVudGVycHJpc2UucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5IiwiaWRlbnRpdHkudXNlci5leHRlcm5hbElELndyaXRlb25seSIsImNhc2hhZHZhbmNlLnJlYWQiLCJjYXNoYWR2YW5jZS53cml0ZSIsInRyYXZlbC51c2VyLmdlbmVyYWwucmVhZCIsInRyYXZlbC51c2VyLnByaXZhdGUucmVhZCIsImlkZW50aXR5LnVzZXIuc2FwLnJlYWQiLCJpZGVudGl0eS51c2VyLnNhcC53cml0ZW9ubHkiLCJzcGVuZC51c2VyLmdlbmVyYWwucmVhZCIsInNwZW5kLnVzZXIuZ2VuZXJhbC53cml0ZW9ubHkiLCJzcGVuZC5hY2NvdW50aW5naW50ZWdyYXRpb24ucmVhZCIsInNwZW5kLmFjY291bnRpbmdpbnRlZ3JhdGlvbi53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5jb21wbGlhbmNlLnJlYWQiLCJpbnZvaWNlLnBheW1lbnRjb25maXJtYXRpb24ucmVhZCIsImludm9pY2UucGF5bWVudGNvbmZpcm1hdGlvbi53cml0ZSIsImRvY3VtZW50LnRheC5jb21wbGlhbmNlLnJlYWQiLCJ0cmF2ZWwudW51c2VkdGlja2V0cy53cml0ZSIsImF0dGVuZGVlLnJlYWQiLCJhdHRlbmRlZS53cml0ZW9ubHkiLCJhdHRlbmRlZS53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5yZWFkIiwidHJhdmVsLmhvdGVsLndyaXRlIl0sImF1ZCI6IioiLCJjb25jdXIuYXBwSWQiOiI2NmVjYzI5OS04MDUzLTQzNDctOWJkZC1hZjFmNTZmZWExZjYiLCJzdWIiOiJhOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJpc3MiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbSIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9wcmluY2lwYWxzL2E5NmVjOGFkLTNkOWUtNGQ0ZS05MTNmLWFkZTVlOTYxYTU4NyIsImV4cCI6MTczNjg5MDM5MywiY29uY3VyLnZlcnNpb24iOjMsImNvbmN1ci50eXBlIjoiY29tcGFueSIsImNvbmN1ci5hcHAiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL2FwcHMvNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2IiwibmJmIjoxNzM2ODg2NzgzLCJpYXQiOjE3MzY4ODY3OTN9.UInw5NxtZ24ygoWUC5P397nWeTb1zjtw0KaJp5SPv5ixY1ZaRz1hAFgf8cQTveN6EiSEvElea6cSqLf-N1cgpHkqhyP-7_CPQKIyosRc2boEEUmCaGgquaiZyjVNYVb7RHcPef_YZLN_6gXeqNew75jt47oi8DLw2FzXI5Br4rmS8Rc-6jjYn3Uu96HEGUKlw4up4uATXN9rVmFdSt3fEdTM-fceRW3pfHE3WfEcjCaRzn-RuohoJh1nWJKYTe-r6iE4eXdc7ZWtQJiFbX9kAxF0IWmht1YqizCIH4S68X-yVETiK2qdmZwXHZpM4YO2jC9WljjAjNiZlfyKGI7vAw"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIm9wZW5pZCIsImV4cGVuc2UucmVwb3J0LnJlYWQiLCJleHBlbnNlLnJlcG9ydC5yZWFkd3JpdGUiLCJyZWFsdGltZWluZ2VzdC5sb2NhdGlvbi53cml0ZW9ubHkiLCJyZWNlaXB0cy5yZWFkIiwicmVjZWlwdHMud3JpdGUiLCJyZWNlaXB0cy53cml0ZW9ubHkiLCJ1c2VyLnJlYWQiLCJ1c2VyLndyaXRlIiwiY29tcGFueS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5jb3JlLnJlYWQiLCJpZGVudGl0eS5jb21wYW55LmNvcmUud3JpdGVvbmx5IiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS53cml0ZW9ubHkiLCJpZGVudGl0eS5jb21wYW55Lm5vdGlmaWNhdGlvbi5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5ub3RpZmljYXRpb24ud3JpdGVvbmx5IiwiY3JlZGl0Y2FyZGFjY291bnQucmVhZCIsInRyYXZlbHJlcXVlc3Qud3JpdGUiLCJ0cmF2ZWxyZXF1ZXN0LmV4dGVybmFsc3lzdGVtd29ya2Zsb3cud3JpdGUiLCJtaWxlYWdlLmpvdXJuZXkucmVhZCIsIm1pbGVhZ2Uuam91cm5leS53cml0ZW9ubHkiLCJtaWxlYWdlLnZlaGljbGUucmVhZCIsIm1pbGVhZ2UudmVoaWNsZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJhdGUucmVhZCIsIm1pbGVhZ2UucmF0ZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJvdXRlLnJlYWQiLCJtaWxlYWdlLnJvdXRlLndyaXRlb25seSIsImZpc2NhbGNhbGVuZGFyLnJlYWQiLCJmaXNjYWxjYWxlbmRhci53cml0ZSIsImJ1ZGdldGl0ZW0ucmVhZCIsImJ1ZGdldGl0ZW0ud3JpdGUiLCJ1c2VyX3JlYWQiLCJBVFRFTkQiLCJDT05GSUciLCJDT05SRVEiLCJFUkVDUFQiLCJFVlMiLCJFWFBSUFQiLCJDQ0FSRCIsIkJBTksiLCJFWFRSQ1QiLCJGSVNWQyIsIkZPUCIsIkdIT1NUIiwiSU1BR0UiLCJJTlNHSFQiLCJJTlZQTVQiLCJJTlZQTyIsIklOVlRWIiwiSU5WVkVOIiwiSVRJTkVSIiwiSk9CTE9HIiwiTElTVCIsIk1UTkciLCJOT1RJRiIsIlBBWUJBVCIsIlJDVElNRyIsIlNVUFNWQyIsIlRBWElOViIsIlRSVlBSRiIsIlBBU1NWIiwiQ09NUEQiLCJFTUVSRyIsIlRTQUkiLCJUTUNTUCIsIk1FRElDIiwiVU5VVFgiLCJUUlZQVFMiLCJUV1MiLCJVU0VSIiwiQ09NUEFOWSIsImxvY2F0ZS5sb2NhdGlvbi5yZWFkIiwibG9jYXRlLmxvY2F0aW9uLndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LnJlYWQiLCJsb2NhbGl0eS5yZWFkIiwibG9jYWxpdHkud3JpdGUiLCJpbnZvaWNlLnBhcnRuZXJwYXltZW50LndyaXRlIiwiaW52b2ljZS5wcm92aWRlcnBheW1lbnQud3JpdGUiLCJjcmVzLmNvbmZpZy53cml0ZSIsImNyZXMud3JpdGUiLCJmdW5kc21hbmFnZW1lbnQucmVhZCIsImZ1bmRzbWFuYWdlbWVudC53cml0ZSIsImFmZXMuY29uZmlnLndyaXRlIiwiYWZlcy53cml0ZSIsInRyYXZlbGFsbG93YW5jZS5hbGxvd2FuY2VkYXlzLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi53cml0ZSIsInVzZXIucHJvdmlzaW9uLnJlYWQiLCJxdWlja2V4cGVuc2Uud3JpdGVvbmx5IiwiZXZlbnRzLnRvcGljLnJlYWQiLCJpZGVudGl0eS51c2VyLmV2ZW50LnJlYWQiLCJleHBlbnNlLmV4Y2hhbmdlcmF0ZS53cml0ZW9ubHkiLCJwcm9maWxlLnVzZXIuZ2VuZXJhbHVzZXIucmVhZCIsInByb2ZpbGUudXNlci5nZW5lcmFsZW1wbG95ZWUucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiLCJzcGVuZC5saXN0aXRlbS53cml0ZSIsInNwZW5kLmxpc3RpdGVtLmRlbGV0ZSIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3Qud3JpdGUiLCJzcGVuZC5saXN0LmRlbGV0ZSIsImV4cGVuc2UucmVwb3J0LndvcmtmbG93c3RhdHVzLndyaXRlIiwidHJhdmVsLml0aW5lcmFyeS5yZWFkIiwiaWRlbnRpdHkudXNlci5pZHMucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3Jlc2Vuc2l0aXZlLnJlYWQiLCJpZGVudGl0eS51c2VyLmVudGVycHJpc2UucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5IiwiaWRlbnRpdHkudXNlci5leHRlcm5hbElELndyaXRlb25seSIsImNhc2hhZHZhbmNlLnJlYWQiLCJjYXNoYWR2YW5jZS53cml0ZSIsInRyYXZlbC51c2VyLmdlbmVyYWwucmVhZCIsInRyYXZlbC51c2VyLnByaXZhdGUucmVhZCIsImlkZW50aXR5LnVzZXIuc2FwLnJlYWQiLCJpZGVudGl0eS51c2VyLnNhcC53cml0ZW9ubHkiLCJzcGVuZC51c2VyLmdlbmVyYWwucmVhZCIsInNwZW5kLnVzZXIuZ2VuZXJhbC53cml0ZW9ubHkiLCJzcGVuZC5hY2NvdW50aW5naW50ZWdyYXRpb24ucmVhZCIsInNwZW5kLmFjY291bnRpbmdpbnRlZ3JhdGlvbi53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5jb21wbGlhbmNlLnJlYWQiLCJpbnZvaWNlLnBheW1lbnRjb25maXJtYXRpb24ucmVhZCIsImludm9pY2UucGF5bWVudGNvbmZpcm1hdGlvbi53cml0ZSIsImRvY3VtZW50LnRheC5jb21wbGlhbmNlLnJlYWQiLCJ0cmF2ZWwudW51c2VkdGlja2V0cy53cml0ZSIsImF0dGVuZGVlLnJlYWQiLCJhdHRlbmRlZS53cml0ZW9ubHkiLCJhdHRlbmRlZS53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5yZWFkIiwidHJhdmVsLmhvdGVsLndyaXRlIl0sImF1ZCI6IioiLCJjb25jdXIuYXBwSWQiOiI2NmVjYzI5OS04MDUzLTQzNDctOWJkZC1hZjFmNTZmZWExZjYiLCJzdWIiOiJhOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJpc3MiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbSIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9wcmluY2lwYWxzL2E5NmVjOGFkLTNkOWUtNGQ0ZS05MTNmLWFkZTVlOTYxYTU4NyIsImV4cCI6MTczNzQ4NjQzMiwiY29uY3VyLnZlcnNpb24iOjMsImNvbmN1ci50eXBlIjoiY29tcGFueSIsImNvbmN1ci5hcHAiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL2FwcHMvNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2IiwibmJmIjoxNzM3NDgyODIyLCJpYXQiOjE3Mzc0ODI4MzJ9.t3AWT90AcwsGEvWdFNJfv0NY9tsNbq0JTYizJ5tlcR832ORSP3KzY6ZErmTVLF4BU9Kt878kkSfjQSSmRDQ5PhJd7AYydCbycrIGADTsxl7kRjPKZHBgFPuQmmpn_9ONgUHw-vZftKLqVNfHTNe5H5btQyBu5MkE7tnYesi1MEtykmzmBzwcsYGd9UlnCeHntMkVKTo9bR20DNTCFd9usSF6WTkXKMwh_rgeETBONoWWLiRrmel5ZhADbP2a5T2vjVqRdr0VT0S0CAC56Ouz0z_tkSvDcdzgeEjoY-JotOXP4bmem8m2MDgiSBpAWjuKEz_OYBhFowWUH1tYyowBTg"
                                 type="string"/>
                   </input>
                   <binding>
@@ -126,10 +126,9 @@
                      </restSimpleBinding>
                   </binding>
                   <output>
-                     <field description=""
-                            name="OUT_STEP2_ACK"
-                            property="OUT_STEP2_ACK"
-                            type="string"/>
+                     <field description="" name="OUT_STEP2_ACK" type="string">
+                        <xquery>{$RESTResponse/rest:payload/text()}</xquery>
+                     </field>
                   </output>
                </action>
                <action category=""
@@ -243,10 +242,136 @@
                      </restSimpleBinding>
                   </binding>
                   <output>
-                     <field description=""
-                            name="OUT_STEP3_CNFM"
-                            property="OUT_STEP3_CNFM"
-                            type="string"/>
+                     <field description="" name="OUT_STEP3_CNFM" type="string">
+                        <xquery>{$RESTResponse/rest:payload/text()}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="POST_TRANSACTION_PYMT_STEP4"
+                       maxRedirects="100"
+                       name="POST_TRANSACTION_PYMT_STEP4"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="In_Authorization"
+                                nogen="true"
+                                required="false"
+                                testWith="Bearer eyJraWQiOiIxNDU1NjE0MDIyIiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJjb25jdXIuc2NvcGVzIjpbIm9wZW5pZCIsImV4cGVuc2UucmVwb3J0LnJlYWQiLCJleHBlbnNlLnJlcG9ydC5yZWFkd3JpdGUiLCJyZWFsdGltZWluZ2VzdC5sb2NhdGlvbi53cml0ZW9ubHkiLCJyZWNlaXB0cy5yZWFkIiwicmVjZWlwdHMud3JpdGUiLCJyZWNlaXB0cy53cml0ZW9ubHkiLCJ1c2VyLnJlYWQiLCJ1c2VyLndyaXRlIiwiY29tcGFueS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5jb3JlLnJlYWQiLCJpZGVudGl0eS5jb21wYW55LmNvcmUud3JpdGVvbmx5IiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5hZG1pbnBvbGljeS53cml0ZW9ubHkiLCJpZGVudGl0eS5jb21wYW55Lm5vdGlmaWNhdGlvbi5yZWFkIiwiaWRlbnRpdHkuY29tcGFueS5ub3RpZmljYXRpb24ud3JpdGVvbmx5IiwiY3JlZGl0Y2FyZGFjY291bnQucmVhZCIsInRyYXZlbHJlcXVlc3Qud3JpdGUiLCJ0cmF2ZWxyZXF1ZXN0LmV4dGVybmFsc3lzdGVtd29ya2Zsb3cud3JpdGUiLCJtaWxlYWdlLmpvdXJuZXkucmVhZCIsIm1pbGVhZ2Uuam91cm5leS53cml0ZW9ubHkiLCJtaWxlYWdlLnZlaGljbGUucmVhZCIsIm1pbGVhZ2UudmVoaWNsZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJhdGUucmVhZCIsIm1pbGVhZ2UucmF0ZS53cml0ZW9ubHkiLCJtaWxlYWdlLnJvdXRlLnJlYWQiLCJtaWxlYWdlLnJvdXRlLndyaXRlb25seSIsImZpc2NhbGNhbGVuZGFyLnJlYWQiLCJmaXNjYWxjYWxlbmRhci53cml0ZSIsImJ1ZGdldGl0ZW0ucmVhZCIsImJ1ZGdldGl0ZW0ud3JpdGUiLCJ1c2VyX3JlYWQiLCJBVFRFTkQiLCJDT05GSUciLCJDT05SRVEiLCJFUkVDUFQiLCJFVlMiLCJFWFBSUFQiLCJDQ0FSRCIsIkJBTksiLCJFWFRSQ1QiLCJGSVNWQyIsIkZPUCIsIkdIT1NUIiwiSU1BR0UiLCJJTlNHSFQiLCJJTlZQTVQiLCJJTlZQTyIsIklOVlRWIiwiSU5WVkVOIiwiSVRJTkVSIiwiSk9CTE9HIiwiTElTVCIsIk1UTkciLCJOT1RJRiIsIlBBWUJBVCIsIlJDVElNRyIsIlNVUFNWQyIsIlRBWElOViIsIlRSVlBSRiIsIlBBU1NWIiwiQ09NUEQiLCJFTUVSRyIsIlRTQUkiLCJUTUNTUCIsIk1FRElDIiwiVU5VVFgiLCJUUlZQVFMiLCJUV1MiLCJVU0VSIiwiQ09NUEFOWSIsImxvY2F0ZS5sb2NhdGlvbi5yZWFkIiwibG9jYXRlLmxvY2F0aW9uLndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LndyaXRlIiwicHVyY2hhc2VyZXF1ZXN0LnJlYWQiLCJsb2NhbGl0eS5yZWFkIiwibG9jYWxpdHkud3JpdGUiLCJpbnZvaWNlLnBhcnRuZXJwYXltZW50LndyaXRlIiwiaW52b2ljZS5wcm92aWRlcnBheW1lbnQud3JpdGUiLCJjcmVzLmNvbmZpZy53cml0ZSIsImNyZXMud3JpdGUiLCJmdW5kc21hbmFnZW1lbnQucmVhZCIsImZ1bmRzbWFuYWdlbWVudC53cml0ZSIsImFmZXMuY29uZmlnLndyaXRlIiwiYWZlcy53cml0ZSIsInRyYXZlbGFsbG93YW5jZS5hbGxvd2FuY2VkYXlzLnJlYWQiLCJ1c2VyLnByb3Zpc2lvbi53cml0ZSIsInVzZXIucHJvdmlzaW9uLnJlYWQiLCJxdWlja2V4cGVuc2Uud3JpdGVvbmx5IiwiZXZlbnRzLnRvcGljLnJlYWQiLCJpZGVudGl0eS51c2VyLmV2ZW50LnJlYWQiLCJleHBlbnNlLmV4Y2hhbmdlcmF0ZS53cml0ZW9ubHkiLCJwcm9maWxlLnVzZXIuZ2VuZXJhbHVzZXIucmVhZCIsInByb2ZpbGUudXNlci5nZW5lcmFsZW1wbG95ZWUucmVhZCIsInNwZW5kLmxpc3RpdGVtLnJlYWQiLCJzcGVuZC5saXN0aXRlbS53cml0ZSIsInNwZW5kLmxpc3RpdGVtLmRlbGV0ZSIsInNwZW5kLmxpc3QucmVhZCIsInNwZW5kLmxpc3Qud3JpdGUiLCJzcGVuZC5saXN0LmRlbGV0ZSIsImV4cGVuc2UucmVwb3J0LndvcmtmbG93c3RhdHVzLndyaXRlIiwidHJhdmVsLml0aW5lcmFyeS5yZWFkIiwiaWRlbnRpdHkudXNlci5pZHMucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZS5yZWFkIiwiaWRlbnRpdHkudXNlci5jb3Jlc2Vuc2l0aXZlLnJlYWQiLCJpZGVudGl0eS51c2VyLmVudGVycHJpc2UucmVhZCIsImlkZW50aXR5LnVzZXIuY29yZWVudGVycHJpc2Uud3JpdGVvbmx5IiwiaWRlbnRpdHkudXNlci5leHRlcm5hbElELndyaXRlb25seSIsImNhc2hhZHZhbmNlLnJlYWQiLCJjYXNoYWR2YW5jZS53cml0ZSIsInRyYXZlbC51c2VyLmdlbmVyYWwucmVhZCIsInRyYXZlbC51c2VyLnByaXZhdGUucmVhZCIsImlkZW50aXR5LnVzZXIuc2FwLnJlYWQiLCJpZGVudGl0eS51c2VyLnNhcC53cml0ZW9ubHkiLCJzcGVuZC51c2VyLmdlbmVyYWwucmVhZCIsInNwZW5kLnVzZXIuZ2VuZXJhbC53cml0ZW9ubHkiLCJzcGVuZC5hY2NvdW50aW5naW50ZWdyYXRpb24ucmVhZCIsInNwZW5kLmFjY291bnRpbmdpbnRlZ3JhdGlvbi53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5jb21wbGlhbmNlLnJlYWQiLCJpbnZvaWNlLnBheW1lbnRjb25maXJtYXRpb24ucmVhZCIsImludm9pY2UucGF5bWVudGNvbmZpcm1hdGlvbi53cml0ZSIsImRvY3VtZW50LnRheC5jb21wbGlhbmNlLnJlYWQiLCJ0cmF2ZWwudW51c2VkdGlja2V0cy53cml0ZSIsImF0dGVuZGVlLnJlYWQiLCJhdHRlbmRlZS53cml0ZW9ubHkiLCJhdHRlbmRlZS53cml0ZSIsInNwZW5kZG9jcy5yZWNlaXB0cy5yZWFkIiwidHJhdmVsLmhvdGVsLndyaXRlIl0sImF1ZCI6IioiLCJjb25jdXIuYXBwSWQiOiI2NmVjYzI5OS04MDUzLTQzNDctOWJkZC1hZjFmNTZmZWExZjYiLCJzdWIiOiJhOTZlYzhhZC0zZDllLTRkNGUtOTEzZi1hZGU1ZTk2MWE1ODciLCJpc3MiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbSIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly91czIuYXBpLmNvbmN1cnNvbHV0aW9ucy5jb20vcHJvZmlsZS92MS9wcmluY2lwYWxzL2E5NmVjOGFkLTNkOWUtNGQ0ZS05MTNmLWFkZTVlOTYxYTU4NyIsImV4cCI6MTczNjk3MjI2MSwiY29uY3VyLnZlcnNpb24iOjMsImNvbmN1ci50eXBlIjoiY29tcGFueSIsImNvbmN1ci5hcHAiOiJodHRwczovL3VzMi5hcGkuY29uY3Vyc29sdXRpb25zLmNvbS9wcm9maWxlL3YxL2FwcHMvNjZlY2MyOTktODA1My00MzQ3LTliZGQtYWYxZjU2ZmVhMWY2IiwibmJmIjoxNzM2OTY4NjUxLCJpYXQiOjE3MzY5Njg2NjF9.ovpHf5uMdhvK_SMNuLO2ElxWm94IKvq9N6AjaduCXA5s5FT7Z0q3Ero6mMP1jU40B-dxpYHpgO0egCXoaTsETDW8TMjsrXexSlOLLi_E71oP-iBEzwYmcYQ612MFivKyn_ksvQUhdQhfoyUF5vUi_NTFhYHzmkCbjuUoV-T3h-Y62wh5xSQzaLhuL-CqQE773st_fKBsp4uEK6vlHTt1JXdOgXmQYSNOXlOi-OHlXGAxWwUzGConl7LJSJx4rjiEMJCrgGsDxmmP9gRfGxpYUgFrSmGIo1P_4EvTta0COxZXoQVlo6oJRGaPjidgZTt7SCzSJGcbUfqoxTzqC0fV8Q"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Report_ID"
+                                nogen="true"
+                                required="false"
+                                testWith="123"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Clearing_DT"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Clearing_CUR"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Clearing_AMT"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Clearing_NM"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Clearing_ID"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Clearing_TYP"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Clearing_CMP_CD"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Clearing_YEAR"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="In_Clearing_PYMT_METHOD"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$URL}/companies/transactiontypes/expense/transactions/paymentconfirmations"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{$In_Authorization}</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                        <body>{{
+"systemId":"",
+  "processingConfirmation":
+  [
+    {{
+      "docId":"{$In_Report_ID}",
+      "processingStatusCode":"CP",
+      "clearingDetails":[
+        {{
+          "clearingDate":"{$In_Clearing_DT}","clearingAmount":{" $In_Clearing_AMT"},
+          "clearingCurrency":"{$In_Clearing_CUR}","receiver":{{"receiverId":"{$In_Clearing_ID}",
+          "receiverName":"{$In_Clearing_NM}","receiverType":"{$In_Clearing_TYP}"}},
+          "clearingReference":{{"companyCode":"AS01","financialDocumentId":"667799123",
+          "fiscalYear":"{$In_Clearing_YEAR}","paymentRef":"US01/667799/2019/2","paymentMethod":"{$In_Clearing_PYMT_METHOD}"}}
+        }}
+      ]
+    }}
+  ]
+}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="OUT_STEP4_PYMT" type="string">
+                        <xquery>{$RESTResponse/rest:payload/text()}</xquery>
+                     </field>
                   </output>
                </action>
             </actions>
@@ -256,5 +381,5 @@
       <types1:GUID>aZ8VBgmFOiOl9DPAROyP6e</types1:GUID>
       <types1:DisplayName>SC_FIS_GET_REPORTS</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-01-14T22:10:09.929Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-01-21T21:01:56.102Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
