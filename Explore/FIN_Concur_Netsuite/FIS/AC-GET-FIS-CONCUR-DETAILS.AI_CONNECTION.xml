@@ -3,6 +3,7 @@
    <types1:Item>
       <types1:EntryId>6GcoiRu5V1FyuRZ-gt-1524613-2025-01-18T21:47:47.919Z::conn.xml</types1:EntryId>
       <types1:Name>AC-GET-FIS-CONCUR-DETAILS</types1:Name>
+      <types1:ParentFlowIds>59XW1830nYNmumf-gt-5192922-2025-01-20T19:42:30.916Z::pd.xml,8MLjBeE1KoJBUht-gt-8212224-2025-01-21T20:24:07.096Z::pd.xml,MLjBeE1KoJBUhty-gt-9076787-2025-01-21T19:03:13.621Z::pd.xml,WdypKwKBqRi92qB-gt-1647791-2025-01-18T21:50:35.77Z::pd.xml</types1:ParentFlowIds>
       <types1:MimeType>application/xml+connection</types1:MimeType>
       <types1:Description/>
       <types1:AppliesTo/>
@@ -13,10 +14,10 @@
       <types1:CreatedBy>TestGitSetup</types1:CreatedBy>
       <types1:CreationDate>2025-01-18T21:47:48Z</types1:CreationDate>
       <types1:ModifiedBy>TestGitSetup</types1:ModifiedBy>
-      <types1:ModificationDate>2025-01-18T21:48:13Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-01-20T18:52:20Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
-      <types1:PublicationDate>2025-01-18T21:48:23Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-01-21T18:08:11Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connection/AC-GET-FIS-CONCUR-DETAILS/AC-GET-FIS-CONCUR-DETAILS.conn.xml</types1:PublishedContributionId>
       <types1:Entry>
          <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
@@ -29,7 +30,7 @@
             <attributes>
                <attribute encrypted="false"
                           name="URL"
-                          value="https://us2.api.concursolutions.com/financialintegration/fi/v4"/>
+                          value="https://us-impl.api.concursolutions.com/financialintegration/fi/v4"/>
             </attributes>
             <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
                                agentOnly="false"
@@ -45,5 +46,5 @@
       <types1:GUID>iKxuxkFbkQoknaTBEPxtKP</types1:GUID>
       <types1:DisplayName>AC-GET-FIS-CONCUR-DETAILS</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-01-18T21:48:56.263Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-01-21T21:01:40.547Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
