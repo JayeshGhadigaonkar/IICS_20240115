@@ -1,0 +1,117 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>AwcnPCOkSSHCwkN-gt-4585525-2025-02-10T19:53:18.428Z::pd.xml</types1:EntryId>
+      <types1:Name>PS_KantataPutHolidayCalendar</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Rename Holiday Calendar</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>TestGitSetup</types1:CreatedBy>
+      <types1:CreationDate>2025-02-10T19:53:18Z</types1:CreationDate>
+      <types1:ModifiedBy>TestGitSetup</types1:ModifiedBy>
+      <types1:ModificationDate>2025-02-10T20:17:19Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
+      <types1:PublicationDate>2025-02-10T20:17:23Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.PS_KantataPutHolidayCalendar/PS_KantataPutHolidayCalendar.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="26aTlbNVYQYeCiol5WbAQh"
+                  displayName="PS_KantataPutHolidayCalendar"
+                  name="PS_KantataPutHolidayCalendar"
+                  overrideAPIName="false"
+                  processNamespace="urn:screenflow:process:">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description>Rename Holiday Calendar</description>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description=""
+                          name="In_KantataAuth"
+                          required="false"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="In_HolidayCalendarName"
+                          required="false"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="In_HolidayCalendarID"
+                          required="false"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description=""
+                      name="Out_PS_RenameHolidayCalendarName"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+               <rest>
+                  <allowedGroups>
+                     <group>Kinaxis Corp</group>
+                     <group>Admin - All</group>
+                  </allowedGroups>
+                  <wholePayload outputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+            </extData>
+            <flow id="z745f2d6b-9c41-49e3-ae76-e2a319e82ff1">
+               <start id="h2c098b49-7a59-4447-8ef4-0a70da8f7b2f">
+                  <link id="v9071aabd-b18e-4f0b-9258-3c3ac5d2d01b"
+                        targetId="a126aTlbNVYQYeCiol5WbAQh-Service92d07333-673d-4d9f-8776-1b74d7c66c5d"/>
+               </start>
+               <service id="a126aTlbNVYQYeCiol5WbAQh-Service92d07333-673d-4d9f-8776-1b74d7c66c5d">
+                  <title>PutKantataHolidayCalendar</title>
+                  <serviceName>AC-KantataPutHolidayCalendar:PutKantataHolidayCalendar</serviceName>
+                  <serviceGUID>97KOvQP6XltevztUI9zv6F</serviceGUID>
+                  <serviceInput>
+                     <parameter name="KantataAuth" source="field">input.In_KantataAuth</parameter>
+                     <parameter name="HolidayCalendarName" source="field">input.In_HolidayCalendarName</parameter>
+                     <parameter name="HolidayCalendarID" source="field">input.In_HolidayCalendarID</parameter>
+                  </serviceInput>
+                  <link id="vc147f9a8-58dc-49c8-96ef-bf6659c9ed42"
+                        targetId="a126aTlbNVYQYeCiol5WbAQh-Assignment894840b4-2a39-43d0-aee8-532c85a3cdfa"/>
+               </service>
+               <assignment id="a126aTlbNVYQYeCiol5WbAQh-Assignment894840b4-2a39-43d0-aee8-532c85a3cdfa">
+                  <title>Assignment to Out_PS_RenameHolidayCalendarName</title>
+                  <operation source="constant" to="output.Out_PS_RenameHolidayCalendarName"/>
+                  <link id="ke793f37b-0dfc-4739-b3d8-17e2da18ff09"
+                        targetId="a126aTlbNVYQYeCiol5WbAQh-end-m7c56f8e0-5b58-4b9f-bc51-1662b2f43ffa"/>
+               </assignment>
+               <end id="a126aTlbNVYQYeCiol5WbAQh-end-m7c56f8e0-5b58-4b9f-bc51-1662b2f43ffa">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>26aTlbNVYQYeCiol5WbAQh</types1:GUID>
+      <types1:DisplayName>PS_KantataPutHolidayCalendar</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-02-10T21:59:15.147Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

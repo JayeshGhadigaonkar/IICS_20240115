@@ -1,0 +1,48 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>nNDACUtoVVVVVVV-gt-4455970-2025-02-10T19:51:29.215Z::conn.xml</types1:EntryId>
+      <types1:Name>AC-KantataPutHolidayCalendar</types1:Name>
+      <types1:ParentFlowIds>AwcnPCOkSSHCwkN-gt-4585525-2025-02-10T19:53:18.428Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>TestGitSetup</types1:CreatedBy>
+      <types1:CreationDate>2025-02-10T19:51:29Z</types1:CreationDate>
+      <types1:ModifiedBy>TestGitSetup</types1:ModifiedBy>
+      <types1:ModificationDate>2025-02-10T20:15:45Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
+      <types1:PublicationDate>2025-02-10T20:15:53Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/AC-KantataPutHolidayCalendar/AC-KantataPutHolidayCalendar.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="AC-KantataPutHolidayCalendar"
+                     label="AC-KantataPutHolidayCalendar"
+                     name="AC-KantataPutHolidayCalendar">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="false" name="Url" value="https://api.mavenlink.com"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/SC_KantataPutHolidayCalendar/SC_KantataPutHolidayCalendar_svcDef.xml"
+                               guid="6A0XZBpPT0qkLdZMFukRel"
+                               name="SC_KantataPutHolidayCalendar"
+                               supportsConnectionTest="false"
+                               uuid="986cd69c-03bf-4061-b862-79b7d04de2e5">
+               <description>Update Holiday Calendar if there are any changes in SF</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>97KOvQP6XltevztUI9zv6F</types1:GUID>
+      <types1:DisplayName>AC-KantataPutHolidayCalendar</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-02-10T21:59:14.933Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
