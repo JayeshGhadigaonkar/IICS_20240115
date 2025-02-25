@@ -1,15 +1,15 @@
 {
   "objectInfo" : {
-    "id" : "97KOvQP6XltevztUI9zv6F",
-    "name" : "AC-KantataPutHolidayCalendar",
-    "type" : "AI_CONNECTION",
+    "id" : "dBB1w3QMq8yhUaIt9clDC1",
+    "name" : "PS_KantataDelHoliday",
+    "type" : "PROCESS",
     "metadata" : {
       "modelVersion" : {
         "major" : 1,
         "minor" : 0
       },
       "repoInfo" : {
-        "repoHandle" : "nNDACUtoVVVVVVV-gt-4455970-2025-02-10T19:51:29.215Z::conn.xml"
+        "repoHandle" : "GuabdwyOoMdtlI2-gt-10666296-2025-02-12T21:28:03.452Z::pd.xml"
       },
       "contextAttributes" : null,
       "additionalInfo" : {
@@ -20,22 +20,22 @@
     }
   },
   "dataFileExtension" : "xml",
-  "updateTime" : "2025-02-25T02:20:41.856Z",
+  "updateTime" : "2025-02-25T02:20:41.854Z",
   "objectRefs" : [ {
-    "id" : "6A0XZBpPT0qkLdZMFukRel",
-    "name" : "SC_KantataPutHolidayCalendar",
-    "type" : "AI_SERVICE_CONNECTOR",
+    "id" : "0ItOgGk3jYjfcUP2j352MB",
+    "name" : "AC-KantataDelHolidays",
+    "type" : "AI_CONNECTION",
     "metadata" : {
       "modelVersion" : {
         "major" : 1,
         "minor" : 0
       },
       "repoInfo" : {
-        "repoHandle" : "IFvukNXHVOJ2oTV-gt-4377807-2025-02-10T19:39:40.552Z::svc.xml"
+        "repoHandle" : "lS3wOLIFvukNXHV-gt-10662285-2025-02-12T21:27:05.019Z::conn.xml"
       },
       "contextAttributes" : null,
       "additionalInfo" : {
-        "description" : "Update Holiday Calendar if there are any changes in SF",
+        "description" : "",
         "contentType" : "application/json; charset=utf-8",
         "documentState" : "VALID"
       }

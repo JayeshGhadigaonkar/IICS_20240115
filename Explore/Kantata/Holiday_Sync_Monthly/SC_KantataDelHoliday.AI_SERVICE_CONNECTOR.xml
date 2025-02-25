@@ -1,33 +1,33 @@
 <aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
                    xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
    <types1:Item>
-      <types1:EntryId>IFvukNXHVOJ2oTV-gt-4377807-2025-02-10T19:39:40.552Z::svc.xml</types1:EntryId>
-      <types1:Name>SC_KantataPutHolidayCalendar</types1:Name>
-      <types1:ParentFlowIds>nNDACUtoVVVVVVV-gt-4455970-2025-02-10T19:51:29.215Z::conn.xml</types1:ParentFlowIds>
+      <types1:EntryId>goKlIabchDxomUh-gt-10599467-2025-02-12T21:12:06.211Z::svc.xml</types1:EntryId>
+      <types1:Name>SC_KantataDelHoliday</types1:Name>
+      <types1:ParentFlowIds>lS3wOLIFvukNXHV-gt-10662285-2025-02-12T21:27:05.019Z::conn.xml</types1:ParentFlowIds>
       <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
-      <types1:Description>Update Holiday Calendar if there are any changes in SF</types1:Description>
+      <types1:Description/>
       <types1:AppliesTo/>
       <types1:Tags/>
       <types1:VersionLabel>1.0</types1:VersionLabel>
       <types1:State>CURRENT</types1:State>
       <types1:ProcessGroup/>
       <types1:CreatedBy>TestGitSetup</types1:CreatedBy>
-      <types1:CreationDate>2025-02-10T19:39:41Z</types1:CreationDate>
+      <types1:CreationDate>2025-02-12T21:12:06Z</types1:CreationDate>
       <types1:ModifiedBy>TestGitSetup</types1:ModifiedBy>
-      <types1:ModificationDate>2025-02-10T19:46:22Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-02-15T00:10:49Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
-      <types1:PublicationDate>2025-02-10T19:46:24Z</types1:PublicationDate>
-      <types1:PublishedContributionId>project:/rt.connector/SC_KantataPutHolidayCalendar/SC_KantataPutHolidayCalendar_svcDef.xml</types1:PublishedContributionId>
+      <types1:PublicationDate>2025-02-15T00:10:52Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SC_KantataDelHoliday/SC_KantataDelHoliday_svcDef.xml</types1:PublishedContributionId>
       <types1:Entry>
          <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
                             agentOnly="false"
                             debug="false"
-                            displayName="SC_KantataPutHolidayCalendar"
+                            displayName="SC_KantataDelHoliday"
                             label=""
-                            name="SC_KantataPutHolidayCalendar"
-                            uuid="986cd69c-03bf-4061-b862-79b7d04de2e5">
-            <description>Update Holiday Calendar if there are any changes in SF</description>
+                            name="SC_KantataDelHoliday"
+                            uuid="b0408e9c-5745-42e0-ae66-ea993a3f6a0f">
+            <description/>
             <tags/>
             <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
                <connectionAttribute description=""
@@ -42,9 +42,9 @@
                <action category=""
                        failOnError="true"
                        forSearch="false"
-                       label="PutKantataHolidayCalendar"
+                       label="DelKantataHolidays"
                        maxRedirects="100"
-                       name="PutKantataHolidayCalendar"
+                       name="DelKantataHolidays"
                        preemptiveAuth="true"
                        responseEncoding="">
                   <description/>
@@ -53,25 +53,19 @@
                                 label=""
                                 name="KantataAuth"
                                 required="false"
-                                testWith=""
+                                testWith="Bearer c0900405a92fc5900f052ea89bd06274a93b081c51c96f26cf903ac6e8f2189e"
                                 type="string"/>
                      <parameter description=""
                                 label=""
-                                name="HolidayCalendarName"
+                                name="HolidayID"
                                 required="false"
-                                testWith=""
-                                type="string"/>
-                     <parameter description=""
-                                label=""
-                                name="HolidayCalendarID"
-                                required="false"
-                                testWith=""
+                                testWith="123"
                                 type="string"/>
                   </input>
                   <binding>
                      <restSimpleBinding multiUsing="semicolonSeparated"
-                                        url="{$Url}/api/v1/holiday_calendars/{$HolidayCalendarID}"
-                                        verb="PUT">
+                                        url="{$Url}/api/v1/holidays/{$HolidayID}"
+                                        verb="DELETE">
                         <mutualAuth enabled="false">
                            <keyStore mode="file"/>
                            <keyStorePassword/>
@@ -80,15 +74,11 @@
                            <header name="Authorization">{$KantataAuth}</header>
                            <header name="Content-Type">application/json</header>
                         </httpHeaders>
-                        <body>{{
-  "holiday_calendar": {{
-    "name": "{$HolidayCalendarName}"
-  }}
-}}</body>
+                        <body generateUsing="JSON" preserveJsonStringFormatting="true"/>
                      </restSimpleBinding>
                   </binding>
                   <output>
-                     <field description="" name="outKantataPostHolidayCalendar" type="string">
+                     <field description="" name="outKantataHolidays" type="string">
                         <xquery>{$RESTResponse/rest:payload/text()}</xquery>
                      </field>
                   </output>
@@ -97,8 +87,8 @@
             <objects/>
          </businessConnector>
       </types1:Entry>
-      <types1:GUID>6A0XZBpPT0qkLdZMFukRel</types1:GUID>
-      <types1:DisplayName>SC_KantataPutHolidayCalendar</types1:DisplayName>
+      <types1:GUID>8Pll51oSxsukZPv9JgPe20</types1:GUID>
+      <types1:DisplayName>SC_KantataDelHoliday</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-02-25T02:20:39.051Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-02-25T02:20:39.071Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

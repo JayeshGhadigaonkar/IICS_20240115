@@ -1,0 +1,347 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>4s9fYLnzYLnzYLn-gt-1187079-2025-02-14T19:19:25.896Z::tf.xml</types1:EntryId>
+      <types1:Name>TF_CITD_PS_KAN_MONTHLY_HLDY_SYNC</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description>Monthly batch to sync Holidays,Calendars and associations</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>TestGitSetup</types1:CreatedBy>
+      <types1:CreationDate>2025-02-14T19:19:26Z</types1:CreationDate>
+      <types1:ModifiedBy>TestGitSetup</types1:ModifiedBy>
+      <types1:ModificationDate>2025-02-14T19:34:05Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
+      <types1:PublicationDate>2025-02-14T19:34:19Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/tf.TF_CITD_PS_KAN_MONTHLY_HLDY_SYNC/TF_CITD_PS_KAN_MONTHLY_HLDY_SYNC.tf.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="TF_CITD_PS_KAN_MONTHLY_HLDY_SYNC"
+                   name="TF_CITD_PS_KAN_MONTHLY_HLDY_SYNC"
+                   overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description>Monthly batch to sync Holidays,Calendars and associations</description>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="IN_PRIMARY_BATCH_KEY" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="TF_SAPSF_Holidays" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:InternalInfaSubTaskflowField</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="TF_PS_GET_KANTATA_HOLIDAY_DETAILS"
+                      type="reference">
+                  <options>
+                     <option name="referenceTo">$po:InternalInfaSubTaskflowField</option>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="TF_KantataGetKantataDetailsDaily"
+                      type="reference">
+                  <options>
+                     <option name="referenceTo">$po:InternalInfaSubTaskflowField</option>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:MT-CITD-PS-KAN-RENAME-HOLIDAY-CAL-5qSuM6Oi5kkh2CCdcDEfKa</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="DT_CITD_PS_KAN_DELETE_HOLIDAY"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:MT-CITD-PS-KAN-DELETE-HOLIDAY-8dm5zMeipsDeIwaLdI5zaD</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest/>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">false</nvpair>
+            </extData>
+            <flow id="a">
+               <start id="b">
+                  <link id="m755iwka" targetId="m755iwk9"/>
+               </start>
+               <assignment id="m755iwk9">
+                  <title>GEN_BATCH_KEY</title>
+                  <operation source="formula" to="temp.IN_PRIMARY_BATCH_KEY">
+                     <expression language="XQuery">date:toChar(
+fn:current-dateTime(), 
+'YYYYMMDDHH24MISS')</expression>
+                  </operation>
+                  <link id="m755iwki" targetId="m755iwkh"/>
+               </assignment>
+               <subflow id="m755iwkh">
+                  <title>TF_SAPSF_Holidays</title>
+                  <subflowGUID>cgqoNtY5V4MeYeWsz3zoI5</subflowGUID>
+                  <subflowPath>TF_SAPSF_Holidays</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input/>
+                  <outputDef/>
+                  <link id="m755iwl2" targetId="m755iwl1"/>
+               </subflow>
+               <subflow id="m755iwl1">
+                  <title>TF_KantataGetKantataDetailsDaily</title>
+                  <subflowGUID>fmIkJZ4NrArgLyTvezDmwj</subflowGUID>
+                  <subflowPath>TF_KantataGetKantataDetailsDaily-3</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input/>
+                  <outputDef/>
+                  <link id="m755iwl3" targetId="m755iwkq"/>
+               </subflow>
+               <subflow id="m755iwkq">
+                  <title>TF_PS_GET_KANTATA_HOLIDAY_DETAILS</title>
+                  <subflowGUID>19duEvaieNfjp8JUzfzFgD</subflowGUID>
+                  <subflowPath>TF_PS_GET_KANTATA_HOLIDAY_DETAILS</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input/>
+                  <outputDef/>
+                  <link id="m755iwlc" targetId="m755iwm3"/>
+               </subflow>
+               <eventContainer id="m755iwm3">
+                  <service id="m755iwlb">
+                     <title>DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">MT_CITD_PS_KAN_RENAME_HOLIDAY_CAL</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">5qSuM6Oi5kkh2CCdcDEfKa</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field"
+                                      to="MT-CITD-PS-KAN-RENAME-HOLIDAY-CAL-5qSuM6Oi5kkh2CCdcDEfKa">temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Object_Name">Object Name</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Run_Id">Run Id</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Log_Id">Log Id</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Start_Time">Start Time</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/output/FirstErrorCode">First Error Code</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/inout/InOut_KantataAutheticate">InOut_KantataAutheticate</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/inout/InOut_CAIAuthenticate">InOut_CAIAuthenticate</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/inout/InOut_BatchKey">InOut_BatchKey</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="m755iwnf" targetId="m755iwo6"/>
+                  <events>
+                     <catch faultField="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/fault"
+                            id="m755iwm1"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.DT_CITD_PS_KAN_RENAME_HOLIDAY_CAL/fault"
+                            id="m755iwm2"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <eventContainer id="m755iwo6">
+                  <service id="m755iwne">
+                     <title>DT_CITD_PS_KAN_DELETE_HOLIDAY</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">MT_CITD_PS_KAN_DELETE_HOLIDAY</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">8dm5zMeipsDeIwaLdI5zaD</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field"
+                                      to="MT-CITD-PS-KAN-DELETE-HOLIDAY-8dm5zMeipsDeIwaLdI5zaD">temp.DT_CITD_PS_KAN_DELETE_HOLIDAY</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Log_Id">Log Id</operation>
+                        <operation source="field" to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/output/FirstErrorCode">First Error Code</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/inout/InOut_KantataAutheticate">InOut_KantataAutheticate</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/inout/InOut_CAIAuthenticate">InOut_CAIAuthenticate</operation>
+                        <operation source="field"
+                                   to="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/inout/InOut_BatchKey">InOut_BatchKey</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="m755iwng" targetId="c"/>
+                  <events>
+                     <catch faultField="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/fault"
+                            id="m755iwo4"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                     <catch faultField="temp.DT_CITD_PS_KAN_DELETE_HOLIDAY/fault"
+                            id="m755iwo5"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="InternalInfaSubTaskflowField"
+                              isByCopy="true"
+                              name="InternalInfaSubTaskflowField">
+                  <description>This process object represents a subtaskflow type reference field.</description>
+                  <tags/>
+                  <detail/>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-CITD-PS-KAN-RENAME-HOLIDAY-CAL-5qSuM6Oi5kkh2CCdcDEfKa"
+                              isByCopy="true"
+                              name="MT-CITD-PS-KAN-RENAME-HOLIDAY-CAL-5qSuM6Oi5kkh2CCdcDEfKa">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="MT-CITD-PS-KAN-DELETE-HOLIDAY-8dm5zMeipsDeIwaLdI5zaD"
+                              isByCopy="true"
+                              name="MT-CITD-PS-KAN-DELETE-HOLIDAY-8dm5zMeipsDeIwaLdI5zaD">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="InOut Parameters"
+                            name="inout"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>brOtXiJrSoUiy2EdysfwO9</types1:GUID>
+      <types1:DisplayName>TF_CITD_PS_KAN_MONTHLY_HLDY_SYNC</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-02-25T02:20:40.83Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

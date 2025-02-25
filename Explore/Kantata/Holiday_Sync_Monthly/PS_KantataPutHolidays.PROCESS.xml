@@ -1,0 +1,126 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>LThJWjzDt0x7bco-gt-5423975-2025-02-11T21:18:27.606Z::pd.xml</types1:EntryId>
+      <types1:Name>PS_KantataPutHolidays</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>TestGitSetup</types1:CreatedBy>
+      <types1:CreationDate>2025-02-11T21:18:28Z</types1:CreationDate>
+      <types1:ModifiedBy>TestGitSetup</types1:ModifiedBy>
+      <types1:ModificationDate>2025-02-11T21:21:54Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
+      <types1:PublicationDate>2025-02-11T21:21:57Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.PS_KantataPutHolidays/PS_KantataPutHolidays.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="aCbZuFp6SB3flZPsmKArId"
+                  displayName="PS_KantataPutHolidays"
+                  name="PS_KantataPutHolidays"
+                  overrideAPIName="true"
+                  processNamespace="urn:screenflow:process:">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description=""
+                          name="In_KantataAuth"
+                          required="false"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="In_HolidayName"
+                          required="false"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="In_HolidayID"
+                          required="false"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="In_HolidayStartDT"
+                          required="false"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="OUT_PS_PutHolidayUPDStartDT" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+               <rest>
+                  <allowedGroups>
+                     <group>Kinaxis Corp</group>
+                     <group>Admin - All</group>
+                  </allowedGroups>
+                  <wholePayload outputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+            </extData>
+            <flow id="u7fc3772b-e9e8-449f-a246-f56842dc9b31">
+               <start id="cc877a067-974b-4999-b20d-64e84de8a071">
+                  <link id="hfd13d973-027d-4fba-bceb-3dda9e1cc009"
+                        targetId="Service9dcdb0ba-3cf4-4634-aa5a-4967d1f6023f"/>
+               </start>
+               <service id="Service9dcdb0ba-3cf4-4634-aa5a-4967d1f6023f">
+                  <title>PutKantataHolidays</title>
+                  <serviceName>AC-KantataPutHolidays:PutKantataHolidays</serviceName>
+                  <serviceGUID>c3SdG2fiMAkeDtMQkslU6c</serviceGUID>
+                  <serviceInput>
+                     <parameter name="KantataAuth" source="field">input.In_KantataAuth</parameter>
+                     <parameter name="HolidayName" source="field">input.In_HolidayName</parameter>
+                     <parameter name="HolidayID" source="field">input.In_HolidayID</parameter>
+                     <parameter name="HolidayStartDate" source="field">input.In_HolidayStartDT</parameter>
+                  </serviceInput>
+                  <link id="f51eaf478-9b77-4fdb-ae1c-4463149a0e96"
+                        targetId="Assignment0f6ecb1c-b2e5-42b2-ba0a-264682fd33b6"/>
+               </service>
+               <assignment id="Assignment0f6ecb1c-b2e5-42b2-ba0a-264682fd33b6">
+                  <title>Assignment to OUT_PS_PutHolidayUPDStartDT</title>
+                  <operation source="constant" to="output.OUT_PS_PutHolidayUPDStartDT"/>
+                  <link id="pbe72b9dc-a3d2-497d-ae18-43a134a08887"
+                        targetId="end-xa4c3929d-1384-473c-a9bf-21224ff58f92"/>
+               </assignment>
+               <end id="end-xa4c3929d-1384-473c-a9bf-21224ff58f92">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>aCbZuFp6SB3flZPsmKArId</types1:GUID>
+      <types1:DisplayName>PS_KantataPutHolidays</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-02-25T02:20:39.994Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

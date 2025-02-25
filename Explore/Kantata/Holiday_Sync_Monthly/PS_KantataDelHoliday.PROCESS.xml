@@ -1,0 +1,120 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>GuabdwyOoMdtlI2-gt-10666296-2025-02-12T21:28:03.452Z::pd.xml</types1:EntryId>
+      <types1:Name>PS_KantataDelHoliday</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>TestGitSetup</types1:CreatedBy>
+      <types1:CreationDate>2025-02-12T21:28:03Z</types1:CreationDate>
+      <types1:ModifiedBy>TestGitSetup</types1:ModifiedBy>
+      <types1:ModificationDate>2025-02-12T22:41:29Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
+      <types1:PublicationDate>2025-02-15T00:00:57Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.PS_KantataDelHoliday/PS_KantataDelHoliday.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="dBB1w3QMq8yhUaIt9clDC1"
+                  displayName="PS_KantataDelHoliday"
+                  name="PS_KantataDelHoliday"
+                  overrideAPIName="true"
+                  processNamespace="urn:screenflow:process:">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description=""
+                          name="In_KantataAuth"
+                          required="false"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="In_KantataHolidayID"
+                          required="false"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="PS_Out_Del_KanHolidayID" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+               <rest>
+                  <allowedGroups>
+                     <group>Kinaxis Corp</group>
+                     <group>Admin - All</group>
+                  </allowedGroups>
+                  <wholePayload outputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+            </extData>
+            <flow id="f0c871ea4-cd6a-4670-a353-039c0c0e6f9f">
+               <start id="gec6c5674-a112-415a-8d9c-558651283181">
+                  <link id="b9afc34b9-f826-4bd5-bc1e-09784cce5f02"
+                        targetId="a1dBB1w3QMq8yhUaIt9clDC1-Service4f39fe71-e2f0-42d3-96d0-8f4934b418fe"/>
+               </start>
+               <service id="a1dBB1w3QMq8yhUaIt9clDC1-Service4f39fe71-e2f0-42d3-96d0-8f4934b418fe">
+                  <title>DelKantataHolidays</title>
+                  <serviceName>AC-KantataDelHolidays:DelKantataHolidays</serviceName>
+                  <serviceGUID>0ItOgGk3jYjfcUP2j352MB</serviceGUID>
+                  <serviceInput>
+                     <parameter name="KantataAuth" source="field">input.In_KantataAuth</parameter>
+                     <parameter name="HolidayID" source="field">input.In_KantataHolidayID</parameter>
+                  </serviceInput>
+                  <link id="i193e1b8f-0d0c-4e7c-b1e6-90fda4a28492"
+                        targetId="a1dBB1w3QMq8yhUaIt9clDC1-Assignmente355099d-bc7b-4995-8416-9a0ec47b9ad5"/>
+               </service>
+               <assignment id="a1dBB1w3QMq8yhUaIt9clDC1-Assignmente355099d-bc7b-4995-8416-9a0ec47b9ad5">
+                  <title>Assignment to PS_Out_Del_KanHolidayID</title>
+                  <operation source="constant" to="output.PS_Out_Del_KanHolidayID"/>
+                  <link id="l09ad0601-1666-4b42-8441-98b605f9cf3e"
+                        targetId="a1dBB1w3QMq8yhUaIt9clDC1-end-eee4793bb-09ee-4834-ad87-dfab380b431a"/>
+               </assignment>
+               <end id="a1dBB1w3QMq8yhUaIt9clDC1-end-eee4793bb-09ee-4834-ad87-dfab380b431a">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>d55c1310-4dd0-45cf-9b78-dc9216083ab1</ns1:Id>
+               <ns1:Name>Test1</ns1:Name>
+               <ns1:CreatedBy>TestGitSetup</ns1:CreatedBy>
+               <ns1:CreationDate>2025-02-14T23:57:00Z</ns1:CreationDate>
+               <ns1:ModifiedBy>TestGitSetup</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-02-14T23:57:00Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+    "In_KantataAuth": "Bearer c0900405a92fc5900f052ea89bd06274a93b081c51c96f26cf903ac6e8f2189e",
+    "In_KantataHolidayID": "123"
+}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>dBB1w3QMq8yhUaIt9clDC1</types1:GUID>
+      <types1:DisplayName>PS_KantataDelHoliday</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-02-25T02:20:39.905Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

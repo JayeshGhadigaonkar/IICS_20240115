@@ -17,7 +17,7 @@
       <types1:ModificationDate>2025-02-10T20:15:45Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
-      <types1:PublicationDate>2025-02-10T20:15:53Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-02-11T21:17:45Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connection/AC-KantataPutHolidayCalendar/AC-KantataPutHolidayCalendar.conn.xml</types1:PublishedContributionId>
       <types1:Entry>
          <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
@@ -44,5 +44,5 @@
       <types1:GUID>97KOvQP6XltevztUI9zv6F</types1:GUID>
       <types1:DisplayName>AC-KantataPutHolidayCalendar</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-02-10T21:59:14.933Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-02-25T02:20:39.492Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

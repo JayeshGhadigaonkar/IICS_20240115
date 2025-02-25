@@ -1,0 +1,53 @@
+{
+  "objectInfo" : {
+    "id" : "iB4l8LnqpIjcIVQhkXKug8",
+    "name" : "BS_CITD_PS_KAN_RENAME_CAL",
+    "type" : "BSERVICE",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CQZ2700000000006H"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      }, {
+        "name" : "012CQZ28000000000088",
+        "value" : "iB4l8LnqpIjcIVQhkXKug8@PS_KantataPutHolidayCalendarOperation"
+      } ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "updateTime" : "2025-02-25T02:20:41.857Z",
+  "objectRefs" : [ {
+    "id" : "38Sfk7QDsgYiJzaZUET4y0",
+    "name" : "CITD_PS_KAN_PUT_HOLIDAYCAL",
+    "type" : "Connection",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CQZ0B00000000007H"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : null,
+        "contentType" : "JSON",
+        "documentState" : "COMPLETE"
+      }
+    },
+    "path" : "/SYS"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

@@ -1,7 +1,7 @@
 {
   "objectInfo" : {
-    "id" : "6A0XZBpPT0qkLdZMFukRel",
-    "name" : "SC_KantataPutHolidayCalendar",
+    "id" : "1ujK2WySWgEfiBtXoKzaeF",
+    "name" : "SC_KantataPutHoliday",
     "type" : "AI_SERVICE_CONNECTOR",
     "metadata" : {
       "modelVersion" : {
@@ -9,11 +9,11 @@
         "minor" : 0
       },
       "repoInfo" : {
-        "repoHandle" : "IFvukNXHVOJ2oTV-gt-4377807-2025-02-10T19:39:40.552Z::svc.xml"
+        "repoHandle" : "k1IVDov6or3rp3y-gt-5329646-2025-02-11T21:07:24.168Z::svc.xml"
       },
       "contextAttributes" : null,
       "additionalInfo" : {
-        "description" : "Update Holiday Calendar if there are any changes in SF",
+        "description" : "Update Holiday Name and Start Date",
         "contentType" : "application/json; charset=utf-8",
         "documentState" : "VALID"
       }

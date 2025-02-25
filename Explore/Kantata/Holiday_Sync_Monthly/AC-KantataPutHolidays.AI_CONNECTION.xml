@@ -1,0 +1,47 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>GWxXlQNOQoVVVVV-gt-5373859-2025-02-11T21:17:21.527Z::conn.xml</types1:EntryId>
+      <types1:Name>AC-KantataPutHolidays</types1:Name>
+      <types1:ParentFlowIds>LThJWjzDt0x7bco-gt-5423975-2025-02-11T21:18:27.606Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>TestGitSetup</types1:CreatedBy>
+      <types1:CreationDate>2025-02-11T21:17:22Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>TestGitSetup</types1:PublishedBy>
+      <types1:PublicationDate>2025-02-11T21:17:29Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/AC-KantataPutHolidays/AC-KantataPutHolidays.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="AC-KantataPutHolidays"
+                     label="AC-KantataPutHolidays"
+                     name="AC-KantataPutHolidays">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="false" name="Url" value=""/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/SC_KantataPutHoliday/SC_KantataPutHoliday_svcDef.xml"
+                               guid="1ujK2WySWgEfiBtXoKzaeF"
+                               name="SC_KantataPutHoliday"
+                               supportsConnectionTest="false"
+                               uuid="56080850-f4ff-499b-a66e-b34adb787d8f">
+               <description>Update Holiday Name and Start Date</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>c3SdG2fiMAkeDtMQkslU6c</types1:GUID>
+      <types1:DisplayName>AC-KantataPutHolidays</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-02-25T02:20:39.376Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

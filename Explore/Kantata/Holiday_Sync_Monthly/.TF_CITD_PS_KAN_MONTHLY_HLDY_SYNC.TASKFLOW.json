@@ -1,0 +1,133 @@
+{
+  "objectInfo" : {
+    "id" : "brOtXiJrSoUiy2EdysfwO9",
+    "name" : "TF_CITD_PS_KAN_MONTHLY_HLDY_SYNC",
+    "type" : "TASKFLOW",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "4s9fYLnzYLnzYLn-gt-1187079-2025-02-14T19:19:25.896Z::tf.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Monthly batch to sync Holidays,Calendars and associations",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-02-25T02:20:41.857Z",
+  "objectRefs" : [ {
+    "id" : "fmIkJZ4NrArgLyTvezDmwj",
+    "name" : "TF_KantataGetKantataDetailsDaily",
+    "type" : "TASKFLOW",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Z7snSDg8SOlA1vy-gt-152717065-2023-09-15T16:35:50.836Z::tf.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "Binary",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Kantata/Users_EDW_Integration_PH2"
+  }, {
+    "id" : "8dm5zMeipsDeIwaLdI5zaD",
+    "name" : "MT_CITD_PS_KAN_DELETE_HOLIDAY",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CQZ0Z0000000001OL"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : null,
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Kantata/Holiday_Sync_Monthly"
+  }, {
+    "id" : "cgqoNtY5V4MeYeWsz3zoI5",
+    "name" : "TF_SAPSF_Holidays",
+    "type" : "TASKFLOW",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "owoGsciQlBWlD2p-gt-7475624-2023-12-06T21:16:52.3Z::tf.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Kantata/SAPSF_HolidaySync"
+  }, {
+    "id" : "5qSuM6Oi5kkh2CCdcDEfKa",
+    "name" : "MT_CITD_PS_KAN_RENAME_HOLIDAY_CAL",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "012CQZ0Z0000000001OJ"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : null,
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Kantata/Holiday_Sync_Monthly"
+  }, {
+    "id" : "19duEvaieNfjp8JUzfzFgD",
+    "name" : "TF_PS_GET_KANTATA_HOLIDAY_DETAILS",
+    "type" : "TASKFLOW",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "2yIYmWR7hsAVR3a-gt-593577-2024-11-29T14:38:58.868Z::tf.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Kantata/Kan_HolidaySync"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}
